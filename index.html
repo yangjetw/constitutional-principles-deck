@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=slides.html">
   <title>憲法原則變遷之實證研究 | 開南研究生：楊婕儀 | 指導教授：張惠堂 博士</title>
   <meta name="description" content="應用自然語言處理（NLP）技術分析 1949 至 2021 年大法官釋字文本，以互動式簡報呈現我國憲法原則的分布、時序、共現、合憲性方向與時代變遷。">
   <meta name="keywords" content="憲法原則,大法官釋字,自然語言處理,NLP,計量法學,憲法解釋,開南大學法律學系,楊婕儀,張惠堂">
@@ -21,7 +20,10 @@
   <meta name="twitter:description" content="應用自然語言處理（NLP）技術分析 1949 至 2021 年大法官釋字文本，以互動式簡報呈現我國憲法原則的分布、時序、共現、合憲性方向與時代變遷。">
 </head>
 <body>
-  <script>location.replace('slides.html' + location.hash);</script>
-  <p><a href="slides.html">進入簡報</a></p>
+  <script>
+    const target = window.matchMedia('(max-width: 760px)').matches ? 'mobile.html' : 'slides.html';
+    location.replace(target + location.hash);
+  </script>
+  <p><a href="slides.html">進入桌機簡報</a>　<a href="mobile.html">進入手機閱讀版</a></p>
 </body>
 </html>
