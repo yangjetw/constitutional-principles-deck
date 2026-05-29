@@ -242,7 +242,17 @@ body.four-three .closing-final p{font-size:30px;line-height:1.38}
 body.four-three .closing-meta{font-size:20px}
 body.four-three .bigQuestion{font-size:34px}
 body.four-three .buttonList button,body.four-three .pills button{font-size:12.5px;padding:7px 9px}
-</style></head><body class="four-three"><div id="progress"></div><div id="sectionTag"></div><div id="pageInfo"></div><div id="chapterMap"></div><div id="hint">← / → 換頁　F 全螢幕　圖表節點可點擊</div><main>
+
+body.projector-fixed{overflow:hidden;background:#eee5cf}
+body.projector-fixed #sectionTag{display:none!important}
+body.projector-fixed .slide{padding:0!important;place-items:center;overflow:hidden}
+body.projector-fixed .slide.active{display:grid!important}
+body.projector-fixed .sheet{width:980px!important;height:735px!important;max-width:none!important;max-height:none!important;transform:scale(var(--fit-scale,1));transform-origin:center center;overflow:hidden}
+body.projector-fixed #hint{bottom:8px;font-size:12px;background:rgba(245,236,213,.72);padding:3px 8px;border-radius:999px}
+body.projector-fixed #progress{height:4px}
+body.projector-fixed #chapterMap{display:none}
+body.projector-fixed .presenterCue .sheet:after{transform:scale(calc(1 / var(--fit-scale,1)));transform-origin:top right}
+</style></head><body class="four-three projector-fixed projector-800"><div id="progress"></div><div id="sectionTag"></div><div id="pageInfo"></div><div id="chapterMap"></div><div id="hint">← / → 換頁　F 全螢幕　圖表節點可點擊</div><main>
     <section class="slide cover formal" data-section="封面">
       <div class="sheet">
         <div class="kicker">開南大學法律學系碩士論文</div>
@@ -1352,4 +1362,18 @@ function eraDash(k='ratio',sel=DATA.eras.length-1){if(!E('eraDashBars'))return;d
 document.addEventListener('keydown',e=>{if(document.body.classList.contains('mobile-read'))return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();goto(current+1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();goto(current-1)}if(e.key.toLowerCase()==='f'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}});document.addEventListener('click',e=>{let j=e.target.closest('[data-jump]');if(j){const i=slides.findIndex(s=>s.dataset.section===j.dataset.jump);if(i>=0){goto(i+1);if(document.body.classList.contains('mobile-read'))slides[i]?.scrollIntoView({block:'start'})}return}let r=e.target.closest('[data-rank]');if(r)rank(r.dataset.rank);let p=e.target.closest('[data-principle]');if(p)explorer(Number(p.dataset.principle));let rg=e.target.closest('[data-range]');if(rg)trend(rg.dataset.range);let c=e.target.closest('[data-co]');if(c)co(Number(c.dataset.co));let sc=e.target.closest('[data-scatter]');if(sc)scatter(Number(sc.dataset.scatter));let er=e.target.closest('[data-era]');if(er)era(er.dataset.era);if(!document.body.classList.contains('mobile-read')&&!e.target.closest('button,svg,.dashRow')){let x=e.clientX/window.innerWidth;if(x>.74)goto(current+1);if(x<.26)goto(current-1)}});
 document.addEventListener('click',e=>{let ds=e.target.closest('[data-dashsort]');if(ds)principleDash(ds.dataset.dashsort,0);let dp=e.target.closest('[data-dashp]');if(dp)principleDash(E('principleDashBars').dataset.sort||'count',Number(dp.dataset.dashp));let ed=e.target.closest('[data-eradash]');if(ed)eraDash(ed.dataset.eradash,DATA.eras.length-1);let edr=e.target.closest('[data-eradashrow]');if(edr)eraDash(E('eraDashBars').dataset.metric||'ratio',Number(edr.dataset.eradashrow))});
 function init(){slides.forEach((s,i)=>s.id='slide-'+(i+1));chapterMap();hero();eraMini();labels();eight();chips();overviewDash();principleDash();rank();explorer();ratioMini();trend();firsts();co();scatter();groups();keyCards();era();eraDash();const rawHash=location.hash.replace('#','');const start=rawHash.startsWith('slide-')?Number(rawHash.replace('slide-','')):Number(rawHash);goto(Number.isFinite(start)&&start>0?start:1);if(location.hash&&window.matchMedia('(max-width:700px)').matches){setTimeout(()=>slides[current-1]?.scrollIntoView({block:'start'}),60)}}init();
-</script></body></html>
+</script>
+<script>
+(function(){
+  const root = document.documentElement;
+  function fitProjector(){
+    const w = 980, h = 735;
+    const scale = Math.min(window.innerWidth / w, window.innerHeight / h);
+    root.style.setProperty('--fit-scale', Math.max(0.2, Math.min(scale, 1.06)).toFixed(4));
+  }
+  window.addEventListener('resize', fitProjector);
+  window.addEventListener('orientationchange', fitProjector);
+  fitProjector();
+})();
+</script>
+</body></html>

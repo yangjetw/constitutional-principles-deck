@@ -21,9 +21,19 @@
 </head>
 <body>
   <script>
-    const target = window.matchMedia('(max-width: 760px)').matches ? 'mobile.html' : 'slides.html';
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const ratio = w / Math.max(h, 1);
+    let target = 'slides.html';
+    if (window.matchMedia('(max-width: 760px) and (orientation: portrait)').matches) {
+      target = 'mobile.html';
+    } else if (w <= 850 && h <= 650 && Math.abs(ratio - 4 / 3) < 0.28) {
+      target = 'slides_800x600.html';
+    } else if (w <= 1100 && h <= 840 && Math.abs(ratio - 4 / 3) < 0.28) {
+      target = 'slides_1024x768.html';
+    }
     location.replace(target + location.hash);
   </script>
-  <p><a href="slides.html">進入桌機簡報</a>　<a href="mobile.html">進入手機閱讀版</a>　<a href="slides_4x3.html">進入 4:3 保險版</a></p>
+  <p><a href="slides.html">進入桌機簡報</a>　<a href="mobile.html">進入手機閱讀版</a>　<a href="slides_4x3.html">進入 4:3 保險版</a>　<a href="slides_800x600.html">800×600 投影版</a>　<a href="slides_1024x768.html">1024×768 投影版</a></p>
 </body>
 </html>
