@@ -30,7 +30,7 @@
 :root{--paper:#fffaf0;--paper2:#f5ecd5;--ink:#2d2822;--muted:#6b5e52;--line:#3e352c;--teal:#4aa3a2;--yellow:#f3c969;--pink:#e76f82;--green:#80bd7a;--blue:#5ca7df}
 *{box-sizing:border-box}body{margin:0;overflow:hidden;color:var(--ink);font-family:"Segoe Print","Comic Sans MS","Noto Sans TC","Microsoft JhengHei",cursive,sans-serif;background:linear-gradient(90deg,rgba(231,111,130,.14) 0 2px,transparent 2px),linear-gradient(rgba(74,163,162,.14) 1px,transparent 1px),var(--paper2);background-size:100% 100%,100% 31px,auto}
 #progress{position:fixed;top:0;left:0;height:5px;width:0;z-index:20;background:linear-gradient(90deg,var(--teal),var(--yellow),var(--pink))}#sectionTag,#pageInfo,#hint{position:fixed;z-index:21;color:var(--muted);font-size:13px}#sectionTag{top:18px;left:26px;background:#fff4b8;border:2px solid var(--line);border-radius:8px 13px 7px 12px;padding:8px 12px;box-shadow:2px 3px 0 rgba(62,53,44,.18);transform:rotate(-1deg)}#pageInfo{top:27px;right:30px}#hint{bottom:14px;left:50%;transform:translateX(-50%)}#chapterMap{position:fixed;left:20px;top:96px;z-index:20;display:flex;flex-direction:column;gap:7px}#chapterMap button{width:42px;height:26px;border:2px solid rgba(62,53,44,.35);border-radius:999px;background:rgba(255,250,240,.72);color:var(--muted);font-size:11px;box-shadow:2px 2px 0 rgba(62,53,44,.09)}#chapterMap button.active{background:#fff4b8;border-color:#2f7777;color:#2f7777}
-.slide{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:64px 92px 46px 104px;overflow:hidden}.slide.active{display:flex}.sheet{width:100%;max-width:1260px;height:730px;max-height:calc(100vh - 118px);display:flex;flex-direction:column;overflow:hidden}.kicker{display:inline-block;align-self:flex-start;padding:5px 11px;border:2px solid var(--line);border-radius:999px;background:#d9f0e2;color:#2f7777;font-weight:900;font-size:13px;box-shadow:2px 3px 0 rgba(62,53,44,.12);transform:rotate(-.6deg)}h1{margin:12px 0 14px;font-size:40px;line-height:1.08;text-shadow:2px 2px 0 rgba(243,201,105,.55)}p,li{color:var(--muted);font-size:17px;line-height:1.38}button{font:inherit;cursor:pointer}.lead{font-size:23px;color:var(--muted);line-height:1.4}
+.slide{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:64px 92px 46px 104px;overflow:hidden}.slide.active{display:flex}.sheet{width:100%;max-width:1260px;height:730px;max-height:calc(100vh - 118px);display:flex;flex-direction:column;overflow:hidden}.presenterCue .sheet{position:relative}.presenterCue .sheet:after{content:"";position:absolute;right:16px;top:16px;width:9px;height:9px;border-radius:50%;background:rgba(231,111,130,.42);box-shadow:0 0 0 4px rgba(255,244,184,.46);z-index:6;pointer-events:none}.presenterCue .sheet:before{content:"";position:absolute;right:11px;top:11px;width:19px;height:19px;border:1.5px dashed rgba(231,111,130,.28);border-radius:50%;z-index:6;pointer-events:none}.kicker{display:inline-block;align-self:flex-start;padding:5px 11px;border:2px solid var(--line);border-radius:999px;background:#d9f0e2;color:#2f7777;font-weight:900;font-size:13px;box-shadow:2px 3px 0 rgba(62,53,44,.12);transform:rotate(-.6deg)}h1{margin:12px 0 14px;font-size:40px;line-height:1.08;text-shadow:2px 2px 0 rgba(243,201,105,.55)}p,li{color:var(--muted);font-size:17px;line-height:1.38}button{font:inherit;cursor:pointer}.lead{font-size:23px;color:var(--muted);line-height:1.4}
 .chapter .sheet{justify-content:center}.chapterPage{display:grid;grid-template-columns:240px 1fr;gap:34px;align-items:center;flex:1}.chapterNo{font-size:76px;color:#2f7777;font-weight:900}.chapterPage p{font-size:34px;color:var(--ink)}
 .chapterOpenSlide .sheet{justify-content:flex-start}.chapterOpenSlide h1{font-size:46px;margin-top:22px}.chapterOpen{flex:1;display:grid;grid-template-columns:360px 1fr;gap:42px;align-items:center;padding-top:115px}.chapterOpenNo{font-size:78px;line-height:1;color:#2f7777;font-weight:900;text-shadow:2px 2px 0 rgba(243,201,105,.45)}.chapterOpenText{max-width:900px}.chapterOpenText p{font-size:36px;line-height:1.45;margin:0;color:var(--ink)}.chapterOpenText span{display:block;margin-top:16px;font-size:24px;line-height:1.5;color:var(--muted)}
 .hero,.twoCol,.networkGrid,.scatterGrid,.explorer,.questionLayout{display:grid;grid-template-columns:1fr 1fr;gap:24px;min-height:0;flex:1;align-items:center}.numbers,.roadmap,.flow,.cards{display:grid;gap:13px}.numbers{grid-template-columns:repeat(3,1fr);margin-top:22px}.numbers.four{grid-template-columns:repeat(4,1fr);flex:0}.roadmap{grid-template-columns:repeat(4,1fr);align-content:center}.flow{grid-template-columns:repeat(4,1fr);flex:1;align-items:center}.cards.three{grid-template-columns:repeat(3,1fr);flex:1;align-items:center}.cards.five{grid-template-columns:repeat(5,1fr);flex:1;align-items:center}.cards.two{grid-template-columns:1fr 1fr;flex:1;align-items:center}.cards.four{grid-template-columns:repeat(4,1fr);flex:1;align-items:center}
@@ -88,6 +88,7 @@
 .c1-page{font-size:16.5px}.c1-page h1{font-size:38px}.c1-layout{display:grid;grid-template-columns:.95fr 1.05fr;gap:22px;flex:1;min-height:0;align-items:center}.c1-layout.gap{grid-template-columns:.82fr 1.18fr}.c1-visual,.c1-note,.c1-cards div,.c1-question-grid div,.c1-limit-grid div{background:rgba(255,250,240,.88);border:2px solid var(--line);border-radius:10px 18px 9px 15px;box-shadow:5px 6px 0 rgba(62,53,44,.12);padding:17px;min-width:0}.c1-highlight{background:#fff4b8;border:2px solid var(--line);border-radius:9px 15px 8px 14px;box-shadow:4px 5px 0 rgba(62,53,44,.12);padding:14px 18px;margin-bottom:14px;color:var(--ink);font-size:20px;line-height:1.42}.c1-highlight.quote{font-size:19px}.c1-content{min-height:0}.c1-note p{font-size:25px;color:var(--ink);line-height:1.5;margin:0}.c1-large-label{font-size:72px;color:#2f7777;font-weight:900;position:relative;z-index:2}.c1-forest{height:430px;position:relative;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(217,240,226,.9),rgba(255,250,240,.88))}.c1-tree{position:absolute;bottom:48px;width:92px;height:150px;border:2px solid var(--line);border-radius:50% 50% 8px 8px;background:#80bd7a;box-shadow:4px 5px 0 rgba(62,53,44,.13)}.c1-tree:after{content:"";position:absolute;left:40px;bottom:-42px;width:12px;height:48px;background:#c7925b;border:2px solid var(--line)}.c1-tree.t1{left:70px;transform:rotate(-5deg) scale(.9)}.c1-tree.t2{right:90px;transform:rotate(4deg) scale(1.08);background:#8fd1d0}.c1-tree.t3{left:210px;bottom:30px;transform:rotate(2deg) scale(.72);background:#f3c969}.c1-stair{height:420px;display:grid;gap:8px;align-content:center;background:linear-gradient(180deg,rgba(255,250,240,.92),rgba(217,240,226,.48))}.c1-stair div{border:2px solid rgba(62,53,44,.55);border-radius:9px 14px 8px 13px;background:#fffaf0;padding:13px 16px;width:78%;box-shadow:3px 4px 0 rgba(62,53,44,.1)}.c1-stair div:nth-of-type(2){margin-left:54px}.c1-stair div:nth-of-type(3){margin-left:108px;background:#d9f0e2}.c1-stair b,.c1-timeline b{display:block;color:#2f7777;font-size:22px}.c1-stair span,.c1-timeline span{color:var(--muted);font-size:16.5px}.c1-stair i,.c1-flight i{height:20px;width:3px;background:#e76f82;margin-left:190px;border-radius:999px}.c1-cards{display:grid;gap:12px}.c1-cards.three{grid-template-columns:repeat(3,1fr)}.c1-cards.four{grid-template-columns:1fr 1fr}.c1-cards div{font-size:16.5px;line-height:1.42;color:var(--muted)}.c1-view{height:430px;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center}.c1-lens,.c1-panorama{height:230px;border:2px dashed var(--line);border-radius:15px;background:rgba(217,240,226,.7);display:grid;place-items:center;color:#2f7777;font-weight:900;font-size:24px;position:relative}.c1-lens:before{content:"";width:112px;height:112px;border:7px solid #4aa3a2;border-radius:50%;position:absolute;top:42px}.c1-lens:after{content:"";width:54px;height:8px;background:var(--line);position:absolute;right:34px;bottom:58px;transform:rotate(42deg);border-radius:999px}.c1-panorama{background:linear-gradient(90deg,rgba(74,163,162,.18) 1px,transparent 1px),linear-gradient(rgba(231,111,130,.16) 1px,transparent 1px),#fffaf0;background-size:24px 24px}.c1-timeline{height:405px;display:grid;align-content:center;gap:14px}.c1-timeline div{display:grid;grid-template-columns:88px 1fr;gap:10px;align-items:center;background:#fffaf0;border:2px solid rgba(62,53,44,.5);border-radius:9px 14px 8px 13px;padding:12px}.c1-timeline em{display:block;height:40px;border-left:3px dashed #4aa3a2;margin-left:44px}.c1-question-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;flex:1;align-items:stretch}.c1-question-grid div{display:flex;flex-direction:column;gap:10px;transform:rotate(-.5deg)}.c1-question-grid div:nth-child(2n){transform:rotate(.6deg)}.c1-question-grid b{color:#2f7777;font-size:40px;line-height:1}.c1-question-grid span{color:var(--muted);font-size:16.5px;line-height:1.42}.c1-limit-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;flex:1;align-items:center}.c1-limit-grid div{font-size:16.5px;line-height:1.43;color:var(--muted);border-style:dashed}.c1-flight{height:420px;display:grid;gap:8px;align-content:center}.c1-flight div{background:#fffaf0;border:2px solid rgba(62,53,44,.55);border-radius:999px;padding:12px;text-align:center;color:#2f7777;font-weight:900;box-shadow:3px 4px 0 rgba(62,53,44,.1);font-size:16.5px}.c1-flight div:last-child{background:#d9f0e2}.c1-flight i{margin:auto}
 .c2-page{font-size:16.5px}.c2-page h1{font-size:38px}.c2-layout{display:grid;grid-template-columns:.92fr 1.08fr;gap:22px;flex:1;min-height:0;align-items:center}.c2-layout.history{grid-template-columns:1.1fr .9fr}.c2-highlight{background:#fff4b8;border:2px solid var(--line);border-radius:9px 15px 8px 14px;box-shadow:4px 5px 0 rgba(62,53,44,.12);padding:14px 18px;margin-bottom:14px;color:var(--ink);font-size:20px;line-height:1.4}.c2-visual,.c2-cards div,.c2-side{background:rgba(255,250,240,.88);border:2px solid var(--line);border-radius:10px 18px 9px 15px;box-shadow:5px 6px 0 rgba(62,53,44,.12);padding:17px;min-width:0}.c2-cards{display:grid;gap:12px}.c2-cards.three{grid-template-columns:repeat(3,1fr)}.c2-cards.four{grid-template-columns:1fr 1fr}.c2-cards.stacked{grid-template-columns:1fr}.c2-cards div{font-size:16.5px;line-height:1.43;color:var(--muted)}.c2-book,.c2-layers,.c2-docs,.c2-bridge,.c2-pipeline,.c2-frame{height:410px;display:grid;gap:10px;align-content:center;background:linear-gradient(135deg,rgba(217,240,226,.72),rgba(255,250,240,.9))}.c2-book div,.c2-layers div,.c2-docs div,.c2-bridge div,.c2-pipeline div,.c2-frame div{background:#fffaf0;border:2px solid rgba(62,53,44,.55);border-radius:9px 14px 8px 13px;box-shadow:3px 4px 0 rgba(62,53,44,.1);padding:12px 14px;color:#2f7777;font-weight:900;text-align:center}.c2-book div:nth-child(2),.c2-layers div:nth-child(2n),.c2-docs div:nth-child(2n),.c2-frame div:nth-child(2n){background:#d9f0e2;transform:rotate(.5deg)}.c2-layers div:nth-child(1){margin-left:0}.c2-layers div:nth-child(2){margin-left:18px}.c2-layers div:nth-child(3){margin-left:36px}.c2-layers div:nth-child(4){margin-left:54px}.c2-layers div:nth-child(5){margin-left:72px;background:#fff4b8}.c2-bridge,.c2-pipeline{background:rgba(255,250,240,.88)}.c2-bridge i,.c2-pipeline i{display:block;width:3px;height:18px;background:#e76f82;border-radius:999px;margin:auto}.c2-side{display:flex;flex-direction:column;gap:14px;justify-content:center}.c2-button{display:inline-block;align-self:flex-start;text-decoration:none;background:#d9f0e2;color:#2f7777;border:2px solid var(--line);border-radius:8px 13px 7px 12px;box-shadow:3px 4px 0 rgba(62,53,44,.14);padding:12px 16px;font-weight:900}.c2-institution-flow{display:grid;grid-template-columns:1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr;gap:0;align-items:stretch;flex:1;min-height:0;margin-top:2px}.c2-institution-flow>i{height:4px;background:#e76f82;border-radius:999px;align-self:center;position:relative}.c2-institution-flow>i:after{content:"";position:absolute;right:-2px;top:-6px;border-left:11px solid #e76f82;border-top:8px solid transparent;border-bottom:8px solid transparent}.c2-stage-card{background:rgba(255,250,240,.9);border:2px solid var(--line);border-radius:10px 18px 9px 15px;box-shadow:5px 6px 0 rgba(62,53,44,.12);padding:14px 13px;min-height:285px;display:flex;flex-direction:column}.c2-stage-card:nth-of-type(3),.c2-stage-card:nth-of-type(7){background:rgba(217,240,226,.74)}.c2-stage-card em{font-family:"Comic Sans MS","Segoe Print",cursive;font-style:normal;color:#2f7777;font-size:30px;font-weight:900;line-height:1}.c2-stage-card b{display:block;color:#2f7777;font-size:21px;margin:8px 0 3px;line-height:1.18}.c2-stage-card strong{display:block;color:#2d2822;font-size:16px;margin-bottom:10px}.c2-stage-card ul{margin:2px 0 0;padding:0;list-style:none;color:#6b5e52;font-size:15.4px;line-height:1.42}.c2-stage-card li{position:relative;padding-left:14px;margin:7px 0}.c2-stage-card li:before{content:"";position:absolute;left:0;top:.58em;width:6px;height:6px;border-radius:50%;background:#e76f82}.c2-institution-footer{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:15px;color:#2f7777;font-weight:900;font-size:20px}.c2-institution-footer span{background:#fffaf0;border:2px solid rgba(62,53,44,.42);border-radius:999px;padding:8px 18px;box-shadow:2px 3px 0 rgba(62,53,44,.08)}.c2-institution-footer i{width:42px;height:3px;background:#e76f82;border-radius:999px}.c2-page .eraMini{align-content:center}.c2-table-page h1{font-size:35px}.c2-table-page .c2-highlight{font-size:18px;margin-bottom:10px}.c2-table-wrap{flex:1;min-height:0;overflow:auto;background:rgba(255,250,240,.9);border:2px solid var(--line);border-radius:10px 18px 9px 15px;box-shadow:5px 6px 0 rgba(62,53,44,.12);padding:10px}.c2-compare{width:100%;border-collapse:separate;border-spacing:0;font-size:13.8px;line-height:1.34;color:var(--muted)}.c2-compare th,.c2-compare td{border-right:1.5px dashed rgba(62,53,44,.28);border-bottom:1.5px dashed rgba(62,53,44,.28);padding:8px 9px;vertical-align:top}.c2-compare thead th{background:#d9f0e2;color:#2f7777;font-size:15.5px;text-align:left}.c2-compare tbody th{width:94px;color:#2f7777;font-size:15px;text-align:left;background:rgba(255,244,184,.45)}.c2-compare td{width:25%}.c2-compare th:last-child,.c2-compare td:last-child{border-right:0}.c2-compare tr:last-child th,.c2-compare tr:last-child td{border-bottom:0}.c2-footer{margin-top:10px;text-align:center;color:#6b5e52;font-size:16.5px}
 .c1-lines,.c2-lines,.c2-process-text,.c2-summary-lines,.c2-bridge-notes{display:grid;gap:12px;align-content:center}.c1-lines p,.c2-lines p,.c2-process-text p,.c2-summary-lines p,.c2-bridge-notes p,.c1-timing-notes p{margin:0;padding:12px 0 12px 18px;border-left:6px solid #4aa3a2;color:var(--muted);font-size:18px;line-height:1.45;background:linear-gradient(90deg,rgba(255,250,240,.82),rgba(255,250,240,0));border-radius:0 12px 12px 0}.c1-lines p b,.c2-lines p b,.c2-process-text p b,.c2-summary-lines p b{display:inline-block;margin-right:10px;color:#2f7777;font-size:20px}.c1-lines p.em,.c2-lines p.em,.c2-process-text p.em{border-left-color:#e76f82;background:linear-gradient(90deg,rgba(255,244,184,.72),rgba(255,250,240,0))}.c1-timing-notes{display:grid;grid-template-columns:1fr;gap:12px}.c1-question-board{display:grid;grid-template-columns:1fr;gap:11px;flex:1;align-content:center}.c1-question-board div{display:grid;grid-template-columns:70px 1fr;gap:18px;align-items:center;padding:12px 18px;border-bottom:2px dashed rgba(62,53,44,.28)}.c1-question-board b{color:#2f7777;font-size:28px}.c1-question-board span{font-size:21px;line-height:1.35;color:var(--ink)}.c1-boundary-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;flex:1;align-content:center;min-height:0}.c1-boundary-cards div{position:relative;background:rgba(255,250,240,.9);border:2px solid var(--line);border-radius:10px 18px 9px 15px;box-shadow:5px 6px 0 rgba(62,53,44,.12);padding:18px 18px 17px 20px;min-height:128px}.c1-boundary-cards b{display:block;color:#2f7777;font-size:21px;margin-bottom:9px}.c1-boundary-cards span{display:block;color:var(--muted);font-size:17px;line-height:1.45}.c1-boundary-board{display:none}.c2-bridge-notes{grid-template-columns:1fr 1fr;gap:12px}.c2-bridge-notes p{font-size:16.8px}.c2-process-text{grid-template-columns:1fr 1fr}.c2-summary-lines p{font-size:18.5px}.c2-lines.compact p{font-size:17px}
+.c1-question-model{display:grid;grid-template-columns:1fr;gap:11px;flex:1;align-content:center;margin-top:4px}.c1-question-model div{display:grid;grid-template-columns:48px 94px 106px 1fr;align-items:center;gap:14px;background:rgba(255,250,240,.9);border:2px solid var(--line);border-radius:10px 18px 9px 15px;box-shadow:4px 5px 0 rgba(62,53,44,.1);padding:13px 18px;min-width:0}.c1-question-model div:nth-child(2n){background:#d9f0e2}.c1-question-model strong{font-family:"Segoe Print","Comic Sans MS","Microsoft JhengHei",cursive;color:#2f7777;font-size:23px;line-height:1;font-weight:900}.c1-question-model b{font-family:"Segoe Print","Comic Sans MS","Microsoft JhengHei",cursive;color:#e76f82;font-size:27px;line-height:1;font-weight:900}.c1-question-model em{font-style:normal;color:#2f7777;font-size:24px;font-weight:900;white-space:nowrap}.c1-question-model span{color:var(--ink);font-size:22px;font-weight:900;line-height:1.28}
 .c3-page{font-size:16.5px}.c3-page h1{font-size:38px}.c3-open{padding-top:92px}.c3-bottom-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}.c3-bottom-strip span{background:#fffaf0;border:2px solid rgba(62,53,44,.45);border-radius:999px;padding:10px 14px;text-align:center;color:#2f7777;font-weight:900;box-shadow:2px 3px 0 rgba(62,53,44,.08);font-size:17px}.c3-highlight{background:#fff4b8;border:2px solid var(--line);border-radius:9px 15px 8px 14px;box-shadow:4px 5px 0 rgba(62,53,44,.12);padding:14px 18px;margin-bottom:14px;color:var(--ink);font-size:20px;line-height:1.4}.c3-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;flex:1;min-height:0;align-items:center}.c3-layout.identify{grid-template-columns:.9fr 1.1fr}.c3-overview-board{display:grid;grid-template-rows:1.05fr .72fr;gap:16px;flex:1;min-height:0}.c3-overview-flow{display:grid;grid-template-columns:1fr 26px 1fr 26px 1.2fr 26px 1.15fr 26px 1.15fr 26px 1fr 26px 1fr;align-items:center;background:linear-gradient(135deg,rgba(217,240,226,.7),rgba(255,250,240,.92));border:2px solid var(--line);border-radius:10px 18px 9px 15px;box-shadow:5px 6px 0 rgba(62,53,44,.12);padding:20px}.c3-overview-flow div{min-height:142px;background:#fffaf0;border:2px solid rgba(62,53,44,.55);border-radius:12px 18px 10px 16px;box-shadow:3px 4px 0 rgba(62,53,44,.09);padding:13px 10px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}.c3-overview-flow div:nth-of-type(2n){background:#d9f0e2;transform:rotate(.4deg)}.c3-overview-flow div:last-of-type{background:#fff4b8;transform:rotate(-.4deg)}.c3-overview-flow b{display:block;color:#e76f82;font-size:22px;line-height:1}.c3-overview-flow span{display:block;margin-top:9px;color:#2f7777;font-size:20px;font-weight:900;line-height:1.18}.c3-overview-flow small{display:block;margin-top:8px;color:var(--muted);font-size:16px;line-height:1.3}.c3-overview-flow i{display:block;height:3px;background:#e76f82;border-radius:999px;position:relative}.c3-overview-flow i:after{content:"";position:absolute;right:-1px;top:-5px;border-left:10px solid #e76f82;border-top:6px solid transparent;border-bottom:6px solid transparent}.c3-overview-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.c3-overview-notes p{margin:0;background:rgba(255,250,240,.9);border:2px dashed rgba(62,53,44,.45);border-radius:10px 16px 9px 14px;padding:15px 16px;color:var(--muted);font-size:18px;line-height:1.45}.c3-overview-notes b{display:block;color:#2f7777;font-size:21px;margin-bottom:5px}.c3-flow-ribbon,.c3-principle-map,.c3-table-flow,.c3-dashboard-visual,.c3-dashboard-card,.c3-logic,.c3-risk,.c3-compare{background:rgba(255,250,240,.9);border:2px solid var(--line);border-radius:10px 18px 9px 15px;box-shadow:5px 6px 0 rgba(62,53,44,.12);padding:16px;min-width:0}.c3-flow-ribbon{height:460px;display:grid;grid-template-columns:1fr;gap:4px;align-content:center;background:linear-gradient(135deg,rgba(217,240,226,.62),rgba(255,250,240,.92))}.c3-flow-ribbon div,.c3-table-flow div,.c3-logic div{background:#fffaf0;border:2px solid rgba(62,53,44,.5);border-radius:9px 14px 8px 13px;box-shadow:3px 4px 0 rgba(62,53,44,.09);padding:10px 13px}.c3-flow-ribbon div:nth-of-type(2n),.c3-table-flow div:nth-of-type(2n),.c3-logic div:nth-of-type(2){background:#d9f0e2}.c3-flow-ribbon b,.c3-table-flow div,.c3-logic b{display:block;color:#2f7777;font-size:19px;font-weight:900}.c3-flow-ribbon span,.c3-logic span{color:var(--muted);font-size:16.5px}.c3-flow-ribbon i,.c3-table-flow i,.c3-logic i{display:block;width:3px;height:12px;background:#e76f82;border-radius:999px;margin:auto}.c3-lines{display:grid;gap:12px;align-content:center}.c3-lines p{margin:0;padding:12px 0 12px 18px;border-left:6px solid #4aa3a2;color:var(--muted);font-size:18px;line-height:1.45;background:linear-gradient(90deg,rgba(255,250,240,.82),rgba(255,250,240,0));border-radius:0 12px 12px 0}.c3-lines p.em{border-left-color:#e76f82;background:linear-gradient(90deg,rgba(255,244,184,.72),rgba(255,250,240,0))}.c3-principle-map{height:430px;position:relative;background:linear-gradient(135deg,rgba(217,240,226,.8),rgba(255,250,240,.9))}.c3-principle-map div{position:absolute;border:2px solid rgba(62,53,44,.55);background:#fffaf0;border-radius:12px 18px 10px 16px;box-shadow:4px 5px 0 rgba(62,53,44,.1);padding:13px;text-align:center;color:#2f7777;font-weight:900;min-width:140px}.c3-principle-map span{display:block;color:var(--muted);font-size:16px;font-weight:700}.c3-principle-map .source{left:36px;top:44px;transform:rotate(-2deg)}.c3-principle-map .scan{right:40px;top:54px;transform:rotate(1deg)}.c3-principle-map .nlp{left:54px;bottom:104px;background:#d9f0e2;transform:rotate(1deg)}.c3-principle-map .standard{right:32px;bottom:88px;transform:rotate(-1deg)}.c3-principle-map .answer{left:50%;top:50%;transform:translate(-50%,-50%);width:178px;height:178px;border-radius:50%;display:grid;place-items:center;background:#fff4b8;color:#2d2822;font-size:24px}.c3-compare-layout,.c3-risk-layout,.c3-dashboard-layout{display:grid;grid-template-columns:.78fr 1.22fr;gap:18px;flex:1;min-height:0;align-items:stretch}.c3-risk-layout{grid-template-columns:1fr .88fr}.c3-dashboard-layout{grid-template-columns:.95fr 1.05fr;align-items:center}.c3-logic{display:flex;flex-direction:column;justify-content:center;gap:10px}.c3-logic p{margin:10px 0 0;color:var(--muted);font-size:17px;line-height:1.45}.c3-compare,.c3-risk{width:100%;border-collapse:separate;border-spacing:0;color:var(--muted);font-size:16.5px;line-height:1.34;overflow:hidden}.c3-compare th,.c3-compare td,.c3-risk th,.c3-risk td{border-right:1.5px dashed rgba(62,53,44,.28);border-bottom:1.5px dashed rgba(62,53,44,.28);padding:10px 11px;vertical-align:top}.c3-compare thead th,.c3-risk thead th{background:#d9f0e2;color:#2f7777;text-align:left;font-size:17px}.c3-compare tbody th{width:102px;color:#2f7777;background:rgba(255,244,184,.45);text-align:left}.c3-risk td:first-child{color:#2f7777;font-weight:900;background:rgba(255,244,184,.35);width:42%}.c3-compare th:last-child,.c3-compare td:last-child,.c3-risk th:last-child,.c3-risk td:last-child{border-right:0}.c3-compare tr:last-child th,.c3-compare tr:last-child td,.c3-risk tr:last-child td{border-bottom:0}.c3-table-flow{height:430px;display:grid;gap:7px;align-content:center;text-align:center;background:linear-gradient(180deg,rgba(255,250,240,.95),rgba(217,240,226,.48))}.c3-table-flow div:last-child{background:#fff4b8;color:#2d2822;font-size:24px}.c3-dashboard-visual{height:360px;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:center;background:linear-gradient(135deg,rgba(217,240,226,.72),rgba(255,250,240,.92))}.c3-dashboard-visual div{border:2px dashed rgba(62,53,44,.55);border-radius:12px;padding:24px 14px;display:grid;place-items:center;text-align:center;color:#2f7777;font-weight:900;font-size:20px;background:rgba(255,250,240,.72)}.c3-dashboard-card{display:grid;gap:12px;align-content:center}.c3-dashboard-card p{margin:0;color:var(--muted);font-size:19px;line-height:1.45}.c3-button{display:inline-block;justify-self:start;margin-top:4px;text-decoration:none;background:#d9f0e2;color:#2f7777;border:2px solid var(--line);border-radius:8px 13px 7px 12px;box-shadow:3px 4px 0 rgba(62,53,44,.14);padding:12px 16px;font-weight:900;font-size:18px}
 .c3-dashboard-card{gap:10px}.c3-dashboard-card p{font-size:18px;line-height:1.42}.c3-dashboard-card p.em{border-left:6px solid #e76f82;background:linear-gradient(90deg,rgba(255,244,184,.72),rgba(255,250,240,0));border-radius:0 12px 12px 0;padding:10px 0 10px 14px;color:#2d2822}
 
@@ -201,6 +202,12 @@ body.four-three .c1-question-board{gap:7px}
 body.four-three .c1-question-board div{grid-template-columns:54px 1fr;padding:9px 12px;gap:12px}
 body.four-three .c1-question-board b{font-size:22px}
 body.four-three .c1-question-board span{font-size:16px}
+body.four-three .c1-question-model{gap:7px}
+body.four-three .c1-question-model div{grid-template-columns:38px 66px 70px 1fr;padding:9px 12px;gap:8px}
+body.four-three .c1-question-model strong{font-size:18px}
+body.four-three .c1-question-model b{font-size:21px}
+body.four-three .c1-question-model em{font-size:18px}
+body.four-three .c1-question-model span{font-size:16px;line-height:1.22}
 body.four-three .c1-forest,body.four-three .c1-stair,body.four-three .c1-view,body.four-three .c1-timeline,body.four-three .c1-flight{height:330px}
 body.four-three .c1-lines p,body.four-three .c2-lines p,body.four-three .c2-process-text p,body.four-three .c2-summary-lines p,body.four-three .c2-bridge-notes p,body.four-three .c1-timing-notes p{font-size:14.5px;padding:9px 0 9px 13px;line-height:1.34}
 body.four-three .c1-lines p b,body.four-three .c2-lines p b,body.four-three .c2-process-text p b,body.four-three .c2-summary-lines p b{font-size:16px}
@@ -266,14 +273,14 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide cover" data-section="開場">
+    <section class="slide presenterCue cover" data-section="開場">
       <div class="sheet">
         <div class="kicker">研究地圖</div>
         <h1>這份研究看見什麼</h1>
         
       <div class="hero">
         <div>
-          <p class="lead">以 1949-2021 年舊制釋字為素材，用 NLP 與人工覆核盤點憲法原則，分析憲法原則如何在台灣憲政發展中出現、累積與轉變。</p>
+          <p class="lead">以 1949–2021 年釋字為素材，結合 NLP 與人工覆核，探究憲法原則如何作為大法官釋憲論證的工具，並在台灣憲政發展中呈現功能轉變。</p>
           <div class="numbers"><div><b>813</b><span>釋字</span></div><div><b>346</b><span>含憲法原則</span></div><div><b>30</b><span>憲法原則</span></div></div>
         </div>
         <div id="heroMap" class="heroMap"></div>
@@ -281,7 +288,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide " data-section="導覽">
+    <section class="slide presenterCue " data-section="導覽">
       <div class="sheet">
         <div class="kicker">Roadmap</div>
         <h1>簡報目錄</h1>
@@ -312,7 +319,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
             <a href="era_transition_dashboard.html"><em>14</em><span>四時期比較</span></a>
             <a href="proportionality_dashboard.html"><em>15</em><span>比例原則</span></a>
             <a href="equality_dashboard.html"><em>16</em><span>平等原則</span></a>
-            <a href="legal_reservation_dashboard.html"><em>17</em><span>法律保留</span></a>
+            <a href="legal_reservation_dashboard.html"><em>17</em><span>法律保留原則</span></a>
             <a href="key_principles_compare_dashboard.html"><em>18</em><span>三項比較</span></a>
           </div>
         </div>
@@ -379,7 +386,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c1-page" data-section="第一章">
+    <section class="slide presenterCue c1-page" data-section="第一章">
       <div class="sheet">
         <div class="kicker">研究時機</div>
         <h1>813 號釋字成為封閉語料庫，NLP 提供處理工具</h1>
@@ -398,18 +405,18 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c1-page" data-section="第一章">
+    <section class="slide presenterCue c1-page" data-section="第一章">
       <div class="sheet">
         <div class="kicker">研究問題</div>
         <h1>五個研究問題</h1>
         
-      <div class="c1-highlight">本研究從憲法原則的識別、時序分布、背景聯動與審查功能四個層次展開分析。</div>
-      <div class="c1-question-board">
-        <div><b>01</b><span>大法官解釋實際援引過哪些憲法原則？</span></div>
-        <div><b>02</b><span>各憲法原則何時出現，引用頻率如何變化？</span></div>
-        <div><b>03</b><span>憲法原則引用變化，是否與政治、社會、經濟發展存在可觀察聯動？</span></div>
-        <div><b>04</b><span>在合憲性判斷中，哪些憲法原則一再作為主要論證依據？</span></div>
-        <div><b>05</b><span>關鍵憲法原則的審查功能，是否隨時代而變化？</span></div>
+      <div class="c1-highlight">圍繞憲法原則展開，依 5W 框架，提出以下問題。</div>
+      <div class="c1-question-model">
+        <div><strong>01</strong><b>What</b><em>辨識</em><span>有哪些憲法原則</span></div>
+        <div><strong>02</strong><b>When</b><em>時序</em><span>何時出現、如何變化</span></div>
+        <div><strong>03</strong><b>Why</b><em>背景</em><span>變化與時代背景有何關聯</span></div>
+        <div><strong>04</strong><b>Which</b><em>篩選</em><span>哪些成為合憲性判斷中的關鍵原則</span></div>
+        <div><strong>05</strong><b>How</b><em>詮釋</em><span>審查功能如何隨時代變化</span></div>
       </div>
     
       </div>
@@ -630,7 +637,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c3-page" data-section="第三章">
+    <section class="slide presenterCue c3-page" data-section="第三章">
       <div class="sheet">
         <div class="kicker">方法總覽</div>
         <h1>從文本到資料表</h1>
@@ -661,7 +668,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c3-page" data-section="第三章">
+    <section class="slide presenterCue c3-page" data-section="第三章">
       <div class="sheet">
         <div class="kicker">原則識別</div>
         <h1>先找出文本中的憲法原則</h1>
@@ -686,7 +693,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c3-page c3-table-page" data-section="第三章">
+    <section class="slide presenterCue c3-page c3-table-page" data-section="第三章">
       <div class="sheet">
         <div class="kicker">合憲性標註</div>
         <h1>再觀察原則是否進入判斷</h1>
@@ -796,7 +803,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c4-page" data-section="第四章">
+    <section class="slide presenterCue c4-page" data-section="第四章">
       <div class="sheet">
         <div class="kicker">資料處理規模</div>
         <h1>法律文本，轉換成可分析資料</h1>
@@ -810,7 +817,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c4-page" data-section="第四章">
+    <section class="slide presenterCue c4-page" data-section="第四章">
       <div class="sheet">
         <div class="kicker">憲法原則資料集</div>
         <h1>整理出 30 項憲法原則</h1>
@@ -931,7 +938,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c5-page" data-section="第五章">
+    <section class="slide presenterCue c5-page" data-section="第五章">
       <div class="sheet">
         <div class="kicker">時序變化</div>
         <h1>原則語言逐漸常態化</h1>
@@ -953,7 +960,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c5-page" data-section="第五章">
+    <section class="slide presenterCue c5-page" data-section="第五章">
       <div class="sheet">
         <div class="kicker">整體分布</div>
         <h1>少數高頻，多數低頻</h1>
@@ -976,7 +983,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c5-page" data-section="第五章">
+    <section class="slide presenterCue c5-page" data-section="第五章">
       <div class="sheet">
         <div class="kicker">共現關係</div>
         <h1>比例原則是共現的樞紐</h1>
@@ -987,7 +994,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c5-page" data-section="第五章">
+    <section class="slide presenterCue c5-page" data-section="第五章">
       <div class="sheet">
         <div class="kicker">判斷方向</div>
         <h1>PI 值，觀察原則的判斷方向</h1>
@@ -1009,7 +1016,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c5-page" data-section="第五章">
+    <section class="slide presenterCue c5-page" data-section="第五章">
       <div class="sheet">
         <div class="kicker">使用型態分群</div>
         <h1>引用篇數 × PI 值，整理五種使用型態</h1>
@@ -1084,7 +1091,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c6-page" data-section="第六章">
+    <section class="slide presenterCue c6-page" data-section="第六章">
       <div class="sheet">
         <div class="kicker">整體觀察</div>
         <h1>憲法原則從零星援引，走向高度常態化</h1>
@@ -1100,7 +1107,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c6-page" data-section="第六章">
+    <section class="slide presenterCue c6-page" data-section="第六章">
       <div class="sheet">
         <div class="kicker">關鍵原則</div>
         <h1>三項關鍵原則，各自處理不同問題</h1>
@@ -1114,7 +1121,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c6-page" data-section="第六章">
+    <section class="slide presenterCue c6-page" data-section="第六章">
       <div class="sheet">
         <div class="kicker">比例原則</div>
         <h1>起步最晚，卻成為最常用的審查工具</h1>
@@ -1124,7 +1131,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c6-page" data-section="第六章">
+    <section class="slide presenterCue c6-page" data-section="第六章">
       <div class="sheet">
         <div class="kicker">平等原則</div>
         <h1>最早登場，並隨社會議題持續擴張</h1>
@@ -1134,7 +1141,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c6-page" data-section="第六章">
+    <section class="slide presenterCue c6-page" data-section="第六章">
       <div class="sheet">
         <div class="kicker">法律保留原則</div>
         <h1>它不是問限制是否過度，而是先問有沒有法律依據</h1>
@@ -1144,7 +1151,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c6-page" data-section="第六章">
+    <section class="slide presenterCue c6-page" data-section="第六章">
       <div class="sheet">
         <div class="kicker">綜合比較</div>
         <h1>三個原則，三種審查位置</h1>
@@ -1200,7 +1207,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c7-page" data-section="第七章">
+    <section class="slide presenterCue c7-page" data-section="第七章">
       <div class="sheet">
         <div class="kicker">回應研究問題</div>
         <h1>五個問題，五個答案</h1>
@@ -1216,7 +1223,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c7-page" data-section="第七章">
+    <section class="slide presenterCue c7-page" data-section="第七章">
       <div class="sheet">
         <div class="kicker">研究貢獻</div>
         <h1>本研究帶來什麼？</h1>
@@ -1230,7 +1237,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide c7-page" data-section="第七章">
+    <section class="slide presenterCue c7-page" data-section="第七章">
       <div class="sheet">
         <div class="kicker">技術評估</div>
         <h1>NLP 只是工具</h1>
@@ -1296,7 +1303,7 @@ body.four-three .buttonList button,body.four-three .pills button{font-size:12.5p
     
       </div>
     </section>
-    <section class="slide closing-slide" data-section="收束">
+    <section class="slide presenterCue closing-slide" data-section="收束">
       <div class="sheet">
         <div class="kicker">Closing</div>
         <h1>透過 NLP 拆解，我們騰空鳥瞰——813 篇釋字全貌</h1>
@@ -1335,8 +1342,8 @@ function explorer(i=0){if(!E('principleButtons')||!E('principleDetail'))return;E
 function ratioMini(){const el=E('ratioMiniChart');if(!el)return;let rows=DATA.yearly.filter(d=>d.total>0),w=640,h=360,p=44,maxTotal=Math.max(...rows.map(d=>d.total),1),maxRatio=Math.max(100,...rows.map(d=>d.ratio||0));let step=(w-p*2)/rows.length,base=h-p;let x=(d,i)=>p+i*step+step*.5,yRatio=d=>base-(d.ratio||0)/maxRatio*(h-p*2),barH=d=>d.total/maxTotal*(h-p*2),barHP=d=>d.withPrinciples/maxTotal*(h-p*2);let path=rows.map((d,i)=>`${i?'L':'M'}${x(d,i)} ${yRatio(d)}`).join(' ');el.innerHTML=`<text x="${p}" y="28" class="svg-label">年度含原則比率 = 含原則篇數 ÷ 當年釋字總數</text><line x1="${p}" y1="${base}" x2="${w-p}" y2="${base}" stroke="#3e352c"/><line x1="${p}" y1="${p}" x2="${p}" y2="${base}" stroke="#3e352c"/>`+rows.map((d,i)=>`<rect x="${x(d,i)-step*.32}" y="${base-barH(d)}" width="${step*.24}" height="${barH(d)}" fill="rgba(92,167,223,.32)"/><rect x="${x(d,i)-step*.06}" y="${base-barHP(d)}" width="${step*.24}" height="${barHP(d)}" fill="rgba(74,163,162,.55)"/>`).join('')+`<path d="${path}" fill="none" stroke="#e76f82" stroke-width="4" stroke-linecap="round"/>`+rows.filter((_,i)=>i%8===0||i===rows.length-1).map(d=>`<circle cx="${x(d,rows.indexOf(d))}" cy="${yRatio(d)}" r="5" fill="#fff4b8" stroke="#3e352c"/><text x="${x(d,rows.indexOf(d))}" y="${h-14}" text-anchor="middle" class="axis-label">${d.year}</text>`).join('')+`<g transform="translate(${w-214} 38)"><rect width="184" height="72" rx="10" fill="#fffaf0" stroke="#3e352c"/><rect x="12" y="15" width="18" height="10" fill="rgba(92,167,223,.5)"/><text x="38" y="24" class="axis-label">當年釋字總數</text><rect x="12" y="38" width="18" height="10" fill="rgba(74,163,162,.65)"/><text x="38" y="47" class="axis-label">含原則篇數</text><line x1="12" y1="62" x2="30" y2="62" stroke="#e76f82" stroke-width="4"/><text x="38" y="66" class="axis-label">含原則比率</text></g>`}
 function trend(start='all'){if(!E('trendChart'))return;document.querySelectorAll('[data-range]').forEach(b=>b.classList.toggle('active',b.dataset.range===start));let rows=DATA.yearly.filter(d=>start==='all'||d.year>=Number(start)),w=1080,h=410,p=46,maxR=Math.max(100,...rows.map(d=>d.ratio)),x=d=>p+(d.year-rows[0].year)/(rows.at(-1).year-rows[0].year||1)*(w-p*2),y=d=>h-p-d.ratio/maxR*(h-p*2);let path=rows.map((d,i)=>`${i?'L':'M'}${x(d)} ${y(d)}`).join(' ');E('trendChart').innerHTML=`<line x1="${p}" y1="${h-p}" x2="${w-p}" y2="${h-p}" stroke="#3e352c"/><line x1="${p}" y1="${p}" x2="${p}" y2="${h-p}" stroke="#3e352c"/><path d="${path}" fill="none" stroke="#4aa3a2" stroke-width="5" stroke-linecap="round"/>`+rows.filter((_,i)=>i%6===0||i===rows.length-1).map(d=>`<circle cx="${x(d)}" cy="${y(d)}" r="7" fill="#f3c969" stroke="#3e352c"/><text x="${x(d)}" y="${h-15}" text-anchor="middle" class="axis-label">${d.year}</text>`).join('');E('trendNote').textContent=start==='all'?'完整時段呈現由零星到常態化。':'縮小時段後，可看到 1987 後與 2000 年後的高密度波動。'}
 function firsts(){const r=E('firstPair');if(!r)return;let withYear=DATA.principles.filter(d=>d.firstYear).sort((a,b)=>a.firstYear-b.firstYear||b.count-a.count),earliest=withYear[0],most=[...DATA.principles].sort((a,b)=>b.count-a.count)[0];r.innerHTML=`<div class="firstPairCard" data-tag="最早被援引的憲法原則"><b>${earliest.name}</b><div class="metric">${earliest.firstYear} 年</div><p>最早進入釋字文本的憲法原則。首見於釋字 ${earliest.firstCase||'--'} 號，813 篇中有 3 篇援引。</p><small>回答「何時進場」</small></div><div class="firstPairCard" data-tag="最多被援引的憲法原則"><b>${most.name}</b><div class="metric">${most.count} 篇</div><p>1996 年首次出現在釋字中，但被最多釋字所援引。</p><small>回答「後來多常被用」</small></div>`}
-function co(sel=0){let centerName='比例原則',rows=DATA.co.filter(d=>(d.a===centerName||d.b===centerName)&&d.a!==d.b).map(d=>({...d,other:d.a===centerName?d.b:d.a})).sort((a,b)=>b.count-a.count).slice(0,10),w=840,h=410,cx=390,cy=205,maxC=Math.max(...rows.map(d=>d.count),1);E('coNetwork').innerHTML=`<circle cx="${cx}" cy="${cy}" r="54" fill="#d9f0e2" stroke="#3e352c" stroke-width="2"/><text x="${cx}" y="${cy+5}" text-anchor="middle" class="svg-label">比例</text>`+rows.map((d,i)=>{let a=i/rows.length*Math.PI*2-Math.PI/2,r=118+(d.count/maxC)*44,x=cx+r*Math.cos(a),y=cy+r*Math.sin(a),cr=12+Math.sqrt(d.count)*1.45,tx=x+(x<cx?-8:x>cx?8:0),anchor=x<cx?'end':x>cx?'start':'middle',ty=y+(y<cy?-cr-8:cr+18);return`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#3e352c" opacity=".23"/><g class="point" data-co="${i}"><circle cx="${x}" cy="${y}" r="${cr}" fill="${colors[i%colors.length]}" stroke="#3e352c" stroke-width="2"/><text x="${tx}" y="${ty}" text-anchor="${anchor}" class="svg-label">${d.other.replace('原則','')}</text></g>`}).join('');let d=rows[sel]||rows[0];E('coDetail').innerHTML=`<b>比例原則 × ${d.other}</b><div class="big">${d.count}</div><p>共現篇數。點選圖中節點，可查看比例原則與該原則共同出現的次數。</p>`}
-function scatter(sel=0){if(!E('piScatter')||!E('scatterDetail'))return;let rows=DATA.principles.filter(d=>d.pi!==null),w=820,h=410,p=46,m=max(rows,'count'),x=d=>p+d.count/m*(w-p*2),y=d=>h-p-((d.pi+1)/2)*(h-p*2);E('piScatter').innerHTML=`<line x1="${p}" y1="${h-p}" x2="${w-p}" y2="${h-p}" stroke="#3e352c"/><line x1="${p}" y1="${p}" x2="${p}" y2="${h-p}" stroke="#3e352c"/><line x1="${p}" y1="${y({pi:0})}" x2="${w-p}" y2="${y({pi:0})}" stroke="#4aa3a2" stroke-dasharray="7 7"/>`+rows.map((d,i)=>`<g class="point" data-scatter="${i}"><circle cx="${x(d)}" cy="${y(d)}" r="${8+Math.sqrt(d.count)}" fill="${d.pi<-0.3?'#e76f82':d.pi>0.3?'#80bd7a':'#5ca7df'}" stroke="#3e352c" stroke-width="2"/>${d.count>=20?`<text x="${x(d)}" y="${y(d)-17}" text-anchor="middle" class="svg-label">${d.name.replace('原則','')}</text>`:''}</g>`).join('');let d=rows[sel];E('scatterDetail').innerHTML=`<b>${d.name}</b><div class="big">${d.pi}</div><p>引用 ${d.count} 篇；合憲 ${d.con}、違憲 ${d.uncon}。</p>`}
+function co(sel=0){let centerName='比例原則',rows=DATA.co.filter(d=>(d.a===centerName||d.b===centerName)&&d.a!==d.b).map(d=>({...d,other:d.a===centerName?d.b:d.a})).sort((a,b)=>b.count-a.count).slice(0,10),w=840,h=410,cx=390,cy=205,maxC=Math.max(...rows.map(d=>d.count),1);E('coNetwork').innerHTML=`<circle cx="${cx}" cy="${cy}" r="54" fill="#d9f0e2" stroke="#3e352c" stroke-width="2"/><text x="${cx}" y="${cy+5}" text-anchor="middle" class="svg-label">比例原則</text>`+rows.map((d,i)=>{let a=i/rows.length*Math.PI*2-Math.PI/2,r=118+(d.count/maxC)*44,x=cx+r*Math.cos(a),y=cy+r*Math.sin(a),cr=12+Math.sqrt(d.count)*1.45,tx=x+(x<cx?-8:x>cx?8:0),anchor=x<cx?'end':x>cx?'start':'middle',ty=y+(y<cy?-cr-8:cr+18);return`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#3e352c" opacity=".23"/><g class="point" data-co="${i}"><circle cx="${x}" cy="${y}" r="${cr}" fill="${colors[i%colors.length]}" stroke="#3e352c" stroke-width="2"/><text x="${tx}" y="${ty}" text-anchor="${anchor}" class="svg-label">${d.other}</text></g>`}).join('');let d=rows[sel]||rows[0];E('coDetail').innerHTML=`<b>比例原則 × ${d.other}</b><div class="big">${d.count}</div><p>共現篇數。點選圖中節點，可查看比例原則與該原則共同出現的次數。</p>`}
+function scatter(sel=0){if(!E('piScatter')||!E('scatterDetail'))return;let rows=DATA.principles.filter(d=>d.pi!==null),w=820,h=410,p=46,m=max(rows,'count'),x=d=>p+d.count/m*(w-p*2),y=d=>h-p-((d.pi+1)/2)*(h-p*2);E('piScatter').innerHTML=`<line x1="${p}" y1="${h-p}" x2="${w-p}" y2="${h-p}" stroke="#3e352c"/><line x1="${p}" y1="${p}" x2="${p}" y2="${h-p}" stroke="#3e352c"/><line x1="${p}" y1="${y({pi:0})}" x2="${w-p}" y2="${y({pi:0})}" stroke="#4aa3a2" stroke-dasharray="7 7"/>`+rows.map((d,i)=>`<g class="point" data-scatter="${i}"><circle cx="${x(d)}" cy="${y(d)}" r="${8+Math.sqrt(d.count)}" fill="${d.pi<-0.3?'#e76f82':d.pi>0.3?'#80bd7a':'#5ca7df'}" stroke="#3e352c" stroke-width="2"/>${d.count>=20?`<text x="${x(d)}" y="${y(d)-17}" text-anchor="middle" class="svg-label">${d.name}</text>`:''}</g>`).join('');let d=rows[sel];E('scatterDetail').innerHTML=`<b>${d.name}</b><div class="big">${d.pi}</div><p>引用 ${d.count} 篇；合憲 ${d.con}、違憲 ${d.uncon}。</p>`}
 function groups(){const r=E('groupCards');if(r)r.innerHTML=DATA.groups.slice(0,3).map(g=>`<div><b>${g.type}</b><p>${g.feature}</p><p>${g.examples}</p></div>`).join('')}function keyCards(){const r=E('keyCards');if(r)r.innerHTML=DATA.keys.map(k=>`<div><b>${k.name}</b><span>${k['主要審查功能']}</span><p>引用：${k['引用篇數']}｜PI：${k['PI值']}｜${k['判斷方向']}</p></div>`).join('')}
 function era(k='ratio'){if(!E('eraChart')||!E('eraDetail'))return;document.querySelectorAll('[data-era]').forEach(b=>b.classList.toggle('active',b.dataset.era===k));let m=max(DATA.eras,k);E('eraChart').innerHTML=DATA.eras.map(d=>`<div class="barRow"><label>${d.years}<br><small>${d.name}</small></label><div class="track"><div class="fill" style="width:${pct(d[k],m)}%"></div></div><b>${k==='ratio'?d[k]+'%':d[k]}</b></div>`).join('');E('eraDetail').textContent='2001-2021 含原則釋字占比達 78.9%，代表憲法原則已成為後期釋憲論證的常態語言。'}
 function overviewDash(){if(!E('overviewKpis'))return;const total=813,withP=346,top=DATA.topPrinciples[0],peak=DATA.yearly.reduce((a,b)=>Number(a.ratio)>Number(b.ratio)?a:b,DATA.yearly[0]);E('overviewKpis').innerHTML=`<div><b>${total}</b><span>舊制釋字總量</span></div><div><b>${withP}</b><span>含憲法原則釋字</span></div><div><b>${DATA.principles.length}</b><span>可分析原則</span></div><div><b>${peak.year}</b><span>年度占比高點</span></div>`;let m=max(DATA.topPrinciples,'count');E('overviewTopBars').innerHTML=DATA.topPrinciples.slice(0,6).map(d=>`<div class="miniBar"><span>${d.name}</span><div class="track"><div class="fill" style="width:${pct(d.count,m)}%"></div></div><b>${d.count}</b></div>`).join('');let rows=DATA.yearly,w=720,h=210,p=22,mr=Math.max(100,...rows.map(d=>d.ratio)),x=d=>p+(d.year-rows[0].year)/(rows.at(-1).year-rows[0].year||1)*(w-p*2),y=d=>h-p-d.ratio/mr*(h-p*2),path=rows.map((d,i)=>`${i?'L':'M'}${x(d)} ${y(d)}`).join(' '),area=`M${x(rows[0])} ${h-p} `+rows.map(d=>`L${x(d)} ${y(d)}`).join(' ')+` L${x(rows.at(-1))} ${h-p} Z`;E('overviewSpark').innerHTML=`<path class="sparkArea" d="${area}"/><path class="sparkLine" d="${path}"/><text x="28" y="34" class="axis-label">含原則釋字占比</text><text x="${w-30}" y="${h-12}" text-anchor="end" class="axis-label">${rows[0].year}-${rows.at(-1).year}</text>`;E('overviewNote').innerHTML=`<b>講法</b><p>先用這頁告訴聽眾：資料不是只有文字摘要，而是已經被整理成可以比較的結構化資料。最高頻原則是「${top.name}」，引用 ${top.count} 篇。</p>`}
