@@ -23,9 +23,11 @@
   <script>
     const w = window.innerWidth;
     const h = window.innerHeight;
-    const ratio = w / Math.max(h, 1);
+    const minSide = Math.min(w, h);
+    const isPhoneUA = /Android|iPhone|iPod|Windows Phone|Mobile/i.test(navigator.userAgent);
+    const isTouchSmall = (navigator.maxTouchPoints || 0) > 0 && window.matchMedia('(pointer: coarse)').matches && minSide < 900;
     let target = 'story_slides_1024x768.html';
-    if (window.matchMedia('(max-width: 760px) and (orientation: portrait)').matches) {
+    if (isPhoneUA || isTouchSmall) {
       target = 'story_slides_mobile.html';
     } else if (w < 800) {
       target = 'story_slides_800x600.html';
