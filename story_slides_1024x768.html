@@ -843,7 +843,7 @@
 <section class="storySlide closing-slide" data-section="收束">
   <div class="storySheet">
     <span class="kicker">Closing</span>
-    <h1>透過 NLP 拆解，我們騰空鳥瞰——813 篇釋字全貌</h1>
+    <h1>透過 NLP 拆解，鳥瞰 813 篇釋字全貌</h1>
     
     
       <div class="storyCoverCampus closingCampus" aria-hidden="true">
@@ -890,7 +890,7 @@ function renderQuickMap(){const map=document.getElementById('storyQuickMap');if(
 function updateQuickMap(){const active=activeQuickPage();document.querySelectorAll('#storyQuickMap button').forEach(b=>b.classList.toggle('active',Number(b.dataset.page)===active))}
 function goto(n){current=Math.max(1,Math.min(slides.length,n));slides.forEach((s,i)=>s.classList.toggle('active',i===current-1));progress.style.width=(current/slides.length*100)+'%';pageInfo.textContent=String(current).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');updateQuickMap()}
 function deckFile(){return location.pathname.split('/').pop()||'story_slides.html'}
-function standaloneHref(href){if(!href||href.startsWith('#')||/^(https?:|mailto:|tel:)/i.test(href))return false;const file=(href.split(/[?#]/)[0].split('/').pop()||'');return /\.html$/i.test(file)&&!['index.html','slides.html','mobile.html','slides_4x3.html','slides_800x600.html','slides_1024x768.html','story_slides.html','story_slides_800x600.html','story_slides_1024x768.html'].includes(file)}
+function standaloneHref(href){if(!href||href.startsWith('#')||/^(https?:|mailto:|tel:)/i.test(href))return false;const file=(href.split(/[?#]/)[0].split('/').pop()||'');return /\.html$/i.test(file)&&!['index.html','slides.html','mobile.html','slides_4x3.html','slides_800x600.html','slides_1024x768.html','story_slides.html','story_slides_mobile.html','story_slides_800x600.html','story_slides_1024x768.html'].includes(file)}
 function attachBackParam(a){const href=a.getAttribute('href')||'';if(!standaloneHref(href))return;const u=new URL(href,location.href);u.searchParams.set('back',`${deckFile()}#${current}`);a.setAttribute('href',u.pathname.split('/').pop()+u.search+u.hash)}
 document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();goto(current+1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();goto(current-1)}if(e.key.toLowerCase()==='f'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}});
 document.addEventListener('click',e=>{const a=e.target.closest('a[href]');if(a)attachBackParam(a);const jump=e.target.closest('[data-story-jump]');if(jump){e.preventDefault();e.stopPropagation();goto(Number(jump.dataset.storyJump));return}if(e.target.closest('a,button'))return;let x=e.clientX/window.innerWidth;if(x>.74)goto(current+1);if(x<.26)goto(current-1)});

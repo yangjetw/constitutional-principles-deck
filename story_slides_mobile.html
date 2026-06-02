@@ -169,8 +169,90 @@
 .projector-1024-story .storyScopeCards .storyCard{min-height:230px;padding:26px 22px}
 .projector-1024-story .storyScopeCards .storyCard b{font-size:31px}
 .projector-1024-story .storyScopeCards .storyCard p{font-size:var(--story-explain-size);line-height:1.7}
-</style></head><body class="projector-1024-story"><div id="progress"></div><div id="pageInfo"></div><nav id="storyQuickMap" aria-label="故事版快導"></nav><div id="hint">← / → 換頁　F 全螢幕　圖表節點可點擊</div><main>
-<section class="storySlide storyFormalCoverSlide cover" data-section="開場">
+
+body.story-mobile-read{overflow:auto;-webkit-text-size-adjust:100%;background:linear-gradient(rgba(74,163,162,.13) 1px,transparent 1px),var(--paper2);background-size:100% 30px}
+body.story-mobile-read *{box-sizing:border-box;max-width:100%}
+body.story-mobile-read #progress,body.story-mobile-read #pageInfo,body.story-mobile-read #hint,body.story-mobile-read #storyQuickMap{display:none!important}
+body.story-mobile-read .storyMobileTop{position:sticky;top:0;z-index:90;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;background:rgba(245,236,213,.97);border-bottom:2px solid rgba(62,53,44,.28);backdrop-filter:blur(8px)}
+body.story-mobile-read .storyMobileTop b{display:block;color:#2f7777;font-size:clamp(18px,5vw,23px);line-height:1.22}
+body.story-mobile-read .storyMobileTop p{margin:3px 0 0;color:#6b5e52;font-size:clamp(13px,3.7vw,15px);line-height:1.35}
+body.story-mobile-read .storyMobileTop a{flex:0 0 auto;text-decoration:none;color:#2f7777;background:#fffaf0;border:2px solid var(--line);border-radius:8px 13px 7px 12px;box-shadow:2px 3px 0 rgba(62,53,44,.12);padding:8px 10px;font-weight:900;font-size:clamp(13px,3.7vw,15px)}
+body.story-mobile-read .storyMobileToc{position:sticky;top:64px;z-index:80;background:rgba(255,250,240,.97);border-bottom:2px dashed rgba(62,53,44,.24)}
+body.story-mobile-read .storyMobileToc summary{list-style:none;cursor:pointer;padding:10px 16px;color:#2f7777;font-weight:900;font-size:clamp(16px,4.4vw,18px)}
+body.story-mobile-read .storyMobileToc summary::-webkit-details-marker{display:none}
+body.story-mobile-read .storyMobileToc summary:after{content:"＋";float:right;color:#e76f82}
+body.story-mobile-read .storyMobileToc[open] summary:after{content:"－"}
+body.story-mobile-read .storyMobileToc nav{display:grid;gap:8px;padding:0 14px 14px;max-height:58vh;overflow:auto}
+body.story-mobile-read .storyMobileToc a{text-decoration:none;color:#2d2822;background:#fffaf0;border:1.5px dashed rgba(62,53,44,.36);border-radius:9px 14px 8px 13px;padding:9px 10px;display:grid;grid-template-columns:46px 1fr;gap:8px;align-items:center}
+body.story-mobile-read .storyMobileToc em{font-style:normal;color:#e76f82;font-family:"Segoe Print","Comic Sans MS",cursive;font-weight:900;font-size:clamp(15px,4.2vw,18px)}
+body.story-mobile-read .storyMobileToc span{font-size:clamp(15px,4.2vw,18px);font-weight:800;line-height:1.35}
+body.story-mobile-read main{display:block}
+body.story-mobile-read .storySlide,body.story-mobile-read .storySlide.active{position:relative;inset:auto;display:block!important;width:100%;height:auto;min-height:auto;padding:26px 14px 38px;overflow:visible;border-bottom:2px dashed rgba(62,53,44,.22);scroll-margin-top:118px}
+body.story-mobile-read .storySheet{display:block;width:100%;height:auto!important;max-height:none!important;max-width:none;overflow:visible}
+body.story-mobile-read .storySheet>*+*{margin-top:14px}
+body.story-mobile-read .kicker{font-size:clamp(15px,4.2vw,18px);padding:6px 13px;margin-bottom:2px}
+body.story-mobile-read h1{font-size:clamp(28px,8vw,39px)!important;line-height:1.18;margin:12px 0 14px;text-shadow:1.5px 1.5px 0 rgba(243,201,105,.45);overflow-wrap:anywhere}
+body.story-mobile-read .storyLead{font-size:clamp(19px,5.3vw,23px)!important;line-height:1.55;padding:13px 15px;margin-bottom:0}
+body.story-mobile-read p,body.story-mobile-read li,body.story-mobile-read .storyCard p,body.story-mobile-read .storyC6EraCards p,body.story-mobile-read .storyEraCards span,body.story-mobile-read .storyKeyOverview div span,body.story-mobile-read .storyC6EraCards small{font-size:clamp(18px,4.9vw,21px)!important;line-height:1.65}
+body.story-mobile-read .storyBtn{display:block;text-align:center;width:100%;font-size:clamp(16px,4.6vw,19px);white-space:normal}
+body.story-mobile-read .storyFlow,body.story-mobile-read .storyFlow.vertical,body.story-mobile-read .storyCards.three,body.story-mobile-read .storyCards.four,body.story-mobile-read .storyNumbers,body.story-mobile-read .storyNumbers.four,body.story-mobile-read .storyCompare,body.story-mobile-read .storyLabelGrid,body.story-mobile-read .storyRouteCards,body.story-mobile-read .storyBirdStats,body.story-mobile-read .storyBirdEye,body.story-mobile-read .storyScopeCards,body.story-mobile-read .storyKeyExtract,body.story-mobile-read .storyKeyMiniCards,body.story-mobile-read .storyC6EraCards,body.story-mobile-read .storyEraCards,body.story-mobile-read .storyKeyOverview,body.story-mobile-read .c5-group-cards,body.story-mobile-read .storyGroupGrid,body.story-mobile-read .storyAfterwordGrid{display:grid!important;grid-template-columns:1fr!important;gap:12px!important;width:100%!important;margin-left:0!important;margin-right:0!important}
+body.story-mobile-read .storyRouteCards i,body.story-mobile-read .storyFlow i,body.story-mobile-read .storyCompare i,body.story-mobile-read .storyKeyExtract i{display:none}
+body.story-mobile-read .storyFlow div,body.story-mobile-read .storyCompare div,body.story-mobile-read .storyNumbers div,body.story-mobile-read .storyCard,body.story-mobile-read .storyLabelGrid div,body.story-mobile-read .storyRouteCards button,body.story-mobile-read .storyBirdStats div,body.story-mobile-read .storyC6EraCards div,body.story-mobile-read .storyEraCards div,body.story-mobile-read .storyKeyOverview div,body.story-mobile-read .c5-group-cards div,body.story-mobile-read .storyKeyExtract div,body.story-mobile-read .storyKeyMiniCards div{min-height:auto!important;padding:16px!important;text-align:left!important;transform:none!important}
+body.story-mobile-read .storyFlow div,body.story-mobile-read .storyCompare div,body.story-mobile-read .storyNumbers div,body.story-mobile-read .storyCard,body.story-mobile-read .storyLabelGrid div,body.story-mobile-read .storyRouteCards button,body.story-mobile-read .storyBirdStats div,body.story-mobile-read .storyC6EraCards div,body.story-mobile-read .storyEraCards div,body.story-mobile-read .storyKeyOverview div,body.story-mobile-read .c5-group-cards div,body.story-mobile-read .storyKeyExtract div,body.story-mobile-read .storyKeyMiniCards div{border-radius:10px 16px 9px 14px}
+body.story-mobile-read .storyNumbers b,body.story-mobile-read .storyLabelGrid strong,body.story-mobile-read .storyBirdStats b{font-size:clamp(38px,11vw,54px)!important}
+body.story-mobile-read .storyFlow div,body.story-mobile-read .storyCard b,body.story-mobile-read .storyCompare b,body.story-mobile-read .storyC6EraCards b,body.story-mobile-read .storyEraCards b,body.story-mobile-read .storyKeyOverview b{font-size:clamp(23px,6.2vw,30px)!important}
+body.story-mobile-read .storyC6EraCards strong{font-size:clamp(38px,11vw,54px)!important;text-align:center}
+body.story-mobile-read .storyC6EraCards em,body.story-mobile-read .storyEraCards em{font-size:clamp(24px,7vw,33px)!important;text-align:center}
+body.story-mobile-read .storyC6EraCards span{font-size:clamp(22px,6vw,28px)!important;text-align:center}
+body.story-mobile-read .storyC6EraCards small{align-self:flex-start;margin:4px 0 10px}
+body.story-mobile-read .storyBigQuote,body.story-mobile-read .storyBigQuote.soft{display:block;font-size:clamp(30px,8.5vw,42px)!important;line-height:1.45;text-align:left;padding:20px 0}
+body.story-mobile-read .storySearch,body.story-mobile-read .storyPile,body.story-mobile-read .storyCloud{display:block;font-size:clamp(24px,6.8vw,34px)!important;text-align:left;padding:20px}
+body.story-mobile-read .principleChips{display:grid;grid-template-columns:1fr;gap:10px}
+body.story-mobile-read .principleChips b{font-size:clamp(24px,6.8vw,32px);text-align:center}
+body.story-mobile-read .storyHub{display:grid;gap:10px;place-items:stretch}
+body.story-mobile-read .storyHub b{width:auto;height:auto;border-radius:10px 16px 9px 14px;padding:18px}
+body.story-mobile-read .storyHub span{position:relative;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;display:block;border-radius:10px 16px 9px 14px}
+body.story-mobile-read .storyBirdEyeText{font-size:clamp(23px,6.4vw,31px);line-height:1.55}
+body.story-mobile-read .storyKeyVisual{display:block;padding:0}
+body.story-mobile-read .storyKeyMiniCards:before,body.story-mobile-read .storyKeyExtract div:before,body.story-mobile-read .storyKeyMiniCards div:before{display:none}
+body.story-mobile-read .storyFormalCover{max-width:none}
+body.story-mobile-read .storyFormalCover h1{font-size:clamp(34px,9.4vw,46px)!important}
+body.story-mobile-read .storyFormalLead{font-size:clamp(20px,5.6vw,25px)!important;line-height:1.55}
+body.story-mobile-read .storyFormalCover .storyCoverMeta{font-size:clamp(18px,5vw,22px);line-height:1.6}
+body.story-mobile-read .storyCoverCampus{position:relative;left:auto;top:auto;transform:none;width:100%;height:210px;opacity:.18;margin:10px 0}
+body.story-mobile-read .afterword-page{display:flex;flex-direction:column;gap:16px;min-height:auto}
+body.story-mobile-read .afterword-copy{position:relative;left:auto;top:auto;width:100%;order:1}
+body.story-mobile-read .afterword-main{font-size:clamp(28px,7.7vw,37px)!important;line-height:1.42;margin-bottom:16px}
+body.story-mobile-read .afterword-yellow{font-size:clamp(19px,5.3vw,23px)!important;line-height:1.55}
+body.story-mobile-read .afterword-small{font-size:clamp(18px,4.9vw,21px)!important}
+body.story-mobile-read .afterword-illustration{position:relative;inset:auto;min-height:330px;order:2}
+body.story-mobile-read .afterword-slide .afterword-page:after{display:none}
+body.story-mobile-read .closing-final p{font-size:clamp(26px,7.2vw,34px)!important}
+body.story-mobile-read .closing-meta{font-size:clamp(18px,5vw,22px);line-height:1.6}
+@media(max-width:420px){body.story-mobile-read .storyMobileTop{display:block}body.story-mobile-read .storyMobileTop a{display:block;text-align:center;margin-top:8px}body.story-mobile-read .storySlide{padding-left:12px;padding-right:12px}}
+</style></head><body class="story-mobile-read"><div id="progress"></div><div id="pageInfo"></div><nav id="storyQuickMap" aria-label="故事版快導"></nav><div id="hint">← / → 換頁　F 全螢幕　圖表節點可點擊</div>
+<header class="storyMobileTop">
+  <div><b>憲法原則變遷之實證研究</b><p>手機閱讀版｜完整功能請用電腦</p></div>
+  <a href="story_slides.html">投影片</a>
+</header>
+<details class="storyMobileToc">
+  <summary>簡報地圖</summary>
+  <nav>
+    <a href="#story-slide-1"><em>01</em><span>封面</span></a>
+    <a href="#story-slide-9"><em>09</em><span>導覽</span></a>
+    <a href="#story-slide-2"><em>02</em><span>開場</span></a>
+    <a href="#story-slide-3"><em>一</em><span>找材料</span></a>
+    <a href="#story-slide-10"><em>二</em><span>建方法</span></a>
+    <a href="#story-slide-15"><em>三</em><span>做資料</span></a>
+    <a href="#story-slide-20"><em>四</em><span>看趨勢</span></a>
+    <a href="#story-slide-27"><em>五</em><span>呼應時代</span></a>
+    <a href="#story-slide-33"><em>總結</em><span>回答問題</span></a>
+    <a href="#story-slide-36"><em>後記</em><span>回顧歷程</span></a>
+    <a href="#story-slide-38"><em>收束</em><span>結尾</span></a>
+  </nav>
+</details>
+<main>
+<section id="story-slide-1" class="storySlide storyFormalCoverSlide cover" data-section="開場">
   <div class="storySheet">
     <div class="storyCoverCampus" aria-hidden="true">
       <svg viewBox="0 0 760 330" role="img">
@@ -198,7 +280,7 @@
     </div>
   </div>
 </section>
-<section class="storySlide " data-section="問題">
+<section id="story-slide-2" class="storySlide " data-section="問題">
   <div class="storySheet">
     <span class="kicker">一臉茫然</span>
     <h1>違反憲法原則？</h1>
@@ -208,7 +290,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="問題">
+<section id="story-slide-3" class="storySlide " data-section="問題">
   <div class="storySheet">
     <span class="kicker">研究材料</span>
     <h1>憲法條文找不到答案</h1>
@@ -225,7 +307,7 @@
 
   </div>
 </section>
-<section class="storySlide " data-section="問題">
+<section id="story-slide-4" class="storySlide " data-section="問題">
   <div class="storySheet">
     <span class="kicker">大法官職權</span>
     <h1>大法官基於憲法審查案件</h1>
@@ -238,7 +320,7 @@
 
   </div>
 </section>
-<section class="storySlide " data-section="問題">
+<section id="story-slide-5" class="storySlide " data-section="問題">
   <div class="storySheet">
     <span class="kicker">釋字文本</span>
     <h1>為什麼是舊制 813 篇文本？</h1>
@@ -248,7 +330,7 @@
     
   </div>
 </section>
-<section class="storySlide storyQuestionSlide c1-page" data-section="問題">
+<section id="story-slide-6" class="storySlide storyQuestionSlide c1-page" data-section="問題">
   <div class="storySheet">
     <span class="kicker">研究問題</span>
     <h1>依 5W 框架</h1>
@@ -262,7 +344,7 @@
     </div>
   </div>
 </section>
-<section class="storySlide " data-section="對象">
+<section id="story-slide-7" class="storySlide " data-section="對象">
   <div class="storySheet">
     <span class="kicker">研究邊界</span>
     <h1>研究範圍與限制</h1>
@@ -274,7 +356,7 @@
     
   </div>
 </section>
-<section class="storySlide storyBirdEyeSlide" data-section="對象">
+<section id="story-slide-8" class="storySlide storyBirdEyeSlide" data-section="對象">
   <div class="storySheet">
     <span class="kicker">視角</span>
     <h1>鳥瞰到什麼？</h1>
@@ -291,7 +373,7 @@
     
   </div>
 </section>
-<section class="storySlide storyTocSlide" data-section="對象">
+<section id="story-slide-9" class="storySlide storyTocSlide" data-section="對象">
   <div class="storySheet">
     <span class="kicker">Roadmap</span>
     <h1>簡報地圖</h1>
@@ -317,7 +399,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="方法">
+<section id="story-slide-10" class="storySlide " data-section="方法">
   <div class="storySheet">
     <span class="kicker">方法設計</span>
     <h1>從文本到資料表</h1>
@@ -328,7 +410,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="方法">
+<section id="story-slide-11" class="storySlide " data-section="方法">
   <div class="storySheet">
     <span class="kicker">轉換 1</span>
     <h1>先把長篇釋字拆成分析單位</h1>
@@ -338,7 +420,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="方法">
+<section id="story-slide-12" class="storySlide " data-section="方法">
   <div class="storySheet">
     <span class="kicker">轉換 2</span>
     <h1>如何識別憲法原則</h1>
@@ -348,7 +430,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="方法">
+<section id="story-slide-13" class="storySlide " data-section="方法">
   <div class="storySheet">
     <span class="kicker">轉換 3</span>
     <h1>再觀察憲法原則是否參與合憲性判斷</h1>
@@ -360,7 +442,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="方法">
+<section id="story-slide-14" class="storySlide " data-section="方法">
   <div class="storySheet">
     <span class="kicker">二層差異</span>
     <h1>識別，不等於標註</h1>
@@ -370,7 +452,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="成果">
+<section id="story-slide-15" class="storySlide " data-section="成果">
   <div class="storySheet">
     <span class="kicker">處理成果</span>
     <h1>資料處理規模</h1>
@@ -380,7 +462,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="成果">
+<section id="story-slide-16" class="storySlide " data-section="成果">
   <div class="storySheet">
     <span class="kicker">實證資料集</span>
     <h1>30 項憲法原則</h1>
@@ -391,7 +473,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="成果">
+<section id="story-slide-17" class="storySlide " data-section="成果">
   <div class="storySheet">
     <span class="kicker">人工介入</span>
     <h1>連結憲法原則</h1>
@@ -409,7 +491,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="成果">
+<section id="story-slide-18" class="storySlide " data-section="成果">
   <div class="storySheet">
     <span class="kicker">標註成果</span>
     <h1>655 筆合憲性標註短句</h1>
@@ -426,7 +508,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="成果">
+<section id="story-slide-19" class="storySlide " data-section="成果">
   <div class="storySheet">
     <span class="kicker">可回溯</span>
     <h1>資料不是黑箱</h1>
@@ -437,7 +519,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="數字">
+<section id="story-slide-20" class="storySlide " data-section="數字">
   <div class="storySheet">
     <span class="kicker">發現1</span>
     <h1>援引憲法原則逐則常態化</h1>
@@ -506,7 +588,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="數字">
+<section id="story-slide-21" class="storySlide " data-section="數字">
   <div class="storySheet">
     <span class="kicker">發現2</span>
     <h1>少數高頻，多數低頻</h1>
@@ -526,7 +608,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="數字">
+<section id="story-slide-22" class="storySlide " data-section="數字">
   <div class="storySheet">
     <span class="kicker">發現3</span>
     <h1>早出現，不等於後來最常用</h1>
@@ -537,7 +619,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="數字">
+<section id="story-slide-23" class="storySlide " data-section="數字">
   <div class="storySheet">
     <span class="kicker">發現4</span>
     <h1>比例原則是共現的樞紐</h1>
@@ -548,7 +630,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="數字">
+<section id="story-slide-24" class="storySlide " data-section="數字">
   <div class="storySheet">
     <span class="kicker">關鍵原則</span>
     <h1>三項關鍵原則如何被篩出？</h1>
@@ -571,7 +653,7 @@
     
   </div>
 </section>
-<section class="storySlide c5-page" data-section="數字">
+<section id="story-slide-25" class="storySlide c5-page" data-section="數字">
   <div class="storySheet">
     <span class="kicker">判斷方向</span>
     <h1>PI 值，合憲性判斷方向</h1>
@@ -596,7 +678,7 @@
     
   </div>
 </section>
-<section class="storySlide c5-page" data-section="數字">
+<section id="story-slide-26" class="storySlide c5-page" data-section="數字">
   <div class="storySheet">
     <span class="kicker">使用型態分群</span>
     <h1>引用篇數 × PI 值，整理五種使用型態</h1>
@@ -629,7 +711,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="變遷">
+<section id="story-slide-27" class="storySlide " data-section="變遷">
   <div class="storySheet">
     <span class="kicker">時代特徵</span>
     <h1>憲法原則不是在真空中變化</h1>
@@ -644,7 +726,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="變遷">
+<section id="story-slide-28" class="storySlide " data-section="變遷">
   <div class="storySheet">
     <span class="kicker">整體觀察</span>
     <h1>憲法原則從零星援引，走向常態化與多原則並用</h1>
@@ -660,7 +742,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="變遷">
+<section id="story-slide-29" class="storySlide " data-section="變遷">
   <div class="storySheet">
     <span class="kicker">關鍵工具</span>
     <h1>三項關鍵原則，各自處理不同問題</h1>
@@ -675,7 +757,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="變遷">
+<section id="story-slide-30" class="storySlide " data-section="變遷">
   <div class="storySheet">
     <span class="kicker">比例原則</span>
     <h1>限制是否過度？</h1>
@@ -702,7 +784,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="變遷">
+<section id="story-slide-31" class="storySlide " data-section="變遷">
   <div class="storySheet">
     <span class="kicker">平等原則</span>
     <h1>差別待遇是否合理？</h1>
@@ -722,7 +804,7 @@
     
   </div>
 </section>
-<section class="storySlide " data-section="變遷">
+<section id="story-slide-32" class="storySlide " data-section="變遷">
   <div class="storySheet">
     <span class="kicker">法律保留原則</span>
     <h1>國家有沒有資格限制？</h1>
@@ -739,7 +821,7 @@
     
   </div>
 </section>
-<section class="storySlide c7-page" data-section="第七章">
+<section id="story-slide-33" class="storySlide c7-page" data-section="第七章">
   <div class="storySheet">
     <span class="kicker">回應研究問題</span>
     <h1>五個問題，五個答案</h1>
@@ -756,7 +838,7 @@
     
   </div>
 </section>
-<section class="storySlide c7-page" data-section="第七章">
+<section id="story-slide-34" class="storySlide c7-page" data-section="第七章">
   <div class="storySheet">
     <span class="kicker">研究貢獻</span>
     <h1>本研究帶來什麼？</h1>
@@ -771,7 +853,7 @@
     
   </div>
 </section>
-<section class="storySlide c7-page" data-section="第七章">
+<section id="story-slide-35" class="storySlide c7-page" data-section="第七章">
   <div class="storySheet">
     <span class="kicker">技術評估</span>
     <h1>NLP 只是工具</h1>
@@ -788,7 +870,7 @@
     
   </div>
 </section>
-<section class="storySlide afterword-slide" data-section="後記">
+<section id="story-slide-36" class="storySlide afterword-slide" data-section="後記">
   <div class="storySheet">
     <span class="kicker">後記</span>
     <h1>魚不知道世上有水</h1>
@@ -812,7 +894,7 @@
     
   </div>
 </section>
-<section class="storySlide afterword-slide afterword-guide-slide" data-section="後記">
+<section id="story-slide-37" class="storySlide afterword-slide afterword-guide-slide" data-section="後記">
   <div class="storySheet">
     <span class="kicker">後記</span>
     <h1>被質疑，也被相信</h1>
@@ -840,7 +922,7 @@
     
   </div>
 </section>
-<section class="storySlide closing-slide" data-section="收束">
+<section id="story-slide-38" class="storySlide closing-slide" data-section="收束">
   <div class="storySheet">
     <span class="kicker">Closing</span>
     <h1>透過 NLP 拆解，鳥瞰 813 篇釋字全貌</h1>

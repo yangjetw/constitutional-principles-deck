@@ -8,7 +8,7 @@
   <meta name="keywords" content="憲法原則,大法官釋字,自然語言處理,NLP,計量法學,憲法解釋,開南大學法律學系,楊婕儀,張惠堂">
   <meta name="author" content="楊婕儀">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://yangjetw.github.io/constitutional-principles-deck/story_slides.html">
+  <link rel="canonical" href="https://yangjetw.github.io/constitutional-principles-deck/story_slides_1024x768.html">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="憲法原則變遷之實證研究">
@@ -24,14 +24,14 @@
     const w = window.innerWidth;
     const h = window.innerHeight;
     const ratio = w / Math.max(h, 1);
-    let target = 'story_slides.html';
-    if (w <= 850 && h <= 650 && Math.abs(ratio - 4 / 3) < 0.28) {
+    let target = 'story_slides_1024x768.html';
+    if (window.matchMedia('(max-width: 760px) and (orientation: portrait)').matches) {
+      target = 'story_slides_mobile.html';
+    } else if (w < 800) {
       target = 'story_slides_800x600.html';
-    } else if (w <= 1100 && h <= 840 && Math.abs(ratio - 4 / 3) < 0.28) {
-      target = 'story_slides_1024x768.html';
     }
     location.replace(target + location.hash);
   </script>
-  <p><a href="story_slides.html">進入口試故事版</a>　<a href="story_slides_800x600.html">800×600 故事版</a>　<a href="story_slides_1024x768.html">1024×768 故事版</a></p>
+  <p><a href="story_slides_1024x768.html">進入口試故事版</a>　<a href="story_slides_mobile.html">手機故事版</a>　<a href="story_slides_800x600.html">800×600 故事版</a>　<a href="story_slides.html">1024 備用入口</a></p>
 </body>
 </html>
