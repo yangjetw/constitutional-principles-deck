@@ -8,4 +8,29 @@
 <section class="panel"><h2>八分群與人工修正情形</h2><table><thead><tr><th>分群代碼</th><th>特徵組合</th><th>起始筆數</th><th>未異動</th><th>人工修正</th><th>修正率</th><th>處理解讀</th></tr></thead><tbody><tr><td>111</td><td>原則＋憲法＋核心詞</td><td>213</td><td>213</td><td>0</td><td class="rateCell"><div class="rateBar"><div class="rateTrack"><div class="rateFill" style="width:0%"></div></div><b>0.0%</b></div></td><td>高信心組，規則命中穩定。</td></tr><tr><td>101</td><td>原則＋無憲法＋核心詞</td><td>151</td><td>151</td><td>0</td><td class="rateCell"><div class="rateBar"><div class="rateTrack"><div class="rateFill" style="width:0%"></div></div><b>0.0%</b></div></td><td>高信心組，核心詞足以支撐識別。</td></tr><tr><td>011</td><td>無原則＋憲法＋核心詞</td><td>81</td><td>81</td><td>0</td><td class="rateCell"><div class="rateBar"><div class="rateTrack"><div class="rateFill" style="width:0%"></div></div><b>0.0%</b></div></td><td>高信心組，憲法語境與核心詞並存。</td></tr><tr><td>001</td><td>無原則＋無憲法＋核心詞</td><td>70</td><td>61</td><td>9</td><td class="rateCell"><div class="rateBar"><div class="rateTrack"><div class="rateFill" style="width:12.9%"></div></div><b>12.9%</b></div></td><td>中風險組，需確認核心詞是否真的指向憲法原則。</td></tr><tr><td>110</td><td>原則＋憲法＋無核心詞</td><td>1</td><td>0</td><td>1</td><td class="rateCell"><div class="rateBar"><div class="rateTrack"><div class="rateFill" style="width:100%"></div></div><b>100.0%</b></div></td><td>形式線索強，但概念指向不足，需人工確認。</td></tr><tr><td>100</td><td>原則＋無憲法＋無核心詞</td><td>3</td><td>1</td><td>2</td><td class="rateCell"><div class="rateBar"><div class="rateTrack"><div class="rateFill" style="width:66.7%"></div></div><b>66.7%</b></div></td><td>可能只是一般原則，需人工排除或修正。</td></tr><tr><td>010</td><td>無原則＋憲法＋無核心詞</td><td>565</td><td>551</td><td>14</td><td class="rateCell"><div class="rateBar"><div class="rateTrack"><div class="rateFill" style="width:2.5%"></div></div><b>2.5%</b></div></td><td>多為背景或條文語句，少數需人工補正。</td></tr><tr><td>000</td><td>無原則＋無憲法＋無核心詞</td><td>364</td><td>232</td><td>132</td><td class="rateCell"><div class="rateBar"><div class="rateTrack"><div class="rateFill" style="width:36.3%"></div></div><b>36.3%</b></div></td><td>低信心組，高度仰賴人工補正與排除。</td></tr></tbody></table></section>
 <section class="panel"><h2>人工介入的意義</h2><div class="note">人工介入並非平均分布，而是集中在低信心與高雜訊組別；高信心組大多可由規則穩定處理。</div><p>八分群讓憲法原則識別過程更透明。人工修正集中在規則難以穩定判斷的組別，避免了全人工判讀的低效率，也避免了全自動或 LLM 黑箱判斷的不透明。</p></section>
 <footer><a class="btn" href="slides.html">返回主簡報 →</a><a class="btn" href="method_dashboard.html">返回方法流程儀表板 →</a></footer></div><script>
+</script><script id="return-to-deck-script">
+(function(){
+  const params = new URLSearchParams(location.search);
+  const back = params.get('back');
+  if (!back || !/^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html#(?:slide-)?\d+$/.test(back)) return;
+  const pageMatch = back.match(/#(?:slide-)?(\d+)$/);
+  const pageText = pageMatch ? `返回第 ${pageMatch[1]} 頁 →` : '返回主簡報 →';
+  const deckFiles = /^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html/i;
+  const mainFiles = /^(index|slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html$/i;
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    const text = a.textContent || '';
+    const file = (href.split(/[?#]/)[0].split('/').pop() || '');
+    if (deckFiles.test(file) || /返回主簡報|返回第|返回 slides\.html/i.test(text)) {
+      a.setAttribute('href', back);
+      if (/返回主簡報|返回第|返回 slides\.html/i.test(text)) a.textContent = pageText;
+      return;
+    }
+    if (/\.html$/i.test(file) && !mainFiles.test(file) && !/^(https?:|mailto:|tel:)/i.test(href)) {
+      const u = new URL(href, location.href);
+      u.searchParams.set('back', back);
+      a.setAttribute('href', u.pathname.split('/').pop() + u.search + u.hash);
+    }
+  });
+})();
 </script></body></html>

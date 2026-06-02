@@ -14,4 +14,29 @@ function draw(cat="全部"){
 }
 document.querySelectorAll("[data-cat]").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll("[data-cat]").forEach(b=>b.classList.toggle("active",b===btn));draw(btn.dataset.cat)}));
 draw();
+</script><script id="return-to-deck-script">
+(function(){
+  const params = new URLSearchParams(location.search);
+  const back = params.get('back');
+  if (!back || !/^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html#(?:slide-)?\d+$/.test(back)) return;
+  const pageMatch = back.match(/#(?:slide-)?(\d+)$/);
+  const pageText = pageMatch ? `返回第 ${pageMatch[1]} 頁 →` : '返回主簡報 →';
+  const deckFiles = /^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html/i;
+  const mainFiles = /^(index|slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html$/i;
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    const text = a.textContent || '';
+    const file = (href.split(/[?#]/)[0].split('/').pop() || '');
+    if (deckFiles.test(file) || /返回主簡報|返回第|返回 slides\.html/i.test(text)) {
+      a.setAttribute('href', back);
+      if (/返回主簡報|返回第|返回 slides\.html/i.test(text)) a.textContent = pageText;
+      return;
+    }
+    if (/\.html$/i.test(file) && !mainFiles.test(file) && !/^(https?:|mailto:|tel:)/i.test(href)) {
+      const u = new URL(href, location.href);
+      u.searchParams.set('back', back);
+      a.setAttribute('href', u.pathname.split('/').pop() + u.search + u.hash);
+    }
+  });
+})();
 </script></body></html>

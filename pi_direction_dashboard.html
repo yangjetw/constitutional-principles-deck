@@ -10,4 +10,29 @@ function visible(d){if(focus==='positive')return d.pi>.25;if(focus==='negative')
 function draw(){document.querySelectorAll('[data-focus]').forEach(b=>b.classList.toggle('active',b.dataset.focus===focus));const r=rows().filter(visible);Plotly.newPlot('piBars',[{type:'bar',orientation:'h',x:r.map(d=>d.pi),y:r.map(d=>d.name),marker:{color:r.map(d=>d.pi>0.25?'#4aa3a2':d.pi<-0.25?'#e76f82':'#f3c969'),line:{color:'#3e352c',width:1.5}},customdata:r.map(d=>[d.name,d.con,d.uncon,d.sample]),hovertemplate:'%{customdata[0]}<br>PI：%{x:.2f}<br>合憲：%{customdata[1]}<br>違憲：%{customdata[2]}<br>可計算樣本：%{customdata[3]}<extra></extra>'}],{margin:{l:170,r:30,t:20,b:50},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(255,250,240,.75)',xaxis:{title:'PI 值',range:[-1,1],zeroline:true,zerolinecolor:'#3e352c'},yaxis:{autorange:'reversed'},shapes:[{type:'line',xref:'x',yref:'paper',x0:0,x1:0,y0:0,y1:1,line:{color:'#3e352c',dash:'dash'}}],hoverlabel:{bgcolor:'#fffaf0',bordercolor:'#3e352c',font:{color:'#2d2822',size:14}},showlegend:false},{displayModeBar:false,responsive:true});table(r)}
 function table(r){piTable.innerHTML='<thead><tr><th>原則名稱</th><th>合憲引用數</th><th>違憲引用數</th><th>可計算樣本數</th><th>PI 值</th></tr></thead><tbody>'+r.map(d=>`<tr><td>${d.name}</td><td>${d.con??'-'}</td><td>${d.uncon??'-'}</td><td>${d.sample}</td><td>${Number(d.pi).toFixed(2)}</td></tr>`).join('')+'</tbody>'}
 document.body.addEventListener('click',e=>{const b=e.target.closest('[data-focus]');if(!b)return;focus=b.dataset.focus;draw()});draw();
+</script><script id="return-to-deck-script">
+(function(){
+  const params = new URLSearchParams(location.search);
+  const back = params.get('back');
+  if (!back || !/^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html#(?:slide-)?\d+$/.test(back)) return;
+  const pageMatch = back.match(/#(?:slide-)?(\d+)$/);
+  const pageText = pageMatch ? `返回第 ${pageMatch[1]} 頁 →` : '返回主簡報 →';
+  const deckFiles = /^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html/i;
+  const mainFiles = /^(index|slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html$/i;
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    const text = a.textContent || '';
+    const file = (href.split(/[?#]/)[0].split('/').pop() || '');
+    if (deckFiles.test(file) || /返回主簡報|返回第|返回 slides\.html/i.test(text)) {
+      a.setAttribute('href', back);
+      if (/返回主簡報|返回第|返回 slides\.html/i.test(text)) a.textContent = pageText;
+      return;
+    }
+    if (/\.html$/i.test(file) && !mainFiles.test(file) && !/^(https?:|mailto:|tel:)/i.test(href)) {
+      const u = new URL(href, location.href);
+      u.searchParams.set('back', back);
+      a.setAttribute('href', u.pathname.split('/').pop() + u.search + u.hash);
+    }
+  });
+})();
 </script></body></html>

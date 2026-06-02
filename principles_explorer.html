@@ -10,4 +10,29 @@ function list(){let q=document.getElementById('search').value.trim();let arr=row
 function show(name){active=rows.find(d=>d.principle_name===name)||active;document.getElementById('info').innerHTML=Object.entries({'標準名稱':active.principle_name,'異形詞／同義表述':active.aliases,'首次出現釋字':active.first_jy,'首次出現年份':active.first_year,'出現釋字篇數':active.case_count,'占全部 813 篇比例':active.case_percent+'%','合憲標註數':active.label_1_count,'違憲標註數':active.label_2_count,'不明確標註數':active.label_0_count,'無判斷詞數':active.label_minus1_count}).map(([k,v])=>`<b>${k}</b><span>${v||'無'}</span>`).join('');let cs=citations.filter(c=>c.principle_name===active.principle_name).slice(0,8);document.getElementById('citationPreview').innerHTML='<thead><tr><th>釋字號</th><th>段落</th><th>合憲性標記</th><th>判斷類型</th><th>短句摘要</th></tr></thead><tbody>'+ (cs.length?cs.map(c=>`<tr><td>${c.jy_number}</td><td>${c.paragraph_id}</td><td>${c.label_code}</td><td>${c.label_name}</td><td>${c.sentence_text}</td></tr>`).join(''):'<tr><td colspan="5">待匯入資料</td></tr>') + '</tbody>';list();}
 function chart(n=10){let arr=[...rows].sort((a,b)=>b.case_count-a.case_count).slice(0,n);if(window.Plotly)Plotly.newPlot('rankChart',[{type:'bar',orientation:'h',y:arr.map(d=>d.principle_name).reverse(),x:arr.map(d=>d.case_count).reverse(),marker:{color:'#4aa3a2'},hovertemplate:'%{y}<br>篇數：%{x}<extra></extra>'}],{paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(255,250,240,.72)',margin:{l:160,r:20,t:20,b:40},hoverlabel:{bgcolor:'#fffaf0',bordercolor:'#3e352c',font:{color:'#2d2822',size:14}}},{displayModeBar:false,responsive:true});}
 document.body.addEventListener('click',e=>{let b=e.target.closest('button');if(!b)return;if(b.dataset.name)show(b.dataset.name);if(b.dataset.sort){sortMode=b.dataset.sort;list();}if(b.dataset.filter){onlyTop=b.dataset.filter==='top';list();}if(b.dataset.show)chart(Number(b.dataset.show));});document.getElementById('search').addEventListener('input',list);list();show(active.principle_name);chart(10);
+</script><script id="return-to-deck-script">
+(function(){
+  const params = new URLSearchParams(location.search);
+  const back = params.get('back');
+  if (!back || !/^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html#(?:slide-)?\d+$/.test(back)) return;
+  const pageMatch = back.match(/#(?:slide-)?(\d+)$/);
+  const pageText = pageMatch ? `返回第 ${pageMatch[1]} 頁 →` : '返回主簡報 →';
+  const deckFiles = /^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html/i;
+  const mainFiles = /^(index|slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html$/i;
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    const text = a.textContent || '';
+    const file = (href.split(/[?#]/)[0].split('/').pop() || '');
+    if (deckFiles.test(file) || /返回主簡報|返回第|返回 slides\.html/i.test(text)) {
+      a.setAttribute('href', back);
+      if (/返回主簡報|返回第|返回 slides\.html/i.test(text)) a.textContent = pageText;
+      return;
+    }
+    if (/\.html$/i.test(file) && !mainFiles.test(file) && !/^(https?:|mailto:|tel:)/i.test(href)) {
+      const u = new URL(href, location.href);
+      u.searchParams.set('back', back);
+      a.setAttribute('href', u.pathname.split('/').pop() + u.search + u.hash);
+    }
+  });
+})();
 </script></body></html>

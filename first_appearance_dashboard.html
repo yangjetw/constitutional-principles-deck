@@ -9,4 +9,29 @@ function table(r){document.getElementById('firstTable').innerHTML='<thead><tr><t
 function setupPrincipleSelect(){const names=[...new Set(principleYearly.map(d=>d.name))].sort((a,b)=>a.localeCompare(b,'zh-Hant'));const sel=document.getElementById('principleSelect');sel.innerHTML=names.map(n=>`<option value="${n}">${n}</option>`).join('');if(names.includes(selectedPrinciple))sel.value=selectedPrinciple;else selectedPrinciple=names[0]||'';}
 function principleTrend(){const r=principleYearly.filter(d=>d.name===selectedPrinciple).sort((a,b)=>a.year-b.year);document.getElementById('principleTrendNote').textContent=r.length?`${selectedPrinciple}：共 ${r.reduce((s,d)=>s+d.count,0)} 篇年度引用，出現於 ${r.length} 個年份；X 軸固定為 1949–2021，空白年份代表未出現。`:'待匯入年度原則明細資料';if(!r.length){document.getElementById('principleTrend').innerHTML='<div class="missing">待匯入年度原則明細資料</div>';return;}if(window.Plotly){Plotly.newPlot('principleTrend',[{type:'bar',x:r.map(d=>d.year),y:r.map(d=>d.count),marker:{color:'#4aa3a2'},customdata:r.map(d=>[d.name]),hovertemplate:'%{customdata[0]}<br>年份：%{x}<br>出現釋字篇數：%{y}<extra></extra>'}],{paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(255,250,240,.72)',margin:{l:54,r:22,t:20,b:45},xaxis:{title:'年份',range:[1949,2021],dtick:10},yaxis:{title:'出現釋字篇數',dtick:1},hoverlabel:{bgcolor:'#fffaf0',bordercolor:'#3e352c',font:{color:'#2d2822',size:14}}},{displayModeBar:false,responsive:true});}else{document.getElementById('principleTrend').innerHTML='<div class="fallback">'+r.map(d=>`<div class="row"><b>${d.year}</b><div class="track"><div class="fill" style="width:${d.count/Math.max(...r.map(x=>x.count))*100}%"></div></div><span>${d.count}</span></div>`).join('')+'</div>'}}
 document.body.addEventListener('click',e=>{let f=e.target.closest('[data-first]');if(f){firstMode=f.dataset.first;draw()}let q=e.target.closest('[data-quick]');if(q){selectedPrinciple=q.dataset.quick;document.getElementById('principleSelect').value=selectedPrinciple;principleTrend();}});document.addEventListener('change',e=>{if(e.target.id==='principleSelect'){selectedPrinciple=e.target.value;principleTrend();}});setupPrincipleSelect();draw();principleTrend();
+</script><script id="return-to-deck-script">
+(function(){
+  const params = new URLSearchParams(location.search);
+  const back = params.get('back');
+  if (!back || !/^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html#(?:slide-)?\d+$/.test(back)) return;
+  const pageMatch = back.match(/#(?:slide-)?(\d+)$/);
+  const pageText = pageMatch ? `返回第 ${pageMatch[1]} 頁 →` : '返回主簡報 →';
+  const deckFiles = /^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html/i;
+  const mainFiles = /^(index|slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html$/i;
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    const text = a.textContent || '';
+    const file = (href.split(/[?#]/)[0].split('/').pop() || '');
+    if (deckFiles.test(file) || /返回主簡報|返回第|返回 slides\.html/i.test(text)) {
+      a.setAttribute('href', back);
+      if (/返回主簡報|返回第|返回 slides\.html/i.test(text)) a.textContent = pageText;
+      return;
+    }
+    if (/\.html$/i.test(file) && !mainFiles.test(file) && !/^(https?:|mailto:|tel:)/i.test(href)) {
+      const u = new URL(href, location.href);
+      u.searchParams.set('back', back);
+      a.setAttribute('href', u.pathname.split('/').pop() + u.search + u.hash);
+    }
+  });
+})();
 </script></body></html>

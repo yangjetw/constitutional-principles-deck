@@ -7,4 +7,29 @@ function rows(){let arr=[...principles]; if(sort==='firstYear')arr=arr.filter(d=
 function draw(){document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));document.querySelectorAll('[data-sort]').forEach(b=>b.classList.toggle('active',b.dataset.sort===sort)); const r=rows(); if(window.Plotly){Plotly.newPlot('rankChart',[{type:'bar',orientation:'h',y:r.map(d=>d.name).reverse(),x:r.map(d=>d.count).reverse(),customdata:r.map(d=>[d.pct,d.firstYear||'-',d.firstCase||'-']).reverse(),marker:{color:'#4aa3a2'},hovertemplate:'%{y}<br>出現篇數：%{x}<br>占比：%{customdata[0]}%<br>首見：%{customdata[1]}｜釋字 %{customdata[2]}<extra></extra>'}],{paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(255,250,240,.72)',margin:{l:170,r:24,t:20,b:45},xaxis:{title:'出現釋字篇數'},hoverlabel:{bgcolor:'#fffaf0',bordercolor:'#3e352c',font:{color:'#2d2822',size:14}}},{displayModeBar:false,responsive:true});}else{document.getElementById('rankChart').innerHTML='<div class="fallback">'+r.map(d=>`<div class="row"><b>${d.name}</b><div class="track"><div class="fill" style="width:${d.count/Math.max(...principles.map(p=>p.count))*100}%"></div></div><span>${d.count}</span></div>`).join('')+'</div>'} table(r);}
 function table(r){document.getElementById('rankTable').innerHTML='<thead><tr><th>排名</th><th>原則名稱</th><th>出現釋字篇數</th><th>占 813 篇比例</th><th>首見年份</th><th>首見釋字</th></tr></thead><tbody>'+r.map((d,i)=>`<tr><td>${i+1}</td><td>${d.name}</td><td>${d.count}</td><td>${d.pct}%</td><td>${d.firstYear||'-'}</td><td>${d.firstCase||'-'}</td></tr>`).join('')+'</tbody>';}
 document.body.addEventListener('click',e=>{const m=e.target.closest('[data-mode]'); if(m){mode=m.dataset.mode;draw()} const s=e.target.closest('[data-sort]'); if(s){sort=s.dataset.sort;draw()}});draw();
+</script><script id="return-to-deck-script">
+(function(){
+  const params = new URLSearchParams(location.search);
+  const back = params.get('back');
+  if (!back || !/^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html#(?:slide-)?\d+$/.test(back)) return;
+  const pageMatch = back.match(/#(?:slide-)?(\d+)$/);
+  const pageText = pageMatch ? `返回第 ${pageMatch[1]} 頁 →` : '返回主簡報 →';
+  const deckFiles = /^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html/i;
+  const mainFiles = /^(index|slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html$/i;
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    const text = a.textContent || '';
+    const file = (href.split(/[?#]/)[0].split('/').pop() || '');
+    if (deckFiles.test(file) || /返回主簡報|返回第|返回 slides\.html/i.test(text)) {
+      a.setAttribute('href', back);
+      if (/返回主簡報|返回第|返回 slides\.html/i.test(text)) a.textContent = pageText;
+      return;
+    }
+    if (/\.html$/i.test(file) && !mainFiles.test(file) && !/^(https?:|mailto:|tel:)/i.test(href)) {
+      const u = new URL(href, location.href);
+      u.searchParams.set('back', back);
+      a.setAttribute('href', u.pathname.split('/').pop() + u.search + u.hash);
+    }
+  });
+})();
 </script></body></html>

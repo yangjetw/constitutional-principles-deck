@@ -11,4 +11,29 @@ fillSelect('qPrinciple',[...new Set(data.map(d=>d.principle_name))].sort((a,b)=>
 fillSelect('qJy',[...new Set(data.map(d=>String(d.jy_number)))].sort((a,b)=>Number(a)-Number(b)));
 function render(){let qp=document.getElementById('qPrinciple').value, qj=document.getElementById('qJy').value, loc=document.getElementById('location').value, lab=document.getElementById('label').value;let rows=data.filter(d=>(!qp||d.principle_name===qp)&&(!qj||String(d.jy_number)===qj)&&(!loc||d.location===loc)&&(!lab||String(d.label_code)===lab));rows.sort((a,b)=>String(a[sortKey]).localeCompare(String(b[sortKey]),'zh-Hant')*(asc?1:-1));let heads=[['principle_name','標準原則名稱'],['raw_expression','原始表述'],['jy_number','釋字號'],['paragraph_id','段落'],['sentence_text','短句內容'],['label_code','合憲性標記'],['label_name','判斷類型'],['note','備註']];document.getElementById('rows').innerHTML='<thead><tr>'+heads.map(([k,t])=>`<th data-k="${k}">${t}</th>`).join('')+'</tr></thead><tbody>'+rows.slice(0,500).map(d=>`<tr><td>${d.principle_name}</td><td>${d.raw_expression}</td><td>${d.jy_number}</td><td>${d.paragraph_id}</td><td><details><summary>查看短句</summary>${d.sentence_text}</details></td><td>${d.label_code}</td><td>${d.label_name}</td><td>${d.note||d.match_basis||'-'}</td></tr>`).join('')+'</tbody>';}
 document.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',render));document.body.addEventListener('click',e=>{let th=e.target.closest('th[data-k]');if(!th)return;sortKey=th.dataset.k;asc=!asc;render();});render();
+</script><script id="return-to-deck-script">
+(function(){
+  const params = new URLSearchParams(location.search);
+  const back = params.get('back');
+  if (!back || !/^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html#(?:slide-)?\d+$/.test(back)) return;
+  const pageMatch = back.match(/#(?:slide-)?(\d+)$/);
+  const pageText = pageMatch ? `返回第 ${pageMatch[1]} 頁 →` : '返回主簡報 →';
+  const deckFiles = /^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html/i;
+  const mainFiles = /^(index|slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html$/i;
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    const text = a.textContent || '';
+    const file = (href.split(/[?#]/)[0].split('/').pop() || '');
+    if (deckFiles.test(file) || /返回主簡報|返回第|返回 slides\.html/i.test(text)) {
+      a.setAttribute('href', back);
+      if (/返回主簡報|返回第|返回 slides\.html/i.test(text)) a.textContent = pageText;
+      return;
+    }
+    if (/\.html$/i.test(file) && !mainFiles.test(file) && !/^(https?:|mailto:|tel:)/i.test(href)) {
+      const u = new URL(href, location.href);
+      u.searchParams.set('back', back);
+      a.setAttribute('href', u.pathname.split('/').pop() + u.search + u.hash);
+    }
+  });
+})();
 </script></body></html>

@@ -15,4 +15,29 @@
 const labels=[{code:"1",name:"合憲",count:190,percent:29.01,desc:"原則與合憲判斷連結"},{code:"2",name:"違憲",count:174,percent:26.56,desc:"原則與違憲判斷連結"},{code:"0",name:"不明確",count:61,percent:9.31,desc:"方向不足以明確歸類"},{code:"-1",name:"無判斷詞",count:230,percent:35.11,desc:"未出現可供判斷方向的語句"}];
 function fallback(){const html=labels.map(d=>`<div class="fallbackRow"><label>${d.code} ${d.name}</label><div class="fallbackTrack"><div class="fallbackFill" style="width:${d.percent}%"></div></div><b>${d.count}</b><span class="tooltip">標記：${d.code}<br>名稱：${d.name}<br>筆數：${d.count}<br>比例：${d.percent}%<br>${d.desc}</span></div>`).join("");document.getElementById("donutChart").innerHTML=`<div class="fallbackChart">${html}</div>`;document.getElementById("barChart").innerHTML=`<div class="fallbackChart">${html}</div>`}
 if(window.Plotly){const hover={bgcolor:"#fffaf0",bordercolor:"#3e352c",font:{color:"#2d2822",size:14}};Plotly.newPlot("donutChart",[{type:"pie",hole:.55,labels:labels.map(d=>`${d.code} ${d.name}`),values:labels.map(d=>d.count),customdata:labels.map(d=>[d.percent,d.desc]),textinfo:"label+percent",hovertemplate:"標記：%{label}<br>筆數：%{value}<br>比例：%{customdata[0]}%<br>%{customdata[1]}<extra></extra>",marker:{colors:["#80bd7a","#e76f82","#f3c969","#5ca7df"]}}],{paper_bgcolor:"rgba(0,0,0,0)",showlegend:false,margin:{l:10,r:10,t:10,b:10},hoverlabel:hover},{displayModeBar:false,responsive:true});Plotly.newPlot("barChart",[{type:"bar",x:labels.map(d=>`${d.code} ${d.name}`),y:labels.map(d=>d.count),customdata:labels.map(d=>[d.percent,d.desc]),marker:{color:["#80bd7a","#e76f82","#f3c969","#5ca7df"]},hovertemplate:"標記：%{x}<br>筆數：%{y}<br>比例：%{customdata[0]}%<br>%{customdata[1]}<extra></extra>"}],{paper_bgcolor:"rgba(0,0,0,0)",plot_bgcolor:"rgba(255,250,240,.72)",margin:{l:46,r:16,t:16,b:42},yaxis:{title:"筆數"},hoverlabel:hover},{displayModeBar:false,responsive:true})}else{fallback()}
+</script><script id="return-to-deck-script">
+(function(){
+  const params = new URLSearchParams(location.search);
+  const back = params.get('back');
+  if (!back || !/^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html#(?:slide-)?\d+$/.test(back)) return;
+  const pageMatch = back.match(/#(?:slide-)?(\d+)$/);
+  const pageText = pageMatch ? `返回第 ${pageMatch[1]} 頁 →` : '返回主簡報 →';
+  const deckFiles = /^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html/i;
+  const mainFiles = /^(index|slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html$/i;
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    const text = a.textContent || '';
+    const file = (href.split(/[?#]/)[0].split('/').pop() || '');
+    if (deckFiles.test(file) || /返回主簡報|返回第|返回 slides\.html/i.test(text)) {
+      a.setAttribute('href', back);
+      if (/返回主簡報|返回第|返回 slides\.html/i.test(text)) a.textContent = pageText;
+      return;
+    }
+    if (/\.html$/i.test(file) && !mainFiles.test(file) && !/^(https?:|mailto:|tel:)/i.test(href)) {
+      const u = new URL(href, location.href);
+      u.searchParams.set('back', back);
+      a.setAttribute('href', u.pathname.split('/').pop() + u.search + u.hash);
+    }
+  });
+})();
 </script></body></html>

@@ -7,4 +7,29 @@ function renderKpis(){document.getElementById('kpiBox').innerHTML=`<div><b>首�
 function trend(){let rows=yearly.filter(d=>d.name===key.name).sort((a,b)=>a.year-b.year);if(!rows.length){trend.innerHTML='<div class="missing">待匯入年度資料</div>';return;}Plotly.newPlot('trend',[{type:'bar',x:rows.map(d=>d.year),y:rows.map(d=>d.count),marker:{color:'#4aa3a2',line:{color:'#3e352c',width:1.2}},hovertemplate:key.name+'<br>年份：%{x}<br>引用篇數：%{y}<extra></extra>'}],{paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(255,250,240,.72)',margin:{l:54,r:22,t:20,b:45},xaxis:{title:'年份',range:[1980,2021]},yaxis:{title:'引用篇數',dtick:1},shapes:[{type:'line',xref:'x',yref:'paper',x0:key.firstYear,x1:key.firstYear,y0:0,y1:1,line:{color:'#e76f82',dash:'dash',width:3}}],annotations:[{xref:'x',yref:'paper',x:key.firstYear,y:1.05,text:'首見：釋字第 '+key.firstCase+' 號',showarrow:false,font:{color:'#e76f82',size:14}}],hoverlabel:{bgcolor:'#fffaf0',bordercolor:'#3e352c',font:{color:'#2d2822',size:14}}},{displayModeBar:false,responsive:true})}
 function renderExtra(){let html=`<div class="note">${key.function}</div>`;if(key.fields){html+=`<div class="tagCloud">${key.fields.map(x=>`<span>${x}</span>`).join('')}</div>`}if(key.name==='法律保留原則'){html+=`<div class="layerBox"><div>是否有法律依據？</div><div>授權是否明確？</div><div>行政機關是否逾越授權？</div></div>`}document.getElementById('extraBox').innerHTML=html;let max=Math.max(...key.co.map(d=>d.count),1);coBars.innerHTML=key.co.map(d=>`<div class="barRow"><label>${d.name}</label><div class="track"><div class="fill" style="width:${d.count/max*100}%"></div></div><b>${d.count}</b></div>`).join('')}
 renderKpis();trend();renderExtra();
+</script><script id="return-to-deck-script">
+(function(){
+  const params = new URLSearchParams(location.search);
+  const back = params.get('back');
+  if (!back || !/^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html#(?:slide-)?\d+$/.test(back)) return;
+  const pageMatch = back.match(/#(?:slide-)?(\d+)$/);
+  const pageText = pageMatch ? `返回第 ${pageMatch[1]} 頁 →` : '返回主簡報 →';
+  const deckFiles = /^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html/i;
+  const mainFiles = /^(index|slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_800x600|story_slides_1024x768)\.html$/i;
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    const text = a.textContent || '';
+    const file = (href.split(/[?#]/)[0].split('/').pop() || '');
+    if (deckFiles.test(file) || /返回主簡報|返回第|返回 slides\.html/i.test(text)) {
+      a.setAttribute('href', back);
+      if (/返回主簡報|返回第|返回 slides\.html/i.test(text)) a.textContent = pageText;
+      return;
+    }
+    if (/\.html$/i.test(file) && !mainFiles.test(file) && !/^(https?:|mailto:|tel:)/i.test(href)) {
+      const u = new URL(href, location.href);
+      u.searchParams.set('back', back);
+      a.setAttribute('href', u.pathname.split('/').pop() + u.search + u.hash);
+    }
+  });
+})();
 </script></body></html>
