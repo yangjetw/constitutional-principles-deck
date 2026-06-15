@@ -1,0 +1,590 @@
+{
+  "gdp": [
+    {
+      "year": 1952,
+      "growth": 12.0,
+      "percap": 208.0
+    },
+    {
+      "year": 1953,
+      "growth": 9.49,
+      "percap": 178.0
+    },
+    {
+      "year": 1954,
+      "growth": 9.64,
+      "percap": 188.0
+    },
+    {
+      "year": 1955,
+      "growth": 7.72,
+      "percap": 216.0
+    },
+    {
+      "year": 1956,
+      "growth": 6.17,
+      "percap": 151.0
+    },
+    {
+      "year": 1957,
+      "growth": 7.81,
+      "percap": 170.0
+    },
+    {
+      "year": 1958,
+      "growth": 7.68,
+      "percap": 185.0
+    },
+    {
+      "year": 1959,
+      "growth": 8.81,
+      "percap": 140.0
+    },
+    {
+      "year": 1960,
+      "growth": 7.2,
+      "percap": 163.0
+    },
+    {
+      "year": 1961,
+      "growth": 7.05,
+      "percap": 161.0
+    },
+    {
+      "year": 1962,
+      "growth": 8.93,
+      "percap": 172.0
+    },
+    {
+      "year": 1963,
+      "growth": 10.74,
+      "percap": 189.0
+    },
+    {
+      "year": 1964,
+      "growth": 12.63,
+      "percap": 214.0
+    },
+    {
+      "year": 1965,
+      "growth": 11.89,
+      "percap": 229.0
+    },
+    {
+      "year": 1966,
+      "growth": 9.63,
+      "percap": 249.0
+    },
+    {
+      "year": 1967,
+      "growth": 11.15,
+      "percap": 281.0
+    },
+    {
+      "year": 1968,
+      "growth": 9.71,
+      "percap": 319.0
+    },
+    {
+      "year": 1969,
+      "growth": 9.59,
+      "percap": 357.0
+    },
+    {
+      "year": 1970,
+      "growth": 11.51,
+      "percap": 397.0
+    },
+    {
+      "year": 1971,
+      "growth": 13.43,
+      "percap": 451.0
+    },
+    {
+      "year": 1972,
+      "growth": 13.87,
+      "percap": 530.0
+    },
+    {
+      "year": 1973,
+      "growth": 12.83,
+      "percap": 706.0
+    },
+    {
+      "year": 1974,
+      "growth": 2.67,
+      "percap": 934.0
+    },
+    {
+      "year": 1975,
+      "growth": 6.19,
+      "percap": 985.0
+    },
+    {
+      "year": 1976,
+      "growth": 14.28,
+      "percap": 1158.0
+    },
+    {
+      "year": 1977,
+      "growth": 11.41,
+      "percap": 1330.0
+    },
+    {
+      "year": 1978,
+      "growth": 13.56,
+      "percap": 1606.0
+    },
+    {
+      "year": 1979,
+      "growth": 8.83,
+      "percap": 1950.0
+    },
+    {
+      "year": 1980,
+      "growth": 8.04,
+      "percap": 2389.0
+    },
+    {
+      "year": 1981,
+      "growth": 7.1,
+      "percap": 2720.0
+    },
+    {
+      "year": 1982,
+      "growth": 4.81,
+      "percap": 2699.0
+    },
+    {
+      "year": 1983,
+      "growth": 9.02,
+      "percap": 2903.0
+    },
+    {
+      "year": 1984,
+      "growth": 10.05,
+      "percap": 3224.0
+    },
+    {
+      "year": 1985,
+      "growth": 4.81,
+      "percap": 3314.0
+    },
+    {
+      "year": 1986,
+      "growth": 11.51,
+      "percap": 4036.0
+    },
+    {
+      "year": 1987,
+      "growth": 12.75,
+      "percap": 5350.0
+    },
+    {
+      "year": 1988,
+      "growth": 8.02,
+      "percap": 6370.0
+    },
+    {
+      "year": 1989,
+      "growth": 8.72,
+      "percap": 7613.0
+    },
+    {
+      "year": 1990,
+      "growth": 5.54,
+      "percap": 8205.0
+    },
+    {
+      "year": 1991,
+      "growth": 8.37,
+      "percap": 9125.0
+    },
+    {
+      "year": 1992,
+      "growth": 8.31,
+      "percap": 10768.0
+    },
+    {
+      "year": 1993,
+      "growth": 6.81,
+      "percap": 11242.0
+    },
+    {
+      "year": 1994,
+      "growth": 7.5,
+      "percap": 12150.0
+    },
+    {
+      "year": 1995,
+      "growth": 6.5,
+      "percap": 13119.0
+    },
+    {
+      "year": 1996,
+      "growth": 6.18,
+      "percap": 13641.0
+    },
+    {
+      "year": 1997,
+      "growth": 6.05,
+      "percap": 14020.0
+    },
+    {
+      "year": 1998,
+      "growth": 4.2,
+      "percap": 12820.0
+    },
+    {
+      "year": 1999,
+      "growth": 6.73,
+      "percap": 13804.0
+    },
+    {
+      "year": 2000,
+      "growth": 6.31,
+      "percap": 14908.0
+    },
+    {
+      "year": 2001,
+      "growth": -1.4,
+      "percap": 13397.0
+    },
+    {
+      "year": 2002,
+      "growth": 5.48,
+      "percap": 13686.0
+    },
+    {
+      "year": 2003,
+      "growth": 4.22,
+      "percap": 14066.0
+    },
+    {
+      "year": 2004,
+      "growth": 6.95,
+      "percap": 15317.0
+    },
+    {
+      "year": 2005,
+      "growth": 5.38,
+      "percap": 16456.0
+    },
+    {
+      "year": 2006,
+      "growth": 5.77,
+      "percap": 16934.0
+    },
+    {
+      "year": 2007,
+      "growth": 6.85,
+      "percap": 17757.0
+    },
+    {
+      "year": 2008,
+      "growth": 0.8,
+      "percap": 18081.0
+    },
+    {
+      "year": 2009,
+      "growth": -1.61,
+      "percap": 16933.0
+    },
+    {
+      "year": 2010,
+      "growth": 10.25,
+      "percap": 19197.0
+    },
+    {
+      "year": 2011,
+      "growth": 3.67,
+      "percap": 20866.0
+    },
+    {
+      "year": 2012,
+      "growth": 2.22,
+      "percap": 21295.0
+    },
+    {
+      "year": 2013,
+      "growth": 2.48,
+      "percap": 21973.0
+    },
+    {
+      "year": 2014,
+      "growth": 4.72,
+      "percap": 22874.0
+    },
+    {
+      "year": 2015,
+      "growth": 1.47,
+      "percap": 22780.0
+    },
+    {
+      "year": 2016,
+      "growth": 2.17,
+      "percap": 23091.0
+    },
+    {
+      "year": 2017,
+      "growth": 3.66,
+      "percap": 25121.0
+    },
+    {
+      "year": 2018,
+      "growth": 2.91,
+      "percap": 25901.0
+    },
+    {
+      "year": 2019,
+      "growth": 3.06,
+      "percap": 25998.0
+    },
+    {
+      "year": 2020,
+      "growth": 3.42,
+      "percap": 28705.0
+    },
+    {
+      "year": 2021,
+      "growth": 6.72,
+      "percap": 33111.0
+    }
+  ],
+  "edu": [
+    {
+      "year": 1976,
+      "schoolYear": "1976-77",
+      "tertiary": 15.4
+    },
+    {
+      "year": 1977,
+      "schoolYear": "1977-78",
+      "tertiary": 15.44
+    },
+    {
+      "year": 1978,
+      "schoolYear": "1978-79",
+      "tertiary": 15.65
+    },
+    {
+      "year": 1979,
+      "schoolYear": "1979-80",
+      "tertiary": 15.82
+    },
+    {
+      "year": 1980,
+      "schoolYear": "1980-81",
+      "tertiary": 16.18
+    },
+    {
+      "year": 1981,
+      "schoolYear": "1981-82",
+      "tertiary": 16.71
+    },
+    {
+      "year": 1982,
+      "schoolYear": "1982-83",
+      "tertiary": 17.39
+    },
+    {
+      "year": 1983,
+      "schoolYear": "1983-84",
+      "tertiary": 18.52
+    },
+    {
+      "year": 1984,
+      "schoolYear": "1984-85",
+      "tertiary": 19.49
+    },
+    {
+      "year": 1985,
+      "schoolYear": "1985-86",
+      "tertiary": 20.79
+    },
+    {
+      "year": 1986,
+      "schoolYear": "1986-87",
+      "tertiary": 21.58
+    },
+    {
+      "year": 1987,
+      "schoolYear": "1987-88",
+      "tertiary": 22.65
+    },
+    {
+      "year": 1988,
+      "schoolYear": "1988-89",
+      "tertiary": 24.57
+    },
+    {
+      "year": 1989,
+      "schoolYear": "1989-90",
+      "tertiary": 26.74
+    },
+    {
+      "year": 1990,
+      "schoolYear": "1990-91",
+      "tertiary": 29.65
+    },
+    {
+      "year": 1991,
+      "schoolYear": "1991-92",
+      "tertiary": 32.37
+    },
+    {
+      "year": 1992,
+      "schoolYear": "1992-93",
+      "tertiary": 35.56
+    },
+    {
+      "year": 1993,
+      "schoolYear": "1993-94",
+      "tertiary": 37.93
+    },
+    {
+      "year": 1994,
+      "schoolYear": "1994-95",
+      "tertiary": 38.32
+    },
+    {
+      "year": 1995,
+      "schoolYear": "1995-96",
+      "tertiary": 39.44
+    },
+    {
+      "year": 1996,
+      "schoolYear": "1996-97",
+      "tertiary": 40.9
+    },
+    {
+      "year": 1997,
+      "schoolYear": "1997-98",
+      "tertiary": 43.08
+    },
+    {
+      "year": 1998,
+      "schoolYear": "1998-99",
+      "tertiary": 46.97
+    },
+    {
+      "year": 1999,
+      "schoolYear": "1999-00",
+      "tertiary": 50.52
+    },
+    {
+      "year": 2000,
+      "schoolYear": "2000-01",
+      "tertiary": 56.14
+    },
+    {
+      "year": 2001,
+      "schoolYear": "2001-02",
+      "tertiary": 62.96
+    },
+    {
+      "year": 2002,
+      "schoolYear": "2002-03",
+      "tertiary": 67.56
+    },
+    {
+      "year": 2003,
+      "schoolYear": "2003-04",
+      "tertiary": 72.37
+    },
+    {
+      "year": 2004,
+      "schoolYear": "2004-05",
+      "tertiary": 78.11
+    },
+    {
+      "year": 2005,
+      "schoolYear": "2005-06",
+      "tertiary": 82.02
+    },
+    {
+      "year": 2006,
+      "schoolYear": "2006-07",
+      "tertiary": 83.58
+    },
+    {
+      "year": 2007,
+      "schoolYear": "2007-08",
+      "tertiary": 85.31
+    },
+    {
+      "year": 2008,
+      "schoolYear": "2008-09",
+      "tertiary": 84.07
+    },
+    {
+      "year": 2009,
+      "schoolYear": "2009-10",
+      "tertiary": 82.68
+    },
+    {
+      "year": 2010,
+      "schoolYear": "2010-11",
+      "tertiary": 83.07
+    },
+    {
+      "year": 2011,
+      "schoolYear": "2011-12",
+      "tertiary": 83.55
+    },
+    {
+      "year": 2012,
+      "schoolYear": "2012-13",
+      "tertiary": 84.2
+    },
+    {
+      "year": 2013,
+      "schoolYear": "2013-14",
+      "tertiary": 84.03
+    },
+    {
+      "year": 2014,
+      "schoolYear": "2014-15",
+      "tertiary": 83.79
+    },
+    {
+      "year": 2015,
+      "schoolYear": "2015-16",
+      "tertiary": 83.72
+    },
+    {
+      "year": 2016,
+      "schoolYear": "2016-17",
+      "tertiary": 83.99
+    },
+    {
+      "year": 2017,
+      "schoolYear": "2017-18",
+      "tertiary": 84.49
+    },
+    {
+      "year": 2018,
+      "schoolYear": "2018-19",
+      "tertiary": 84.69
+    },
+    {
+      "year": 2019,
+      "schoolYear": "2019-20",
+      "tertiary": 85.15
+    },
+    {
+      "year": 2020,
+      "schoolYear": "2020-21",
+      "tertiary": 87.93
+    },
+    {
+      "year": 2021,
+      "schoolYear": "2021-22",
+      "tertiary": 89.81
+    }
+  ],
+  "sources": {
+    "gdp": "行政院主計總處〈國民所得統計常用資料〉",
+    "edu": "教育部《中華民國教育統計》表 A2-4"
+  }
+}

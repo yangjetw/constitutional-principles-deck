@@ -23,11 +23,11 @@
   <script>
     const w = window.innerWidth;
     const h = window.innerHeight;
-    const minSide = Math.min(w, h);
-    const isPhoneUA = /Android|iPhone|iPod|Windows Phone|Mobile/i.test(navigator.userAgent);
-    const isTouchSmall = (navigator.maxTouchPoints || 0) > 0 && window.matchMedia('(pointer: coarse)').matches && minSide < 900;
+    const ua = navigator.userAgent || '';
+    const isPhoneUA = /iPhone|iPod|Windows Phone/i.test(ua) || (/Android/i.test(ua) && /Mobile/i.test(ua));
+    const isPhoneViewport = window.matchMedia('(pointer: coarse)').matches && w <= 700 && h >= w;
     let target = 'story_slides_1024x768.html';
-    if (isPhoneUA || isTouchSmall) {
+    if (isPhoneUA || isPhoneViewport) {
       target = 'story_slides_mobile.html';
     } else if (w < 800) {
       target = 'story_slides_800x600.html';

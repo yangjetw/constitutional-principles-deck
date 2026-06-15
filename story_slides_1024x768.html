@@ -29,7 +29,7 @@
 }</script><style>
 :root{--paper:#fffaf0;--paper2:#f5ecd5;--ink:#2d2822;--muted:#6b5e52;--line:#3e352c;--teal:#4aa3a2;--yellow:#f3c969;--pink:#e76f82;--green:#80bd7a;--blue:#5ca7df}
 *{box-sizing:border-box}body{margin:0;overflow:hidden;color:var(--ink);font-family:"Segoe Print","Comic Sans MS","Noto Sans TC","Microsoft JhengHei",cursive,sans-serif;background:linear-gradient(rgba(74,163,162,.14) 1px,transparent 1px),var(--paper2);background-size:100% 31px}
-#progress{position:fixed;left:0;top:0;height:5px;width:0;background:linear-gradient(90deg,var(--teal),var(--yellow),var(--pink));z-index:10}#pageInfo{position:fixed;right:28px;top:24px;color:var(--muted);font-size:16px;z-index:11}#hint{position:fixed;left:50%;bottom:13px;transform:translateX(-50%);color:var(--muted);font-size:15px;z-index:11}#storyQuickMap{position:fixed;left:20px;top:56px;z-index:12;display:flex;flex-direction:column;gap:7px;align-items:center;opacity:.88}#storyQuickMap button{min-width:52px;height:28px;padding:0 11px;border:1.5px solid rgba(62,53,44,.24);border-radius:999px;background:rgba(255,250,240,.48);color:rgba(79,69,61,.72);font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:15px;font-weight:500;box-shadow:1px 2px 0 rgba(62,53,44,.045);cursor:pointer;letter-spacing:0}#storyQuickMap button:first-child{height:38px;min-width:66px;border-radius:13px 21px 11px 19px;background:rgba(255,244,184,.45);transform:rotate(-1deg);font-weight:500}#storyQuickMap button.active{background:rgba(255,244,184,.58);border-color:rgba(47,119,119,.78);color:#2f7777;box-shadow:2px 3px 0 rgba(62,53,44,.07);font-weight:600}.storySlide{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:52px 70px 42px;overflow:hidden}.storySlide.active{display:flex}.storySheet{--story-explain-size:20px;width:100%;max-width:1120px;height:650px;max-height:calc(100vh - 104px);display:flex;flex-direction:column;overflow:hidden}.kicker{display:inline-block;align-self:flex-start;padding:6px 13px;border:2px solid var(--line);border-radius:999px;background:#d9f0e2;color:#2f7777;font-weight:900;font-size:15px;box-shadow:2px 3px 0 rgba(62,53,44,.13);transform:rotate(-.6deg)}h1{margin:14px 0 14px;font-size:44px;line-height:1.08;text-shadow:2px 2px 0 rgba(243,201,105,.55)}.storyLead{background:#fff4b8;border:2px solid var(--line);border-radius:9px 15px 8px 14px;box-shadow:4px 5px 0 rgba(62,53,44,.12);padding:13px 16px;margin-bottom:16px;font-size:24px;line-height:1.45;color:var(--ink)}p{color:var(--muted);font-size:19px;line-height:1.45}.storyBtn{display:inline-block;text-decoration:none;background:#d9f0e2;color:#2f7777;border:2px solid var(--line);border-radius:8px 13px 7px 12px;box-shadow:3px 4px 0 rgba(62,53,44,.14);padding:10px 14px;font-weight:900;font-size:18px}.storyBtn.corner{align-self:flex-end;margin-top:12px}.storyCoverMeta{font-size:25px;color:#2f7777;font-weight:900;margin-top:auto}.storyBigQuote{flex:1;display:grid;place-items:center;text-align:center;font-size:46px;line-height:1.35;color:var(--ink);font-weight:900}.storyBigQuote.soft{font-weight:500;color:#4f453d;font-size:44px;line-height:1.55}.storySearch,.storyPile,.storyCloud{flex:1;display:grid;place-items:center;text-align:center;background:rgba(255,250,240,.88);border:2px dashed rgba(62,53,44,.55);border-radius:16px 22px 14px 20px;box-shadow:6px 7px 0 rgba(62,53,44,.12);padding:28px;font-size:34px;color:#2f7777;font-weight:900}.storySearch span{display:block;color:var(--muted);font-size:24px;margin-bottom:20px}.storySearch b{font-size:42px}.principleSearch{align-content:center}.principleChips{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;align-items:center}.principleChips b{display:inline-block;background:#fffaf0;border:2px solid rgba(62,53,44,.45);border-radius:999px;box-shadow:3px 4px 0 rgba(62,53,44,.10);padding:10px 24px;color:#2f7777;font-size:34px}.storyFlow{display:grid;grid-template-columns:1fr 38px 1fr 38px 1fr;gap:0;align-items:center;flex:1}.storyFlow.vertical{grid-template-columns:1fr;gap:8px;max-width:720px;margin:auto;width:100%}.storyFlow div,.storyCompare div,.storyNumbers div,.storyCard{background:rgba(255,250,240,.9);border:2px solid var(--line);border-radius:12px 18px 10px 16px;box-shadow:5px 6px 0 rgba(62,53,44,.13);padding:18px;text-align:center;min-width:0}.storyFlow div{font-size:28px;color:#2f7777;font-weight:900}.storyFlow small{display:block;color:var(--muted);font-size:var(--story-explain-size);line-height:1.7;font-weight:500;margin-top:8px}.storyFlow i{font-style:normal;text-align:center;color:#e76f82;font-size:34px;font-weight:900}.storyCards{display:grid;gap:16px;flex:1;align-items:center}.storyCards.three{grid-template-columns:repeat(3,1fr)}.storyCards.four{grid-template-columns:repeat(4,1fr)}.storyCard{text-align:left;min-height:220px;display:flex;flex-direction:column;justify-content:center;padding:22px}.storyCard b{display:block;color:#2f7777;font-size:29px;margin-bottom:10px}.storyCard p{margin:0 0 12px;font-size:var(--story-explain-size);line-height:1.7;font-weight:500;color:var(--muted)}.storyCards.three .storyCard p{font-size:var(--story-explain-size)}.storyCard .storyBtn{margin-top:auto;font-size:18px;padding:8px 12px}.storyCompare{display:grid;grid-template-columns:1fr 70px 1fr;gap:18px;align-items:center;flex:1}.storyCompare div{min-height:270px;display:flex;flex-direction:column;justify-content:center}.storyCompare b{display:block;font-size:34px;color:#2f7777}.storyCompare span{display:block;color:var(--muted);font-size:var(--story-explain-size);line-height:1.7;font-weight:500;margin-top:12px}.storyCompare i{font-style:normal;text-align:center;color:#e76f82;font-size:42px;font-weight:900}.storyNumbers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;flex:1;align-items:center}.storyNumbers.four{grid-template-columns:repeat(4,1fr)}.storyNumbers b{display:block;color:#2f7777;font-size:58px;line-height:1}.storyNumbers span{font-size:22px;color:var(--muted);font-weight:900}.storyCloud{font-size:28px;line-height:1.8;color:#2d2822}.storyHub{position:relative;flex:1;display:grid;place-items:center}.storyHub b{width:180px;height:180px;border-radius:50%;display:grid;place-items:center;background:#d9f0e2;border:3px solid var(--line);font-size:28px;color:#2f7777;box-shadow:6px 7px 0 rgba(62,53,44,.12)}.storyHub span{position:absolute;background:#fffaf0;border:2px solid var(--line);border-radius:999px;padding:12px 16px;font-size:var(--story-explain-size);line-height:1.7;font-weight:500;color:var(--muted)}.storyHub span:nth-child(2){left:110px;top:90px}.storyHub span:nth-child(3){right:110px;top:100px}.storyHub span:nth-child(4){left:180px;bottom:100px}.storyHub span:nth-child(5){right:160px;bottom:90px}.cover .storySheet{justify-content:center}.cover h1{font-size:54px}.cover .storyLead{font-size:30px}.projector-1024-story .storySlide{padding:42px 46px 44px}.projector-1024-story .storySheet{max-width:932px;height:682px;max-height:calc(100vh - 96px)}.projector-1024-story h1{font-size:39px}.projector-1024-story .storyLead{font-size:22px}.projector-1024-story .storyBigQuote{font-size:40px}.projector-1024-story .storyCard{min-height:200px;padding:20px 18px}.projector-1024-story .storyCard b{font-size:27px}.projector-1024-story .storyCard p{font-size:var(--story-explain-size);line-height:1.7}.projector-1024-story .storyCards.three .storyCard p{font-size:var(--story-explain-size)}.projector-fixed-story{overflow:hidden;background:#eee5cf}.projector-fixed-story .storySlide{padding:0;place-items:center}.projector-fixed-story .storySlide.active{display:grid}.projector-fixed-story .storySheet{width:980px;height:735px;max-width:none;max-height:none;transform:scale(var(--fit-scale,1));transform-origin:center center}.projector-fixed-story #hint,.projector-fixed-story #storyQuickMap{display:none}.projector-fixed-story #pageInfo{right:20px;top:18px}.projector-fixed-story .storyLead{font-size:24px}
+#progress{position:fixed;left:0;top:0;height:5px;width:0;background:linear-gradient(90deg,var(--teal),var(--yellow),var(--pink));z-index:10}#pageInfo{position:fixed;right:28px;top:24px;color:var(--muted);font-size:16px;z-index:11}#hint{position:fixed;left:50%;bottom:13px;transform:translateX(-50%);color:var(--muted);font-size:15px;z-index:11}#storyQuickMap{position:fixed;left:20px;top:56px;z-index:12;display:flex;flex-direction:column;gap:7px;align-items:center;opacity:.88}#storyQuickMap button,#storyQuickMap a{min-width:52px;height:28px;padding:0 11px;border:1.5px solid rgba(62,53,44,.24);border-radius:999px;background:rgba(255,250,240,.48);color:rgba(79,69,61,.72);font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:15px;font-weight:500;box-shadow:1px 2px 0 rgba(62,53,44,.045);cursor:pointer;letter-spacing:0;text-decoration:none;display:grid;place-items:center}#storyQuickMap button:first-child,#storyQuickMap a:first-child{height:38px;min-width:66px;border-radius:13px 21px 11px 19px;background:rgba(255,244,184,.45);transform:rotate(-1deg);font-weight:500}#storyQuickMap button.active,#storyQuickMap a.active{background:rgba(255,244,184,.58);border-color:rgba(47,119,119,.78);color:#2f7777;box-shadow:2px 3px 0 rgba(62,53,44,.07);font-weight:600}.storySlide{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:52px 70px 42px;overflow:hidden}.storySlide.active{display:flex}.storySheet{--story-explain-size:20px;width:100%;max-width:1120px;height:650px;max-height:calc(100vh - 104px);display:flex;flex-direction:column;overflow:hidden}.kicker{display:inline-block;align-self:flex-start;padding:6px 13px;border:2px solid var(--line);border-radius:999px;background:#d9f0e2;color:#2f7777;font-weight:900;font-size:15px;box-shadow:2px 3px 0 rgba(62,53,44,.13);transform:rotate(-.6deg)}h1{margin:14px 0 14px;font-size:44px;line-height:1.08;text-shadow:2px 2px 0 rgba(243,201,105,.55)}.storyLead{background:#fff4b8;border:2px solid var(--line);border-radius:9px 15px 8px 14px;box-shadow:4px 5px 0 rgba(62,53,44,.12);padding:13px 16px;margin-bottom:16px;font-size:24px;line-height:1.45;color:var(--ink)}p{color:var(--muted);font-size:19px;line-height:1.45}.storyExplain{color:var(--muted);font-size:var(--story-explain-size);font-style:normal;line-height:1.7;font-weight:500}.storyBtn{display:inline-block;text-decoration:none;background:#d9f0e2;color:#2f7777;border:2px solid var(--line);border-radius:8px 13px 7px 12px;box-shadow:3px 4px 0 rgba(62,53,44,.14);padding:10px 14px;font-weight:900;font-size:18px}.storyBtn.corner{align-self:flex-end;margin-top:12px}.storyCoverMeta{font-size:25px;color:#2f7777;font-weight:900;margin-top:auto}.storyBigQuote{flex:1;display:grid;place-items:center;text-align:center;font-size:46px;line-height:1.35;color:var(--ink);font-weight:900}.storyBigQuote.soft{font-weight:500;color:#4f453d;font-size:44px;line-height:1.55}.storySearch,.storyPile,.storyCloud{flex:1;display:grid;place-items:center;text-align:center;background:rgba(255,250,240,.88);border:2px dashed rgba(62,53,44,.55);border-radius:16px 22px 14px 20px;box-shadow:6px 7px 0 rgba(62,53,44,.12);padding:28px;font-size:34px;color:#2f7777;font-weight:900}.storySearch span{display:block;color:var(--muted);font-size:24px;margin-bottom:20px}.storySearch b{font-size:42px}.principleSearch{align-content:center}.principleChips{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;align-items:center}.principleChips b{display:inline-block;background:#fffaf0;border:2px solid rgba(62,53,44,.45);border-radius:999px;box-shadow:3px 4px 0 rgba(62,53,44,.10);padding:10px 24px;color:#2f7777;font-size:34px}.storyFlow{display:grid;grid-template-columns:1fr 38px 1fr 38px 1fr;gap:0;align-items:center;flex:1}.storyFlow.vertical{grid-template-columns:1fr;gap:8px;max-width:720px;margin:auto;width:100%}.storyFlow div,.storyCompare div,.storyNumbers div,.storyCard{background:rgba(255,250,240,.9);border:2px solid var(--line);border-radius:12px 18px 10px 16px;box-shadow:5px 6px 0 rgba(62,53,44,.13);padding:18px;text-align:center;min-width:0}.storyFlow div{font-size:28px;color:#2f7777;font-weight:900}.storyFlow small{display:block;color:var(--muted);font-size:var(--story-explain-size);line-height:1.7;font-weight:500;margin-top:8px}.storyFlow i{font-style:normal;text-align:center;color:#e76f82;font-size:34px;font-weight:900}.storyCards{display:grid;gap:16px;flex:1;align-items:center}.storyCards.three{grid-template-columns:repeat(3,1fr)}.storyCards.four{grid-template-columns:repeat(4,1fr)}.storyCard{text-align:left;min-height:220px;display:flex;flex-direction:column;justify-content:center;padding:22px}.storyCard b{display:block;color:#2f7777;font-size:29px;margin-bottom:10px}.storyCard p{margin:0 0 12px;font-size:var(--story-explain-size);line-height:1.7;font-weight:500;color:var(--muted)}.storyCards.three .storyCard p{font-size:var(--story-explain-size)}.storyCard .storyBtn{margin-top:auto;font-size:18px;padding:8px 12px}.storyCompare{display:grid;grid-template-columns:1fr 70px 1fr;gap:18px;align-items:center;flex:1}.storyCompare div{min-height:270px;display:flex;flex-direction:column;justify-content:center}.storyCompare b{display:block;font-size:34px;color:#2f7777}.storyCompare span{display:block;color:var(--muted);font-size:var(--story-explain-size);line-height:1.7;font-weight:500;margin-top:12px}.storyCompare i{font-style:normal;text-align:center;color:#e76f82;font-size:42px;font-weight:900}.storyNumbers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;flex:1;align-items:center}.storyNumbers.four{grid-template-columns:repeat(4,1fr)}.storyNumbers b{display:block;color:#2f7777;font-size:58px;line-height:1}.storyNumbers span{font-size:22px;color:var(--muted);font-weight:900}.storyCloud{font-size:28px;line-height:1.8;color:#2d2822}.storyHub{position:relative;flex:1;display:grid;place-items:center}.storyHub b{width:180px;height:180px;border-radius:50%;display:grid;place-items:center;background:#d9f0e2;border:3px solid var(--line);font-size:28px;color:#2f7777;box-shadow:6px 7px 0 rgba(62,53,44,.12)}.storyHub span{position:absolute;background:#fffaf0;border:2px solid var(--line);border-radius:999px;padding:12px 16px;font-size:var(--story-explain-size);line-height:1.7;font-weight:500;color:var(--muted)}.storyHub span:nth-child(2){left:110px;top:90px}.storyHub span:nth-child(3){right:110px;top:100px}.storyHub span:nth-child(4){left:180px;bottom:100px}.storyHub span:nth-child(5){right:160px;bottom:90px}.cover .storySheet{justify-content:center}.cover h1{font-size:54px}.cover .storyLead{font-size:30px}.projector-1024-story .storySlide{padding:42px 46px 44px}.projector-1024-story .storySheet{max-width:932px;height:682px;max-height:calc(100vh - 96px)}.projector-1024-story h1{font-size:39px}.projector-1024-story .storyLead{font-size:22px}.projector-1024-story .storyBigQuote{font-size:40px}.projector-1024-story .storyCard{min-height:200px;padding:20px 18px}.projector-1024-story .storyCard b{font-size:27px}.projector-1024-story .storyCard p{font-size:var(--story-explain-size);line-height:1.7}.projector-1024-story .storyCards.three .storyCard p{font-size:var(--story-explain-size)}.projector-fixed-story{overflow:hidden;background:#eee5cf}.projector-fixed-story .storySlide{padding:0;place-items:center}.projector-fixed-story .storySlide.active{display:grid}.projector-fixed-story .storySheet{width:980px;height:735px;max-width:none;max-height:none;transform:scale(var(--fit-scale,1));transform-origin:center center}.projector-fixed-story #hint,.projector-fixed-story #storyQuickMap{display:none}.projector-fixed-story #pageInfo{right:20px;top:18px}.projector-fixed-story .storyLead{font-size:24px}
 
 
 .c7-page .storySheet,.afterword-slide .storySheet,.closing-slide .storySheet{justify-content:flex-start}
@@ -37,13 +37,11 @@
 .storyQuestionModel div{display:grid;grid-template-columns:54px 98px 112px 1fr;align-items:center;gap:14px;background:rgba(255,250,240,.9);border:2px solid var(--line);border-radius:10px 18px 9px 15px;box-shadow:4px 5px 0 rgba(62,53,44,.1);padding:14px 18px;min-width:0}
 .storyQuestionModel div:nth-child(2n){background:#d9f0e2}.storyQuestionModel strong{font-family:"Segoe Print","Comic Sans MS","Microsoft JhengHei",cursive;color:#2f7777;font-size:25px;line-height:1;font-weight:900}.storyQuestionModel b{font-family:"Segoe Print","Comic Sans MS","Microsoft JhengHei",cursive;color:#e76f82;font-size:28px;line-height:1;font-weight:900}.storyQuestionModel em{font-style:normal;color:#2f7777;font-size:24px;font-weight:900;white-space:nowrap}.storyQuestionModel span{color:var(--ink);font-size:23px;font-weight:900;line-height:1.28}
 .c7-contrib-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;flex:1;align-items:center;padding:10px 18px 4px}
-.c7-contrib-notes div{position:relative;background:rgba(255,250,240,.9);border:2px solid rgba(62,53,44,.72);border-radius:9px 16px 8px 14px;box-shadow:6px 7px 0 rgba(62,53,44,.12);padding:28px 20px 22px;min-height:255px}.c7-contrib-notes div:nth-child(1){transform:rotate(-.7deg)}.c7-contrib-notes div:nth-child(2){transform:rotate(.4deg);background:rgba(217,240,226,.7)}.c7-contrib-notes div:nth-child(3){transform:rotate(-.2deg)}.c7-contrib-notes div:before{content:"";position:absolute;left:50%;top:-15px;width:72px;height:25px;background:rgba(243,201,105,.72);border:1.5px solid rgba(62,53,44,.25);transform:translateX(-50%) rotate(-2deg);border-radius:3px;box-shadow:2px 3px 0 rgba(62,53,44,.08)}.c7-contrib-notes em{display:block;color:#2f7777;font-family:"Comic Sans MS","Segoe Print",cursive;font-style:normal;font-size:34px;line-height:1;margin-bottom:14px}.c7-contrib-notes b{display:block;color:#2f7777;font-size:28px;margin-bottom:16px}.c7-contrib-notes p{font-size:23px;line-height:1.5;color:#6b5e52;margin:0;font-weight:700}
+.c7-contrib-notes div{position:relative;background:rgba(255,250,240,.9);border:2px solid rgba(62,53,44,.72);border-radius:9px 16px 8px 14px;box-shadow:6px 7px 0 rgba(62,53,44,.12);padding:28px 20px 22px;min-height:255px}.c7-contrib-notes div:nth-child(1){transform:rotate(-.7deg)}.c7-contrib-notes div:nth-child(2){transform:rotate(.4deg);background:rgba(217,240,226,.7)}.c7-contrib-notes div:nth-child(3){transform:rotate(-.2deg)}.c7-contrib-notes div:before{content:"";position:absolute;left:50%;top:-15px;width:72px;height:25px;background:rgba(243,201,105,.72);border:1.5px solid rgba(62,53,44,.25);transform:translateX(-50%) rotate(-2deg);border-radius:3px;box-shadow:2px 3px 0 rgba(62,53,44,.08)}.c7-contrib-notes em{display:block;color:#2f7777;font-family:"Comic Sans MS","Segoe Print",cursive;font-style:normal;font-size:34px;line-height:1;margin-bottom:14px}.c7-contrib-notes b{display:block;color:#2f7777;font-size:28px;margin-bottom:16px}.c7-contrib-notes .storyExplain{margin:0}
 .c7-magnify-page{flex:1;display:grid;grid-template-columns:390px 1fr;gap:42px;align-items:center;padding:24px 50px 18px}.c7-magnifier{position:relative;height:320px}.c7-lens{position:absolute;left:18px;top:8px;width:250px;height:250px;border:7px solid var(--line);border-radius:50%;background:radial-gradient(circle at 38% 32%,rgba(255,255,255,.9),rgba(217,240,226,.78) 55%,rgba(255,244,184,.62));box-shadow:10px 11px 0 rgba(62,53,44,.12),inset 12px 14px 0 rgba(255,255,255,.28);display:grid;place-items:center;transform:rotate(-6deg)}.c7-lens span{font-size:50px;font-weight:900;color:#2f7777;text-shadow:2px 2px 0 rgba(243,201,105,.45)}.c7-magnifier i{position:absolute;left:230px;top:224px;width:145px;height:27px;background:var(--line);border-radius:999px;transform:rotate(43deg);box-shadow:5px 6px 0 rgba(62,53,44,.12)}.c7-magnifier:before{content:"";position:absolute;left:88px;top:66px;width:74px;height:25px;border-top:5px solid rgba(255,255,255,.75);border-radius:50%;transform:rotate(-28deg);z-index:2}.c7-magnify-page p{position:relative;margin:0;padding:34px 34px 34px 42px;border-left:10px solid #4aa3a2;background:linear-gradient(90deg,rgba(255,250,240,.96),rgba(255,250,240,.72),rgba(255,250,240,0));font-size:38px;line-height:1.5;color:#2d2822;font-weight:500;text-shadow:1px 1px 0 rgba(243,201,105,.22)}
-.afterword-page{flex:1;min-height:0;position:relative;display:block;padding:0;isolation:isolate}.afterword-copy{position:absolute;z-index:3;left:28px;top:72px;width:50%;display:flex;flex-direction:column;justify-content:center;min-height:0}.afterword-main{font-size:43px;line-height:1.34;color:var(--ink);margin:0 0 28px;font-weight:900;text-shadow:2px 2px 0 rgba(243,201,105,.28)}.afterword-yellow{background:#fff4b8;border:2px solid var(--line);border-radius:10px 17px 9px 15px;box-shadow:4px 5px 0 rgba(62,53,44,.12);padding:15px 18px;margin:0 0 20px;color:#2d2822;font-size:23px;line-height:1.5;font-weight:800}.afterword-small{font-size:var(--story-explain-size);line-height:1.7;color:var(--muted);font-weight:500;margin:0}.afterword-illustration{position:absolute;z-index:1;inset:0;border-radius:24px;overflow:hidden;background:radial-gradient(circle at 50% 58%,rgba(255,244,184,.35),rgba(255,250,240,.78) 48%,rgba(217,240,226,.4))}.afterword-page:after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(245,236,213,.92),rgba(245,236,213,.5) 46%,rgba(245,236,213,.08) 72%,transparent)}
-.afterword-illustration-water{background:linear-gradient(180deg,rgba(217,240,226,.72),rgba(255,250,240,.88) 46%,rgba(74,163,162,.13)),radial-gradient(circle at 75% 64%,rgba(255,244,184,.42),transparent 35%)}.afterword-illustration-water:before,.afterword-illustration-water:after{content:"";position:absolute;left:-10%;right:-10%;height:210px;border-top:3px solid rgba(74,163,162,.22);border-radius:50%;transform:rotate(-4deg)}.afterword-illustration-water:before{top:80px}.afterword-illustration-water:after{bottom:50px;transform:rotate(3deg);border-color:rgba(74,163,162,.17)}.air-line{position:absolute;width:360px;height:70px;border-top:3px solid rgba(74,163,162,.32);border-radius:50%;right:70px}.air-line.a1{top:70px;transform:rotate(5deg)}.air-line.a2{top:160px;right:150px;transform:rotate(-8deg)}.air-line.a3{top:264px;right:18px;transform:rotate(2deg)}.paper-stack{position:absolute;right:112px;bottom:86px;width:390px;height:270px}.paper-stack span{position:absolute;width:280px;height:166px;background:rgba(255,250,240,.9);border:2px solid var(--line);border-radius:9px 14px 8px 13px;box-shadow:5px 6px 0 rgba(62,53,44,.12);display:grid;place-items:start;padding:24px;color:#2f7777;font-size:27px;font-weight:900}.paper-stack span:nth-child(1){left:0;top:78px;transform:rotate(-8deg)}.paper-stack span:nth-child(2){left:58px;top:36px;transform:rotate(4deg)}.paper-stack span:nth-child(3){left:106px;top:0;transform:rotate(-1deg)}.little-researcher{position:absolute;right:198px;bottom:170px;width:92px;height:164px;z-index:2}.little-researcher i{position:absolute;left:24px;top:0;width:42px;height:42px;border:3px solid var(--line);border-radius:50%;background:#f3c969}.little-researcher b{position:absolute;left:13px;top:46px;width:66px;height:98px;border:3px solid var(--line);border-radius:999px 999px 18px 18px;background:#4aa3a2;box-shadow:4px 5px 0 rgba(62,53,44,.12)}.question-bubbles em{position:absolute;display:grid;place-items:center;width:50px;height:50px;border:2px solid var(--line);border-radius:50%;background:#fff4b8;color:#e76f82;font-style:normal;font-weight:900;font-size:28px;box-shadow:3px 4px 0 rgba(62,53,44,.1)}.question-bubbles em:nth-child(1){right:370px;top:134px}.question-bubbles em:nth-child(2){right:265px;top:182px;transform:rotate(10deg)}.question-bubbles em:nth-child(3){right:452px;top:226px;transform:rotate(-9deg)}
 .afterword-guide{flex:1;min-height:0;display:grid;grid-template-rows:1fr auto auto auto;gap:11px;align-items:center}.afterword-guide-slide h1{text-align:center;font-size:46px;margin-bottom:8px}.guide-sky{position:relative;width:min(880px,78%);height:312px;margin:0 auto;border:2px solid rgba(62,53,44,.45);border-radius:10px 18px 9px 16px;overflow:hidden;background:radial-gradient(circle at 68% 20%,rgba(255,244,184,.95) 0 2%,transparent 3%),radial-gradient(circle at 42% 38%,rgba(255,255,255,.55),transparent 23%),linear-gradient(180deg,#172a4d 0%,#314a72 48%,#f1c9a8 100%);box-shadow:8px 9px 0 rgba(62,53,44,.12)}.guide-sky:before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,250,240,.9) 0 1.4px,transparent 1.8px);background-size:54px 38px;opacity:.58}.guide-sky:after{content:"";position:absolute;left:-6%;right:-6%;bottom:-30px;height:105px;background:linear-gradient(180deg,rgba(47,119,119,.12),rgba(47,119,119,.34));border-top:3px solid rgba(255,250,240,.48);border-radius:50% 50% 0 0}.guide-star{position:absolute;width:12px;height:12px;border-radius:50%;background:#fff4b8;border:2px solid rgba(62,53,44,.45);box-shadow:0 0 22px rgba(255,244,184,.8);z-index:2}.guide-star.main{right:148px;top:56px;width:22px;height:22px;background:#fffaf0}.guide-star.main:before,.guide-star.main:after{content:"";position:absolute;left:50%;top:50%;width:8px;height:58px;background:#fff4b8;border-radius:999px;transform:translate(-50%,-50%);box-shadow:0 0 20px rgba(255,244,184,.7)}.guide-star.main:after{transform:translate(-50%,-50%) rotate(90deg)}.guide-star.s1{left:115px;top:68px}.guide-star.s2{left:210px;top:114px}.guide-star.s3{left:320px;top:80px}.guide-star.s4{right:310px;top:150px}.guide-star.s5{right:235px;top:112px}.guide-line{position:absolute;height:2px;background:rgba(255,250,240,.46);transform-origin:left center;z-index:1}.guide-line.l1{left:126px;top:77px;width:106px;transform:rotate(25deg)}.guide-line.l2{left:222px;top:121px;width:116px;transform:rotate(-17deg)}.guide-line.l3{right:245px;top:123px;width:92px;transform:rotate(28deg)}.guide-line.l4{right:163px;top:72px;width:120px;transform:rotate(149deg)}.guide-horizon{position:absolute;left:0;right:0;bottom:28px;height:78px;background:linear-gradient(180deg,transparent,rgba(45,40,34,.32));z-index:1}.guide-glow{position:absolute;right:86px;bottom:42px;background:rgba(255,250,240,.86);border:2px solid rgba(62,53,44,.52);border-radius:999px;padding:8px 16px;color:#2f7777;font-weight:900;font-size:20px;z-index:3;box-shadow:4px 5px 0 rgba(62,53,44,.12)}.guide-quote{margin:2px auto 0;max-width:1060px;text-align:center;color:#2d2822;font-size:35px;line-height:1.32;font-weight:900;text-shadow:2px 2px 0 rgba(243,201,105,.28)}.guide-quote span{color:#2f7777;margin-right:6px}.guide-note{margin:0 auto;max-width:1020px;background:#fff4b8;border:2px solid var(--line);border-radius:10px 17px 9px 15px;box-shadow:4px 5px 0 rgba(62,53,44,.12);padding:13px 20px;color:#2d2822;font-size:23px;line-height:1.45;font-weight:800}.guide-small{margin:0;text-align:center;color:#6b5e52;font-size:21px;font-family:"Segoe Print","Comic Sans MS",cursive}
 .closing-slide h1{max-width:980px}.closing-slide .storyCoverCampus{width:min(60%,740px);height:330px;opacity:.2}.closing-final{position:relative;z-index:1;max-width:1060px;margin:auto;background:transparent;padding:0;text-align:left}.closing-final p{font-family:"DFKai-SB","BiauKai","標楷體","KaiTi",serif;color:#2d2822;font-size:35px;line-height:1.52;font-weight:400;text-shadow:1px 1px 0 rgba(255,244,184,.3)}.closing-meta{font-size:24px;color:#2f7777;font-weight:900;margin-top:26px}
-.projector-1024-story .storyQuestionModel div{grid-template-columns:48px 82px 92px 1fr;padding:12px 14px}.projector-1024-story .storyQuestionModel b{font-size:24px}.projector-1024-story .storyQuestionModel em{font-size:21px}.projector-1024-story .storyQuestionModel span{font-size:20px}.projector-1024-story .c7-contrib-notes div{min-height:225px}.projector-1024-story .c7-contrib-notes p{font-size:20px}.projector-1024-story .c7-magnify-page{grid-template-columns:330px 1fr;padding:16px 32px}.projector-1024-story .c7-magnify-page p{font-size:32px}.projector-1024-story .afterword-main{font-size:36px}.projector-1024-story .afterword-yellow{font-size:20px}.projector-1024-story .guide-sky{height:275px}.projector-1024-story .guide-quote{font-size:30px}.projector-1024-story .guide-note{font-size:20px}
+.projector-1024-story .storyQuestionModel div{grid-template-columns:48px 82px 92px 1fr;padding:12px 14px}.projector-1024-story .storyQuestionModel b{font-size:24px}.projector-1024-story .storyQuestionModel em{font-size:21px}.projector-1024-story .storyQuestionModel span{font-size:20px}.projector-1024-story .c7-contrib-notes div{min-height:225px}.projector-1024-story .c7-magnify-page{grid-template-columns:330px 1fr;padding:16px 32px}.projector-1024-story .c7-magnify-page p{font-size:32px}.projector-1024-story .guide-sky{height:275px}.projector-1024-story .guide-quote{font-size:30px}.projector-1024-story .guide-note{font-size:20px}
 
 
 .storySlide.c5-page .storySheet{justify-content:flex-start}.storySlide.c5-page h1{font-size:44px}
@@ -202,7 +200,7 @@
   <div class="storySheet">
     <span class="kicker">一臉茫然</span>
     <h1>違反憲法原則？</h1>
-    <div class="storyLead">法律人常說某某原則，是如何被確認的？在表達什麼？</div>
+    <div class="storyLead">法律課堂常聽見：「這不符合某某原則。」「這違反了某某原則。」</div>
     
       <div class="storyBigQuote">原則是什麼？定義在哪裡？為什麼這麼重要？</div>
     
@@ -211,8 +209,8 @@
 <section class="storySlide " data-section="問題">
   <div class="storySheet">
     <span class="kicker">研究材料</span>
-    <h1>憲法條文找不到答案</h1>
-    <div class="storyLead">大法官詮釋憲法、審查法令的紀錄，成為本研究探討憲法原則的重要材料。</div>
+    <h1>大法官詮釋憲法、審查法令的紀錄</h1>
+    <div class="storyLead">既然是憲法原則，想當然應該寫在憲法裡。對吧？</div>
     
       <div class="storySearch principleSearch" style="padding:52px 72px;display:flex;flex-direction:column;justify-content:center;">
     <div style="display:flex;justify-content:center;gap:120px;width:100%;color:rgba(79,69,61,.58);font-size:27px;line-height:1.3;font-weight:500;">
@@ -234,15 +232,15 @@
   <div class="storyRoleBridge single">
     <div class="bridgeNote emphasis"><span class="mark">憲法原則確認</span>、<span class="mark">合憲性標註</span>與<span class="mark">關鍵憲法原則分析</span>，正是建立在這個職權基礎上。</div>
   </div>
-  <a class="storyBtn corner" href="constitutional_review_compare.html">德美台違憲審查制度比較 →</a>
+  <a class="storyBtn corner" href="constitutional_review_compare_1024x768.html">德美台違憲審查制度比較 →</a>
 
   </div>
 </section>
 <section class="storySlide " data-section="問題">
   <div class="storySheet">
     <span class="kicker">釋字文本</span>
-    <h1>為什麼是舊制 813 篇文本？</h1>
-    <div class="storyLead">2021 年退出歷史舞台的釋字號，形成一個相對完整、制度一致的語料庫。</div>
+    <h1>為什麼選擇釋字文本？</h1>
+    <div class="storyLead">第 1 號至第 813 號形成一組邊界清楚、制度相對一致，完整且封閉的研究語料。</div>
     
       <div class="storyFlow"><div>釋字第 1 號<small>1949</small></div><i>→</i><div>釋字第 813 號<small>2021</small></div><i>→</i><div>111年判字第1號<small>2022</small></div></div>
     
@@ -252,13 +250,13 @@
   <div class="storySheet">
     <span class="kicker">研究問題</span>
     <h1>依 5W 框架</h1>
-    <div class="storyLead">圍繞憲法原則，提出以下問題。</div>
+    <div class="storyLead">本研究基於對憲法原則的好奇，依 5W 架構，提出以下五個問題。</div>
     <div class="storyQuestionModel">
-      <div><strong>01</strong><b>What</b><em>辨識</em><span>憲法原則有哪些</span></div>
-      <div><strong>02</strong><b>When</b><em>時序</em><span>何時出現、如何變化</span></div>
-      <div><strong>03</strong><b>Why</b><em>背景</em><span>變化與時代背景有何關聯</span></div>
-      <div><strong>04</strong><b>Which</b><em>篩選</em><span>哪些成為合憲性判斷中的關鍵原則</span></div>
-      <div><strong>05</strong><b>How</b><em>詮釋</em><span>審查功能如何隨時代變化</span></div>
+      <div><strong>01</strong><b>What</b><em>辨識</em><span>憲法原則有哪些？</span></div>
+      <div><strong>02</strong><b>When</b><em>時序</em><span>何時出現、如何變化？</span></div>
+      <div><strong>03</strong><b>Why</b><em>脈絡</em><span>變化與時代脈絡有何關聯？</span></div>
+      <div><strong>04</strong><b>Which</b><em>篩選</em><span>哪些成為合憲性判斷中的關鍵原則？</span></div>
+      <div><strong>05</strong><b>How</b><em>詮釋</em><span>審查功能如何隨時代變化？</span></div>
     </div>
   </div>
 </section>
@@ -266,7 +264,7 @@
   <div class="storySheet">
     <span class="kicker">研究邊界</span>
     <h1>研究範圍與限制</h1>
-    <div class="storyLead">以建立可操作、可複核、可回溯、高可信度的結構化資料集。</div>
+    <div class="storyLead">建立可操作、可複核、可回溯、高可信度的結構化資料集。</div>
     
       <div class="storyCards three storyScopeCards">
         <div class="storyCard"><b>不納入意見書</b><p>協同意見書、不同意見書不納入。</p></div><div class="storyCard"><b>不納入憲判字</b><p>2022 年後憲法法庭裁判另屬新制。</p></div><div class="storyCard"><b>不處理間接涉及</b><p>只分析文本中明確可辨識的憲法原則。</p></div>
@@ -277,8 +275,8 @@
 <section class="storySlide storyBirdEyeSlide" data-section="對象">
   <div class="storySheet">
     <span class="kicker">視角</span>
-    <h1>鳥瞰到什麼？</h1>
-    <div class="storyLead">本研究跳脫個別原則、個別案例，從高空鳥瞰整座憲法原則森林。</div>
+    <h1>近數十年來，.少有較全面性的觀點探討憲法解釋</h1>
+    <div class="storyLead">本研究嘗試從整體角度，鳥瞰釋字憲法原則全貌。</div>
     
       <div class="storyBirdEye">
         <p class="storyBirdEyeText">以 1949-2021 年完整釋字為素材，結合 NLP 與人工覆核，探究憲法原則如何作為大法官釋憲論證的工具，及在台灣憲政發展中呈現怎樣的變化。</p>
@@ -302,17 +300,18 @@
         <button data-story-jump="3"><em>1</em><b>找材料</b></button><i>→</i>
         <button data-story-jump="10"><em>2</em><b>建方法</b></button><i>→</i>
         <button data-story-jump="15"><em>3</em><b>做資料</b></button><i>→</i>
-        <button data-story-jump="20"><em>4</em><b>看趨勢</b></button><i>→</i>
+        <button data-story-jump="20"><em>4</em><b>分析結果</b></button><i>→</i>
         <button data-story-jump="27"><em>5</em><b>呼應時代</b></button><i>→</i>
-        <button data-story-jump="36"><em>^_^</em><b>回顧歷程</b></button>
+        <button data-story-jump="30"><em>^_^</em><b>總結</b></button>
       </div>
       <h2 class="storyTocTitle">直達互動頁</h2>
       <div class="storyTocLinks full">
-        <a href="lexicon_sources.html"><em>01</em><span>權庫詞庫比對源</span></a><a href="method_dashboard.html"><em>02</em><span>文本轉資料流程</span></a><a href="eight_groups_dashboard.html"><em>03</em><span>信心八分群與人工覆核</span></a><a href="labeling_dashboard.html"><em>04</em><span>合憲性標註</span></a>
-        <a href="principles_explorer.html"><em>05</em><span>30項憲法原則探索器</span></a><a href="citations_explorer.html"><em>06</em><span>憲法原則引用釋字表</span></a><a href="principle_ranking_dashboard.html"><em>07</em><span>憲法原則引用排行</span></a><a href="principle_timeline_dashboard.html"><em>08</em><span>年度引用趨勢</span></a>
-        <a href="first_appearance_dashboard.html"><em>09</em><span>憲法原則首現年份</span></a><a href="cooccurrence_network_dashboard.html"><em>10</em><span>憲法原則共現網絡</span></a><a href="pi_direction_dashboard.html"><em>11</em><span>PI值與合憲性判斷</span></a><a href="principle_group_dashboard.html"><em>12</em><span>使用型態分群</span></a>
-        <a href="constitutional_review_compare.html"><em>13</em><span>德美台違憲審查制度比較</span></a><a href="era_transition_dashboard.html"><em>14</em><span>憲法原則與時代對照</span></a><a href="proportionality_dashboard.html"><em>15</em><span>比例原則變遷分析</span></a><a href="equality_dashboard.html"><em>16</em><span>平等原則變遷分析</span></a>
-        <a href="legal_reservation_dashboard.html"><em>17</em><span>法律保留原則變遷分析</span></a><a href="key_principles_compare_dashboard.html"><em>18</em><span>三項關鍵原則比較</span></a>
+        <a href="constitutional_review_compare_1024x768.html"><em>01</em><span>德美台違憲審查制度比較</span></a><a href="method_dashboard_1024x768.html"><em>02</em><span>文本轉資料流程</span></a><a href="lexicon_sources_1024x768.html"><em>03</em><span>原則詞源比對</span></a>
+        <a href="principles_explorer_1024x768.html"><em>04</em><span>30項憲法原則探索與引用</span></a><a href="eight_groups_dashboard_1024x768.html"><em>05</em><span>8分群與人工覆核</span></a><a href="labeling_dashboard_1024x768.html"><em>06</em><span>合憲性標註</span></a>
+        <a href="principle_timeline_dashboard_1024x768.html"><em>07</em><span>年度引用趨勢</span></a><a href="principle_ranking_dashboard_1024x768.html"><em>08</em><span>憲法原則引用排行</span></a><a href="first_appearance_dashboard_1024x768.html"><em>09</em><span>憲法原則首現年份</span></a>
+        <a href="cooccurrence_network_dashboard_1024x768.html"><em>10</em><span>憲法原則共現網絡</span></a><a href="pi_direction_dashboard_1024x768.html"><em>11</em><span>PI值與合憲性判斷</span></a><a href="principle_group_dashboard_1024x768.html"><em>12</em><span>使用型態分群</span></a>
+        <a href="era_transition_dashboard_1024x768.html"><em>13</em><span>時代背景與四時期比較</span></a><a href="key_principles_compare_dashboard_1024x768.html"><em>14</em><span>三項關鍵原則比較</span></a><a href="proportionality_dashboard_1024x768.html"><em>15</em><span>比例原則變遷分析</span></a>
+        <a href="equality_dashboard_1024x768.html"><em>16</em><span>平等原則變遷分析</span></a><a href="legal_reservation_dashboard_1024x768.html"><em>17</em><span>法律保留原則變遷分析</span></a>
       </div>
     
   </div>
@@ -321,18 +320,18 @@
   <div class="storySheet">
     <span class="kicker">方法設計</span>
     <h1>從文本到資料表</h1>
-    <div class="storyLead">釋字是法律文字，不是可以直接統計的資料。</div>
+    <div class="storyLead">釋字文本是法律文字，無法直接進行統計。</div>
     
       <div class="storyPile">解釋文　理由書　長句　短句　原則語句　判斷詞</div>
-      <a class="storyBtn corner" href="method_dashboard.html">文本轉資料流程 →</a>
+      <a class="storyBtn corner" href="method_dashboard_1024x768.html">文本轉資料流程 →</a>
     
   </div>
 </section>
 <section class="storySlide " data-section="方法">
   <div class="storySheet">
-    <span class="kicker">轉換 1</span>
+    <span class="kicker">基本分析單位</span>
     <h1>先把長篇釋字拆成分析單位</h1>
-    <div class="storyLead">從釋字文本進入段落與短句，才能進一步辨識憲法原則。</div>
+    <div class="storyLead">流程的第一步</div>
     
       <div class="storyFlow"><div>釋字文本</div><i>→</i><div>段落</div><i>→</i><div>短句</div></div>
     
@@ -340,19 +339,19 @@
 </section>
 <section class="storySlide " data-section="方法">
   <div class="storySheet">
-    <span class="kicker">轉換 2</span>
+    <span class="kicker">識別</span>
     <h1>如何識別憲法原則</h1>
-    <div class="storyLead">規則識別、相似度分群與人工檢核，讓關鍵詞命中不等於最後結果。</div>
+    <div class="storyLead">本研究結合三種方式。</div>
     
-      <div class="storyFlow storyFlowCompact"><div>規則識別<br><small>白名單＋NAER 詞表</small><a class="storyMiniLink" href="lexicon_sources.html">權庫詞庫比對源 →</a></div><i>→</i><div>相似度分群<br><small>憲法○○原則</small></div><i>→</i><div>人工檢核與合併<br><small>排除誤判、合併表述、命名標準化</small></div></div>
+      <div class="storyFlow storyFlowCompact"><div>規則識別<br><small>白名單＋NAER 詞表</small><a class="storyMiniLink" href="lexicon_sources_1024x768.html">權庫詞庫比對源 →</a></div><i>→</i><div>相似度分群<br><small>憲法○○原則</small></div><i>→</i><div>人工檢核與合併<br><small>排除誤判、合併表述、命名標準化</small></div></div>
     
   </div>
 </section>
 <section class="storySlide " data-section="方法">
   <div class="storySheet">
-    <span class="kicker">轉換 3</span>
+    <span class="kicker">判斷</span>
     <h1>再觀察憲法原則是否參與合憲性判斷</h1>
-    <div class="storyLead">合憲性標註不是重新識別原則，而是觀察原則是否與合憲、違憲或不明確判斷產生連結。</div>
+    <div class="storyLead">憲法原則被識別出來之後，進一步標註它是否參與合憲性判斷。</div>
     
       <div class="storyCards four">
         <div class="storyCard"><b>1 合憲</b><p>ex：符合、符、合</p></div><div class="storyCard"><b>2 違憲</b><p>ex：違反、牴觸、逾越</p></div><div class="storyCard"><b>0 不明確</b><p>ex：短句前出現 得、應、如</p></div><div class="storyCard"><b>-1 無判斷詞</b><p>僅出現原則或概念。</p></div>
@@ -366,7 +365,7 @@
     <h1>識別，不等於標註</h1>
     <div class="storyLead">先確認文本中呈現哪些我國憲法原則，再判斷它是否進入合憲性語境。</div>
     
-      <div class="storyCompare"><div><b>憲法原則識別</b><span>有哪些原則？</span></div><i>≠</i><div><b>合憲性標註</b><span>是否進入判斷？</span></div></div>
+      <div class="storyCompare"><div><b>憲法原則識別</b><span>經釋字文本確認的我國憲法原則有哪些？</span></div><i>≠</i><div><b>合憲性標註</b><span>這些原則如何參與合憲性判斷？</span></div></div>
     
   </div>
 </section>
@@ -374,7 +373,7 @@
   <div class="storySheet">
     <span class="kicker">處理成果</span>
     <h1>資料處理規模</h1>
-    <div class="storyLead">813 篇釋字經整理後，形成 30 項憲法原則與 655 筆最終標註短句。</div>
+    <div class="storyLead">成功將非結構化的法律文本，轉換為結構化資料集。</div>
     
       <div class="storyNumbers"><div><b>813</b><span>舊制釋字</span></div><div><b>30</b><span>憲法原則</span></div><div><b>655</b><span>標註短句</span></div></div>
     
@@ -383,11 +382,11 @@
 <section class="storySlide " data-section="成果">
   <div class="storySheet">
     <span class="kicker">實證資料集</span>
-    <h1>30 項憲法原則</h1>
-    <div class="storyLead">抽象的憲法原則，整理成可查找、可統計、可對照的資料。</div>
+    <h1>可查找、可統計、可對照</h1>
+    <div class="storyLead">經過識別與標準化後，經釋字確認的我國憲法原則共 30 項。</div>
     
       <div class="storyCloud">比例原則　平等原則　法律保留原則　法律明確性原則　最小侵害／必要性原則　法律授權明確原則</div>
-      <a class="storyBtn corner" href="principles_explorer.html">30項憲法原則探索器 →</a>
+      <a class="storyBtn corner" href="principles_explorer_1024x768.html">30項憲法原則探索與引用 →</a>
     
   </div>
 </section>
@@ -395,7 +394,7 @@
   <div class="storySheet">
     <span class="kicker">人工介入</span>
     <h1>連結憲法原則</h1>
-    <div class="storyLead">合憲性判斷第一步，分群後安排不同程度的人工介入。</div>
+    <div class="storyLead">合憲性判斷前，需先將解釋文中所有含憲法原則的短句篩出，並與憲法原則做正確連結。</div>
     
       <div class="storyEightCompact">
         <div><b>三個線索</b><span>原則／憲法／核心詞</span></div>
@@ -404,16 +403,16 @@
         <i>→</i>
         <div><b>不同程度<br>人工介入</b></div>
       </div>
-      <div class="storyFootNote">避免了全人工判讀的低效，也避免了全自動誤判或 LLM 黑箱判斷。</div>
-      <a class="storyBtn corner" href="eight_groups_dashboard.html">信心八分群與人工覆核 →</a>
+      <div class="storyFootNote">既避免人工逐一判讀的低效，也避免了全自動誤判或 LLM 黑箱判斷。</div>
+      <a class="storyBtn corner" href="eight_groups_dashboard_1024x768.html">8分群與人工覆核 →</a>
     
   </div>
 </section>
 <section class="storySlide " data-section="成果">
   <div class="storySheet">
     <span class="kicker">標註成果</span>
-    <h1>655 筆合憲性標註短句</h1>
-    <div class="storyLead">明確標註為合憲或違憲的短句，為後續篩選關鍵憲法原則與計算 PI 值的基礎。</div>
+    <h1>合憲性方向標註成果</h1>
+    <div class="storyLead">解釋文共 16,167 筆短句，內含憲法原則的有 655 筆。</div>
     
       <div class="storyLabelGrid">
         <div><b>1</b><strong>190</strong><span>合憲｜29.01%</span></div>
@@ -421,8 +420,8 @@
         <div><b>0</b><strong>61</strong><span>不明確｜9.31%</span></div>
         <div><b>-1</b><strong>230</strong><span>無判斷詞｜35.11%</span></div>
       </div>
-      <div class="storyFootNote">655 筆最終標註短句中，無判斷詞比例最高，其次為合憲與違憲。</div>
-      <a class="storyBtn corner" href="labeling_dashboard.html">合憲性標註 →</a>
+      <div class="storyFootNote">標註區分為合憲、違憲、不明確與無判斷詞四類。其中，明確標註為合憲或違憲者，作為後續篩選關鍵憲法原則與計算 PI 值的基礎。</div>
+      <a class="storyBtn corner" href="labeling_dashboard_1024x768.html">合憲性標註 →</a>
     
   </div>
 </section>
@@ -433,14 +432,14 @@
     <div class="storyLead">每一項原則都能回到釋字號、文本位置與短句內容檢查。</div>
     
       <div class="storyFlow"><div>憲法原則</div><i>→</i><div>釋字號</div><i>→</i><div>短句文本</div></div>
-      <a class="storyBtn corner" href="citations_explorer.html">憲法原則引用釋字表 →</a>
+      <a class="storyBtn corner" href="principles_explorer.html#citation-query">引用釋字查詢表 →</a>
     
   </div>
 </section>
 <section class="storySlide " data-section="數字">
   <div class="storySheet">
     <span class="kicker">發現1</span>
-    <h1>援引憲法原則逐則常態化</h1>
+    <h1>大法官援引憲法原則逐漸常態化</h1>
     <div class="storyLead">年度含原則比率顯示，憲法原則不是一開始就密集出現，而是在後期逐漸常態化。</div>
     
       <div class="storyRatioChart" aria-label="年度含憲法原則釋字篇數與比率示意圖">
@@ -502,7 +501,7 @@
           <text x="42" y="355" class="axisLabel">1949</text><text x="172" y="355" class="axisLabel">1959</text><text x="272" y="355" class="axisLabel">1975</text><text x="386" y="355" class="axisLabel">1991</text><text x="506" y="355" class="axisLabel">2007</text><text x="615" y="355" class="axisLabel">2021</text>
         </svg>
       </div>
-      <a class="storyBtn corner" href="principle_timeline_dashboard.html">年度引用趨勢 →</a>
+      <a class="storyBtn corner" href="principle_timeline_dashboard_1024x768.html">年度引用趨勢 →</a>
     
   </div>
 </section>
@@ -522,7 +521,7 @@
         <div class="storyRankRow"><b>07</b><span>法律授權明確原則</span><div class="storyRankTrack"><div class="storyRankFill" style="width:32%"></div></div><em>45</em></div>
         <div class="storyRankRow"><b>08</b><span>正當法律程序原則</span><div class="storyRankTrack"><div class="storyRankFill" style="width:19%"></div></div><em>26</em></div>
       </div>
-      <a class="storyBtn corner" href="principle_ranking_dashboard.html">憲法原則引用排行 →</a>
+      <a class="storyBtn corner" href="principle_ranking_dashboard_1024x768.html">憲法原則引用排行 →</a>
     
   </div>
 </section>
@@ -532,8 +531,8 @@
     <h1>早出現，不等於後來最常用</h1>
     <div class="storyLead">首次出現時間回答何時進場；引用篇數回答後來多常被用。</div>
     
-      <div class="storyCompare"><div><b>多數決原則</b><span>1957 年首見</span></div><i>vs</i><div><b>比例原則</b><span>1996 年首見，引用最多</span></div></div>
-      <a class="storyBtn corner" href="first_appearance_dashboard.html">憲法原則首現年份 →</a>
+      <div class="storyCompare"><div><b>多數決原則</b><span>1957 年首見</span></div><i>vs</i><div><b>比例原則</b><span>被 140 篇釋字號所援引</span></div></div>
+      <a class="storyBtn corner" href="first_appearance_dashboard_1024x768.html">憲法原則首現年份 →</a>
     
   </div>
 </section>
@@ -541,18 +540,18 @@
   <div class="storySheet">
     <span class="kicker">發現4</span>
     <h1>比例原則是共現的樞紐</h1>
-    <div class="storyLead">共現關係顯示，憲法原則從獨樹一幟，走向攜手併進。</div>
+    <div class="storyLead">不同憲法原則，在同一釋字同時被援引。</div>
     
       <div class="storyHub"><b>比例原則</b><span>平等原則</span><span>法律保留原則</span><span>必要性原則</span><span>法律明確性原則</span></div>
-      <a class="storyBtn corner" href="cooccurrence_network_dashboard.html">憲法原則共現網絡 →</a>
+      <a class="storyBtn corner" href="cooccurrence_network_dashboard_1024x768.html">憲法原則共現網絡 →</a>
     
   </div>
 </section>
 <section class="storySlide " data-section="數字">
   <div class="storySheet">
     <span class="kicker">關鍵原則</span>
-    <h1>三項關鍵原則如何被篩出？</h1>
-    <div class="storyLead">655 筆標註短句中，只選取具有明確「合憲」或「違憲」方向者。</div>
+    <h1>關鍵憲法原則的篩選方式</h1>
+    <div class="storyLead">合憲性標註結果，具有明確「合憲」或「違憲」方向者。</div>
     
       <div class="storyKeyVisual">
         <div class="storyKeyExtract">
@@ -574,25 +573,25 @@
 <section class="storySlide c5-page" data-section="數字">
   <div class="storySheet">
     <span class="kicker">判斷方向</span>
-    <h1>PI 值，合憲性判斷方向</h1>
-    <div class="storyLead">PI 值觀察憲法原則在釋字中，較常支持合憲，還是較常指出違憲。</div>
+    <h1>PI = （ΣA-ΣB）/（ΣA+ΣB）∈[-1,1]</h1>
+    <div class="storyLead">ΣA = 合憲引用篇數合計 ； ΣB = 違憲引用篇數合計</div>
     
       <div class="storyPiDirection">
         <div class="storyPiAxis" aria-label="PI 值方向軸">
-          <span class="left">指出違憲<br><em>PI &lt; 0</em></span>
+          <span class="left">警示違憲<br><em>PI &lt; 0</em></span>
           <i></i>
           <b>0</b>
           <i></i>
           <span class="right">支持合憲<br><em>PI &gt; 0</em></span>
         </div>
         <div class="storyPiExamples">
-          <div><b>法律保留原則</b><span>PI -0.26｜較偏指出<em class="piNeg">違憲</em></span></div>
+          <div><b>法律保留原則</b><span>PI -0.26｜較偏警示<em class="piNeg">違憲</em></span></div>
           <div><b>比例原則</b><span>PI 0.09｜接近雙向</span></div>
           <div><b>平等原則</b><span>PI 0.18｜略偏支持<em class="piPos">合憲</em></span></div>
         </div>
-        <div class="storyFootNote">PI 值，與憲法原則的重要性無關，僅觀察其在合憲性判斷中的使用方向。</div>
+        <div class="storyFootNote">文本分析中常見之二元方向指標， PI 值，觀察合憲性判斷方向。</div>
       </div>
-      <a class="storyBtn corner" href="pi_direction_dashboard.html">PI值與合憲性判斷 →</a>
+      <a class="storyBtn corner" href="pi_direction_dashboard_1024x768.html">PI值與合憲性判斷 →</a>
     
   </div>
 </section>
@@ -621,11 +620,11 @@
       <div class="c5-group-cards">
         <div><b>01</b><span>關鍵雙向型</span><em>劃定權力界線</em></div>
         <div><b>02</b><span>合憲支持型</span><em>維護法秩序</em></div>
-        <div><b>03</b><span>違憲警示型</span><em>提醒權力越界</em></div>
+        <div><b>03</b><span>違憲警示型</span><em>提示權力越界</em></div>
         <div><b>04</b><span>低引用觀察群</span><em>特定爭議才出現</em></div>
-        <div><b>05</b><span>不涉判斷方向群</span><em>背景或制度定位</em></div>
+        <div><b>05</b><span>不涉判斷方向群</span><em>制度或背景說明</em></div>
       </div>
-      <a class="storyBtn corner" href="principle_group_dashboard.html">使用型態分群 →</a>
+      <a class="storyBtn corner" href="principle_group_dashboard_1024x768.html">使用型態分群 →</a>
     
   </div>
 </section>
@@ -656,7 +655,7 @@
         <div><b>解除戒嚴與憲政改革</b><em>1987–2000</em><strong>105／308</strong><span>占比 34.1%</span><small>平均援引數 1.43</small><p>結構化操作、多原則並用初現</p></div>
         <div><b>國際接軌與多元化</b><em>2001–2021</em><strong>232／294</strong><span>占比 78.9%</span><small>平均援引數 2.26</small><p>多層次審查、多原則交織</p></div>
       </div>
-      <a class="storyBtn corner" href="era_transition_dashboard.html">憲法原則與時代對照 →</a>
+      <a class="storyBtn corner" href="era_transition_dashboard_1024x768.html">憲法原則與時代對照 →</a>
     
   </div>
 </section>
@@ -667,91 +666,26 @@
     <div class="storyLead">三項關鍵憲法原則共同構成大法官審查國家權力的工具箱。</div>
     
       <div class="storyKeyOverview">
-        <div><b>比例原則</b><span>限制是否過度？</span></div>
-        <div><b>平等原則</b><span>差別待遇是否合理？</span></div>
-        <div><b>法律保留原則</b><span>是否具有法律依據？</span></div>
+        <div><b>比例原則</b><span>實質限制是否過度？</span><a class="storyMiniLink" href="proportionality_dashboard_1024x768.html">比例原則變遷分析 →</a></div>
+        <div><b>平等原則</b><span>差別待遇是否合理？</span><a class="storyMiniLink" href="equality_dashboard_1024x768.html">平等原則變遷分析 →</a></div>
+        <div><b>法律保留原則</b><span>是否具有法律依據？</span><a class="storyMiniLink" href="legal_reservation_dashboard_1024x768.html">法律保留原則變遷分析 →</a></div>
       </div>
-      <a class="storyBtn corner" href="key_principles_compare_dashboard.html">三項關鍵原則比較 →</a>
-    
-  </div>
-</section>
-<section class="storySlide " data-section="變遷">
-  <div class="storySheet">
-    <span class="kicker">比例原則</span>
-    <h1>限制是否過度？</h1>
-    <div class="storyLead">比例原則問的是：國家限制人民權利時，目的與手段是否失衡。</div>
-    
-      <div class="storyPrinciplePage">
-        <div class="principleScale" aria-label="比例原則審查示意">
-          <svg viewBox="0 0 520 260" role="img">
-            <line x1="260" y1="58" x2="260" y2="206"></line>
-            <line x1="132" y1="86" x2="388" y2="86"></line>
-            <line x1="164" y1="86" x2="116" y2="164"></line>
-            <line x1="356" y1="86" x2="404" y2="164"></line>
-            <path d="M72 164 Q116 206 160 164 Z"></path>
-            <path d="M360 164 Q404 206 448 164 Z"></path>
-            <text x="116" y="152" text-anchor="middle">公共目的</text>
-            <text x="404" y="152" text-anchor="middle">權利限制</text>
-            <circle cx="260" cy="86" r="14"></circle>
-            <text x="260" y="237" text-anchor="middle">比例審查</text>
-          </svg>
-        </div>
-        <div class="storyPrincipleNote"><b>起步較晚</b><span>但成為最常用的審查工具之一。</span></div>
-      </div>
-      <a class="storyBtn corner" href="proportionality_dashboard.html">比例原則變遷分析 →</a>
-    
-  </div>
-</section>
-<section class="storySlide " data-section="變遷">
-  <div class="storySheet">
-    <span class="kicker">平等原則</span>
-    <h1>差別待遇是否合理？</h1>
-    <div class="storyLead">平等原則問的是：國家作成差別待遇時，區分是否合理。</div>
-    
-      <div class="storyPrinciplePage">
-        <div class="principleRoad">
-          <div><em>01</em><b>形式平等</b></div>
-          <i>→</i>
-          <div><em>02</em><b>差別待遇合理性</b></div>
-          <i>→</i>
-          <div><em>03</em><b>實質平等</b></div>
-        </div>
-        <div class="storyPrincipleNote"><b>最早登場</b><span>並隨社會議題逐步擴張。</span></div>
-      </div>
-      <a class="storyBtn corner" href="equality_dashboard.html">平等原則變遷分析 →</a>
-    
-  </div>
-</section>
-<section class="storySlide " data-section="變遷">
-  <div class="storySheet">
-    <span class="kicker">法律保留原則</span>
-    <h1>國家有沒有資格限制？</h1>
-    <div class="storyLead">法律保留原則先問：國家限制人民權利，有沒有法律依據與授權基礎。</div>
-    
-      <div class="storyPrinciplePage">
-        <div class="principleGate">
-          <div class="gateDoor"><b>法律依據</b><span>授權基礎</span></div>
-          <div class="gatePath"><span>國家行為</span><i>→</i><span>限制人民權利</span></div>
-        </div>
-        <div class="storyPrincipleNote"><b>前階審查</b><span>不是先問限制是否過度，而是先問國家有沒有資格限制。</span></div>
-      </div>
-      <a class="storyBtn corner" href="legal_reservation_dashboard.html">法律保留原則變遷分析 →</a>
+      <a class="storyBtn corner" href="key_principles_compare_dashboard_1024x768.html">三項關鍵原則比較 →</a>
     
   </div>
 </section>
 <section class="storySlide c7-page" data-section="第七章">
   <div class="storySheet">
-    <span class="kicker">回應研究問題</span>
+    <span class="kicker">研究發現</span>
     <h1>五個問題，五個答案</h1>
+    <div class="storyLead">將 813 號釋字轉為統計資料，回應辨識、時序、背景、關鍵原則與審查功能。</div>
     
-    
-      <div class="storyLead">逐一回應第一章提出的五項研究問題。</div>
       <div class="storyQuestionModel">
         <div><strong>01</strong><b>What</b><em>辨識</em><span>識別出 30 項憲法原則。</span></div>
         <div><strong>02</strong><b>When</b><em>時序</em><span>由早期零星出現，逐步走向晚近常態化。</span></div>
-        <div><strong>03</strong><b>Why</b><em>背景</em><span>引用變化與時代背景存在可觀察聯動。</span></div>
+        <div><strong>03</strong><b>Why</b><em>脈絡</em><span>引用變化與時代脈絡存在可觀察聯動。</span></div>
         <div><strong>04</strong><b>Which</b><em>篩選</em><span>比例、平等、法律保留原則是三項關鍵原則。</span></div>
-        <div><strong>05</strong><b>How</b><em>詮釋</em><span>憲法原則的審查功能隨制度與案件類型而調適。</span></div>
+        <div><strong>05</strong><b>How</b><em>詮釋</em><span>憲法原則的審查功能隨制度與案件類型而變化。</span></div>
       </div>
     
   </div>
@@ -764,9 +698,9 @@
     
       <div class="storyLead">抽象的憲法原則成了可回溯、可統計、可對照的結構化資料集。</div>
       <div class="c7-contrib-notes">
-        <div><em>01</em><b>首份量化圖譜</b><p>客觀、宏觀地呈現舊制釋字中憲法原則的演變脈絡。</p></div>
-        <div><em>02</em><b>創新的研究範式</b><p>建立可在法學領域重現與擴展的計量法學分析框架。</p></div>
-        <div><em>03</em><b>跨領域的對話橋樑</b><p>透過結構化資料與視覺化，協助理解釋憲資料。</p></div>
+        <div><em>01</em><b>首份量化圖譜</b><p class="storyExplain">客觀、宏觀地呈現舊制釋字中憲法原則的演變脈絡。</p></div>
+        <div><em>02</em><b>創新的研究範式</b><p class="storyExplain">建立可在法學領域重現與擴展的計量法學分析框架。</p></div>
+        <div><em>03</em><b>跨領域的對話橋樑</b><p class="storyExplain">透過結構化資料與視覺化，讓釋字更易於理解、檢視與運用。</p></div>
       </div>
     
   </div>
@@ -784,30 +718,6 @@
           <i></i>
         </div>
         <p>包括 AI 在內的新技術或工具，只是能力的放大器，放大研究者本已具備的能力！</p>
-      </div>
-    
-  </div>
-</section>
-<section class="storySlide afterword-slide" data-section="後記">
-  <div class="storySheet">
-    <span class="kicker">後記</span>
-    <h1>魚不知道世上有水</h1>
-    
-    
-      <div class="afterword-page afterword-water">
-        <div class="afterword-copy">
-          <p class="afterword-main">原則是什麼？定義在哪裡？為什麼這麼重要？</p>
-          <p class="afterword-yellow">對法律人自然如空氣的「某某原則」，曾是我最陌生的語言。</p>
-          <p class="afterword-small">在《憲法》條文中尋找「比例原則」。</p>
-        </div>
-        <div class="afterword-illustration afterword-illustration-water" aria-hidden="true">
-          <div class="air-line a1"></div><div class="air-line a2"></div><div class="air-line a3"></div>
-          <div class="paper-stack">
-            <span>法律保留原則</span><span>平等原則</span><span>比例原則</span>
-          </div>
-          <div class="little-researcher"><i></i><b></b></div>
-          <div class="question-bubbles"><em>?</em><em>?</em><em>?</em></div>
-        </div>
       </div>
     
   </div>
@@ -834,7 +744,7 @@
           <div class="guide-glow">方向</div>
         </div>
         <p class="guide-quote"><span>導師：</span>我不知道你做出來的會是什麼？但我也想知道結果。</p>
-        <p class="guide-note">開南的訓練，讓我有能力直面問題；導師在不確定中仍願意支持，是論文得以完成的最大動力！</p>
+        <p class="guide-note">開南的訓練，導師的信任，是這篇論文在質疑聲中得以完成的力量。</p>
         <p class="guide-small">It’s just for the fun of it!</p>
       </div>
     
@@ -843,7 +753,7 @@
 <section class="storySlide closing-slide" data-section="收束">
   <div class="storySheet">
     <span class="kicker">Closing</span>
-    <h1>透過 NLP 拆解，鳥瞰 813 篇釋字全貌</h1>
+    <h1>透過 NLP 拆解，鳥瞰 813 篇釋字</h1>
     
     
       <div class="storyCoverCampus closingCampus" aria-hidden="true">
@@ -872,7 +782,7 @@
 </section></main>
 <script>
 const slides=[...document.querySelectorAll('.storySlide')],progress=document.getElementById('progress'),pageInfo=document.getElementById('pageInfo');let current=1;
-const storyQuickItems=[{label:'封面',page:1},{label:'導覽',page:9},{label:'開場',page:2},{label:'一',page:3},{label:'二',page:10},{label:'三',page:15},{label:'四',page:20},{label:'五',page:27},{label:'總結',page:33},{label:'後記',page:36},{label:'收束',page:38}];
+const storyQuickItems=[{label:'封面',page:1,href:'index.html'},{label:'導覽',page:9},{label:'開場',page:2},{label:'一',page:3},{label:'二',page:10},{label:'三',page:15},{label:'四',page:20},{label:'五',page:27},{label:'總結',page:30},{label:'後記',page:33},{label:'收束',page:34}];
 function activeQuickPage(){
   if(current===1)return 1;
   if(current===2)return 2;
@@ -881,13 +791,13 @@ function activeQuickPage(){
   if(current>=10&&current<=14)return 10;
   if(current>=15&&current<=19)return 15;
   if(current>=20&&current<=26)return 20;
-  if(current>=27&&current<=32)return 27;
-  if(current>=33&&current<=35)return 33;
-  if(current>=36&&current<=37)return 36;
-  return 38;
+  if(current>=27&&current<=29)return 27;
+  if(current>=30&&current<=32)return 30;
+  if(current===33)return 33;
+  return 34;
 }
-function renderQuickMap(){const map=document.getElementById('storyQuickMap');if(!map)return;map.innerHTML=storyQuickItems.map(item=>`<button type="button" data-page="${item.page}" title="${item.label} ${String(item.page).padStart(2,'0')}">${item.label}</button>`).join('');map.addEventListener('click',e=>{const b=e.target.closest('button[data-page]');if(!b)return;e.preventDefault();e.stopPropagation();goto(Number(b.dataset.page));})}
-function updateQuickMap(){const active=activeQuickPage();document.querySelectorAll('#storyQuickMap button').forEach(b=>b.classList.toggle('active',Number(b.dataset.page)===active))}
+function renderQuickMap(){const map=document.getElementById('storyQuickMap');if(!map)return;map.innerHTML=storyQuickItems.map(item=>item.href?`<a href="${item.href}" data-page="${item.page}" title="${item.label} ${String(item.page).padStart(2,'0')}">${item.label}</a>`:`<button type="button" data-page="${item.page}" title="${item.label} ${String(item.page).padStart(2,'0')}">${item.label}</button>`).join('');map.addEventListener('click',e=>{const b=e.target.closest('button[data-page]');if(!b)return;e.preventDefault();e.stopPropagation();goto(Number(b.dataset.page));})}
+function updateQuickMap(){const active=activeQuickPage();document.querySelectorAll('#storyQuickMap [data-page]').forEach(b=>b.classList.toggle('active',Number(b.dataset.page)===active))}
 function goto(n){current=Math.max(1,Math.min(slides.length,n));slides.forEach((s,i)=>s.classList.toggle('active',i===current-1));progress.style.width=(current/slides.length*100)+'%';pageInfo.textContent=String(current).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');updateQuickMap()}
 function deckFile(){return location.pathname.split('/').pop()||'story_slides.html'}
 function standaloneHref(href){if(!href||href.startsWith('#')||/^(https?:|mailto:|tel:)/i.test(href))return false;const file=(href.split(/[?#]/)[0].split('/').pop()||'');return /\.html$/i.test(file)&&!['index.html','slides.html','mobile.html','slides_4x3.html','slides_800x600.html','slides_1024x768.html','story_slides.html','story_slides_mobile.html','story_slides_800x600.html','story_slides_1024x768.html'].includes(file)}
