@@ -66,10 +66,12 @@ body.projector-1024 .layerBox div{padding:12px}
 </style></head><body class="projector-1024"><div class="wrap"><header><div><h1>德國、美國與我國違憲審查制度比較</h1><p>我國釋憲制度，介於德國與美國之間。</p></div><a class="btn" href="story_slides.html#4">返回主簡報4頁</a></header><section class="panel"><h2>制度位置</h2><div class="reviewNote">德國偏向集中式審查，美國偏向個案式審查；我國大法官制度同時吸收兩者特徵，但整體更接近集中審查模式。</div><div class="reviewCards" style="margin-top:16px"><div class="reviewCard"><b>德國</b><span>集中式審查</span><p>由憲法法院專責處理憲法問題。</p></div><div class="reviewCard"><b>美國</b><span>附隨式審查</span><p>在具體案件中由法院處理憲法爭議。</p></div><div class="reviewCard"><b>我國</b><span>集中審查為主</span><p>兼具一定個案審查色彩。</p></div></div></section><section class="panel"><h2>制度比較表</h2><div class="tableWrap"><table class="reviewTable"><thead><tr><th>比較面向</th><th>德國</th><th>美國</th><th>我國</th></tr></thead><tbody><tr><td>審查模式</td><td>集中式審查，由憲法法院專責處理憲法問題。</td><td>附隨式審查，在具體案件中由法院處理憲法爭議。</td><td>以集中審查為主，兼具一定個案審查色彩。</td></tr><tr><td>啟動方式</td><td>可透過抽象審查、具體審查等方式啟動。</td><td>通常須有具體案件與爭訟，並經法院受理。</td><td>可由機關、法院或人民依制度設計聲請釋憲。</td></tr><tr><td>裁判效力</td><td>違憲裁判通常具有一般拘束力，並可要求立法修正。</td><td>裁判效力先從個案展開，再透過判例影響後續案件。</td><td>解釋具有強拘束力，但仍需立法或行政機關配合落實。</td></tr><tr><td>制度特色</td><td>憲法法院主動性較強，強調憲法最高性。</td><td>強調具體案件中的法律適用與司法先例。</td><td>融合德、美特點，形成我國特有的釋憲運作型態。</td></tr><tr><td>與本研究關聯</td><td>有助理解憲法原則如何成為集中審查中的論證工具。</td><td>有助理解原則如何在個案說理中累積影響。</td><td>釋字文本兼具抽象審查與個案說理特質，適合觀察憲法原則的實際運作。</td></tr></tbody></table></div></section><div class="footer"><a class="btn" href="story_slides.html#4">返回主簡報4頁 →</a></div></div><script id="return-to-deck-script">
 (function(){
   const params = new URLSearchParams(location.search);
-  const back = params.get('back');
-  if (!back || !/^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_mobile|story_slides_800x600|story_slides_1024x768)\.html#(?:story-)?(?:slide-)?\d+$/.test(back)) return;
+  const defaultBack = 'story_slides_1024x768.html#9';
+  const validBack = /^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_mobile|story_slides_800x600|story_slides_1024x768)\.html#(?:story-)?(?:slide-)?\d+$/;
+  let back = params.get('back') || defaultBack;
+  if (!validBack.test(back)) back = defaultBack;
   const pageMatch = back.match(/#(?:slide-)?(\d+)$/);
-  const pageText = pageMatch ? `返回第 ${pageMatch[1]} 頁 →` : '返回主簡報 →';
+  const pageText = back === defaultBack ? '返回主簡報第 9 頁 →' : (pageMatch ? `返回第 ${pageMatch[1]} 頁 →` : '返回主簡報 →');
   const deckFiles = /^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_mobile|story_slides_800x600|story_slides_1024x768)\.html/i;
   const mainFiles = /^(index|slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_mobile|story_slides_800x600|story_slides_1024x768)\.html$/i;
   document.querySelectorAll('a[href]').forEach(a => {

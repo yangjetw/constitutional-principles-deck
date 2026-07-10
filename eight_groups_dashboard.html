@@ -11,10 +11,12 @@
 </script><script id="return-to-deck-script">
 (function(){
   const params = new URLSearchParams(location.search);
-  const back = params.get('back');
-  if (!back || !/^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_mobile|story_slides_800x600|story_slides_1024x768)\.html#(?:story-)?(?:slide-)?\d+$/.test(back)) return;
+  const defaultBack = 'story_slides_1024x768.html#9';
+  const validBack = /^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_mobile|story_slides_800x600|story_slides_1024x768)\.html#(?:story-)?(?:slide-)?\d+$/;
+  let back = params.get('back') || defaultBack;
+  if (!validBack.test(back)) back = defaultBack;
   const pageMatch = back.match(/#(?:slide-)?(\d+)$/);
-  const pageText = pageMatch ? `返回第 ${pageMatch[1]} 頁 →` : '返回主簡報 →';
+  const pageText = back === defaultBack ? '返回主簡報第 9 頁 →' : (pageMatch ? `返回第 ${pageMatch[1]} 頁 →` : '返回主簡報 →');
   const deckFiles = /^(slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_mobile|story_slides_800x600|story_slides_1024x768)\.html/i;
   const mainFiles = /^(index|slides|mobile|slides_4x3|slides_800x600|slides_1024x768|story_slides|story_slides_mobile|story_slides_800x600|story_slides_1024x768)\.html$/i;
   document.querySelectorAll('a[href]').forEach(a => {
